@@ -7,9 +7,7 @@ public class FPSController : MonoBehaviour
 {
     public Camera playerCamera;
     public float walkSpeed = 6f;
- //   public float runSpeed = 12f;
-   // public float jumpPower = 7f;
-    public float gravity = 10f;
+   // public float gravity = 10f;
  
  
     public float lookSpeed = 2f;
@@ -26,8 +24,7 @@ public class FPSController : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+
     }
  
     void Update()
@@ -57,8 +54,24 @@ public class FPSController : MonoBehaviour
             playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
- 
-      //  #endregion
+    
     }
+
+// Sperrt beziehungsweise entsperrt das Movement und ändert die Sichtbarkeit der Maus für das Dialog und Inventar system
+   public void lockMovement()
+    {
+        canMove = false; 
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+    }
+
+  public  void unlockMovement()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        canMove = true; 
+    }
+
 }
  

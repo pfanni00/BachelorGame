@@ -34,11 +34,15 @@ public class InventoryControlls : MonoBehaviour
     {
         InventoryisOpen = false;
         ItemUI.SetActive(false);
+        FPSController fps = gameObject.GetComponent<FPSController>();
+        fps.unlockMovement();
     }
     
     private void openInventory()
     {
         InventoryisOpen = true;
         ItemUI.SetActive(true);
+        FPSController fps = gameObject.GetComponent<FPSController>();
+        fps.lockMovement();
     }
 }
