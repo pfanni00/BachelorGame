@@ -1,12 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class InventarManager : MonoBehaviour
 {
     public static InventarManager Instance;
     public List<Item> Items = new List<Item>();
+
+    public Transform NameParent;
+    public Transform DescriptionParent;
+    public Transform ModelParent;
+    public Transform TextParent;
+
+    public GameObject ItemName;
+    public GameObject ItemDescription;
+    public GameObject ItemText;
+    public GameObject ItemModel;
+
+
 
     private void Awake()
     {
@@ -16,10 +29,23 @@ public class InventarManager : MonoBehaviour
     public void Add(Item item)
     {
         Items.Add(item);
+
+        GameObject IN = Instantiate(ItemName, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+        IN.transform.parent = GameObject.Find("InventarNamePosition").transform;
+
+        GameObject ID = Instantiate(ItemDescription, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+        ID.transform.parent = GameObject.Find("ItemBeschreibungPosition").transform;
+
+
     }
 
     public void Remove(Item item)
     {
         Items.Remove(item);
+    }
+
+    public void ListItems()
+    {
+        
     }
 }

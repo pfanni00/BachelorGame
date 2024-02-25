@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 345601360c05e7245be5d143d7b6c41f, type: 3}
-  m_Name: New Item
+  m_Name: UrlaubsPostkarte
   m_EditorClassIdentifier: 
   id: 1
   name: {fileID: 7601990508655091635, guid: b92ced762fb2fd3428aceabde3239423, type: 3}
