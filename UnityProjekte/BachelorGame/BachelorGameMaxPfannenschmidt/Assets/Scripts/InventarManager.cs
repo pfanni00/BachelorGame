@@ -30,11 +30,7 @@ public class InventarManager : MonoBehaviour
     {
         Items.Add(item);
 
-        GameObject IN = Instantiate(ItemName, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
-        IN.transform.parent = GameObject.Find("InventarNamePosition").transform;
-
-        GameObject ID = Instantiate(ItemDescription, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
-        ID.transform.parent = GameObject.Find("ItemBeschreibungPosition").transform;
+       
 
 
     }
@@ -46,6 +42,19 @@ public class InventarManager : MonoBehaviour
 
     public void ListItems()
     {
-        
+        foreach (var item in Items)
+        {
+            ItemName = item.name;
+            ItemDescription = item.description;
+          //  ItemText = item.text;
+           // ItemModel = item.model;
+
+    GameObject IN = Instantiate(ItemName, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+            IN.transform.parent = GameObject.Find("InventarNamePosition").transform;
+
+            GameObject ID = Instantiate(ItemDescription, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+            ID.transform.parent = GameObject.Find("ItemBeschreibungPosition").transform;
+
+        }
     }
 }
