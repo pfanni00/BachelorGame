@@ -7,6 +7,9 @@ public class InventoryControlls : MonoBehaviour
     public bool Inventroryisuseabale;
     public bool InventoryisOpen;
     public GameObject ItemUI;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,4 +48,5 @@ public class InventoryControlls : MonoBehaviour
         FPSController fps = gameObject.GetComponent<FPSController>();
         fps.lockMovement();
     }
+
 }

@@ -19,3 +19,4 @@ MonoBehaviour:
   text: {fileID: 0}
   model: {fileID: 0}
   isInstatiated: 1
+  isSelected: 1
