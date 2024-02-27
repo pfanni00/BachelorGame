@@ -11,5 +11,5 @@ public class Item : ScriptableObject
     public GameObject description;
     public GameObject text;
     public GameObject model;
-    public bool isInstatiated = false;
+    public bool isInstatiated;
 }

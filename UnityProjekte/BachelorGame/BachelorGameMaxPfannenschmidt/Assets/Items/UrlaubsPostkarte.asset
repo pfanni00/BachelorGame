@@ -18,3 +18,4 @@ MonoBehaviour:
     type: 3}
   text: {fileID: 0}
   model: {fileID: 7852641537515337608, guid: 54a6bc2da0c255549a371963c261bc7b, type: 3}
+  isInstatiated: 1
