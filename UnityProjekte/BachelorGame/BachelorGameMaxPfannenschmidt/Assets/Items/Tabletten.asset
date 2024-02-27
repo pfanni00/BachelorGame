@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 345601360c05e7245be5d143d7b6c41f, type: 3}
-  m_Name: UrlaubsPostkarte
+  m_Name: Tabletten
   m_EditorClassIdentifier: 
-  id: 1
-  title: {fileID: 7601990508655091635, guid: b92ced762fb2fd3428aceabde3239423, type: 3}
+  id: 2
+  title: {fileID: 3754571860462128328, guid: 16da00c3837749d419ebfed9d6dbbc14, type: 3}
   description: {fileID: 3448723815266565007, guid: 587da710262207d4488283cdfe4da5b9,
     type: 3}
   text: {fileID: 0}
-  model: {fileID: 7852641537515337608, guid: 54a6bc2da0c255549a371963c261bc7b, type: 3}
+  model: {fileID: 0}

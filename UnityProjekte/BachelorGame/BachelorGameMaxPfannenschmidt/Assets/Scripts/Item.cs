@@ -7,8 +7,9 @@ using TMPro;
 public class Item : ScriptableObject
 {
     public int id;
-    public GameObject name;
+    public GameObject title;
     public GameObject description;
     public GameObject text;
     public GameObject model;
+    public bool isInstatiated = false;
 }
