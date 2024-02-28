@@ -152,6 +152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toggle: {fileID: 1108706874373251185}
+  SelectedItem: []
+  OtherItems: []
   itemTags:
   - ItemPostkarte
   - ItemTabletten

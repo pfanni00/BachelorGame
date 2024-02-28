@@ -7,10 +7,10 @@ public class InventoryToggle : MonoBehaviour
 public Toggle toggle;
 
 [SerializeField]
-private GameObject[] SelectedItem;
+private List<GameObject> SelectedItem = new List<GameObject>();
 
 [SerializeField]
-private GameObject[] OtherItems;
+private List<GameObject> OtherItem = new List<GameObject>();
 public string[] itemTags = new string[] {"ItemTabletten","ItemPostkarte"};
   
   public void AssignToggle()
@@ -20,26 +20,26 @@ public string[] itemTags = new string[] {"ItemTabletten","ItemPostkarte"};
         //Add listener for when the state of the Toggle changes, to take action
         toggle.onValueChanged.AddListener(delegate {
         ToggleValueChanged(toggle);
-
+        });
         //Tag dieses GameObjectes wird zugewiesen
         string thisTag = gameObject.tag;
+        Debug.Log(thisTag);
 
         //Schleife durchsucht alle bekannten Item Tags und weißt Alle Assets mit dem Aktuellen ItemTag zu SelectedItem und alle übrigen Assets zu OtherItems
         foreach (string s in itemTags)
         {
-          if (gameObject.CompareTag(thisTag))
+          if (s == thisTag)
         {
-          SelectedItem = GameObject.FindGameObjectsWithTag(thisTag);
-        } else if (!gameObject.CompareTag(thisTag))
-        {
-          OtherItems = GameObject.FindGameObjectsWithTag(s);
+        //  GameObject go = GameObject.FindGameObjectsWithTag(thisTag);
+         // SelectedItem.Add(go);
         }
         }
 
-            Debug.Log(SelectedItem);
-            Debug.Log(OtherItems);
+    }
 
-        });
+    public void TestMethod()
+    {
+      Debug.Log("TEST");
     }
 
     //Output the new state of the Toggle into Text

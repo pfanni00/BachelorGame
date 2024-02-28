@@ -67,7 +67,9 @@ public class InventarManager : MonoBehaviour
            Debug.Log(item.isInstatiated);
            
           InventoryToggle sn = IN.GetComponent<InventoryToggle>();
-          sn.AssignToggle();
+          sn.TestMethod();
+
+
         
         //fügt den ItemNamen der ToggleGroup hinzu
           newToggle = IN.GetComponent<Toggle>(); 
