@@ -5,17 +5,17 @@ using UnityEngine;
 public class ItemController : MonoBehaviour
 {
     public Item Item;
-    private GameObject ItemDescription;
+    //private GameObject ItemDescription;
 
 // stellt sicher das Items beim Start des Spiels als nicht aufgehoben Gelten
     private void Awake()
 {
-    Item.isSelected = false;
+   // Item.isSelected = false;
     Item.isInstatiated = false;
 
-    ItemDescription = Item.description;
+   // ItemDescription = Item.description;
 }
-
+/*
 public void SelectItem()
 {
     
@@ -23,10 +23,10 @@ public void SelectItem()
 
     Item.isSelected = true;
 }
-
+*/
 public void DeselectItem()
 {
-    Item.isSelected = false;
+   // Item.isSelected = false;
     Item.description.SetActive(false);
 
 }

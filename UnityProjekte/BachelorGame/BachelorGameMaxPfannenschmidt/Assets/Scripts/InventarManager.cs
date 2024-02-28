@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventarManager : MonoBehaviour
 {
@@ -19,7 +20,11 @@ public class InventarManager : MonoBehaviour
     public GameObject ItemText;
     public GameObject ItemModel;
 
+    private GameObject ID;
 
+    public ToggleGroup toggleGroup; 
+   
+    private Toggle newToggle; 
 
     private void Awake()
     {
@@ -30,8 +35,9 @@ public class InventarManager : MonoBehaviour
     {
         Items.Add(item);
 
-       ListItems();
-
+        ListItems();
+       // toggleGroupController sn = NameParent.GetComponent<toggleGroupController>();
+       // sn.AddToggle();
 
     }
 
@@ -58,9 +64,20 @@ public class InventarManager : MonoBehaviour
            // IN.transform.parent = GameObject.Find("InventarNamePosition").transform;
 
             GameObject ID = Instantiate(ItemDescription, DescriptionParent) as GameObject;
+
            // ID.transform.parent = GameObject.Find("ItemBeschreibungPosition").transform; 
            item.isInstatiated = true;
            Debug.Log(item.isInstatiated);
+
+        //fügt den ItemNamen der ToggleGroup hinzu
+        newToggle = IN.GetComponent<Toggle>(); 
+        newToggle.group = toggleGroup;
+
+        string itemTag = item.Itemtag;
+        ID.tag = itemTag;
+
+       // Debug.Log(item.Itemtag);
+      //  Debug.Log(itemTag);
 
         }}
     }

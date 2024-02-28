@@ -14,4 +14,6 @@ public class Item : ScriptableObject
     public GameObject model;
     public bool isInstatiated;
     public bool isSelected;
+
+    public string Itemtag;
 }

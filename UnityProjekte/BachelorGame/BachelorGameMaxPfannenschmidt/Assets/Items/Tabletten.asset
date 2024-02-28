@@ -20,3 +20,4 @@ MonoBehaviour:
   model: {fileID: 0}
   isInstatiated: 1
   isSelected: 1
+  Itemtag: ItemTabletten
