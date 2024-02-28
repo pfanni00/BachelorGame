@@ -55,29 +55,28 @@ public class InventarManager : MonoBehaviour
             {
             ItemName = item.title;
             ItemDescription = item.description;
-            Debug.Log(ItemName);
-            Debug.Log(ItemDescription);
+            
           //  ItemText = item.text;
            // ItemModel = item.model;
 
             GameObject IN = Instantiate(ItemName, NameParent) as GameObject;
-           // IN.transform.parent = GameObject.Find("InventarNamePosition").transform;
 
             GameObject ID = Instantiate(ItemDescription, DescriptionParent) as GameObject;
 
-           // ID.transform.parent = GameObject.Find("ItemBeschreibungPosition").transform; 
            item.isInstatiated = true;
            Debug.Log(item.isInstatiated);
-
+           
+          InventoryToggle sn = IN.GetComponent<InventoryToggle>();
+          sn.AssignToggle();
+        
         //fügt den ItemNamen der ToggleGroup hinzu
-        newToggle = IN.GetComponent<Toggle>(); 
-        newToggle.group = toggleGroup;
+          newToggle = IN.GetComponent<Toggle>(); 
+          newToggle.group = toggleGroup;
 
-        string itemTag = item.Itemtag;
-        ID.tag = itemTag;
+          string itemTag = item.Itemtag;
+          ID.tag = itemTag;
 
-       // Debug.Log(item.Itemtag);
-      //  Debug.Log(itemTag);
+
 
         }}
     }

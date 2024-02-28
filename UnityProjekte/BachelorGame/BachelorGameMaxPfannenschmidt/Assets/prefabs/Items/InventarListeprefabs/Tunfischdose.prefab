@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 7071797289080509737}
   - component: {fileID: 1832938774282993806}
   - component: {fileID: 6546655938607611148}
+  - component: {fileID: 4858877699980042782}
   m_Layer: 5
   m_Name: Tunfischdose
   m_TagString: Untagged
@@ -260,3 +261,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
+--- !u!114 &4858877699980042782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458537494867351655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b872f76ccd4b04eaa1a4d1ce0c829d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Item1UI: []
+  Item2UI: []
+  togglegroupsize: 0
+  toggle: {fileID: 0}

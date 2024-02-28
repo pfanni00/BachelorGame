@@ -306,12 +306,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b872f76ccd4b04eaa1a4d1ce0c829d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Item1UI:
-  - {fileID: 3372384499116614240, guid: c6a8d0160dc829b4b9b26c0f9f911ac9, type: 3}
-  Item2UI:
-  - {fileID: 3448723815266565007, guid: 587da710262207d4488283cdfe4da5b9, type: 3}
-  togglegroupsize: 2
   toggle: {fileID: 0}
+  itemTags: []
 --- !u!1 &209151996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1541,6 +1537,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8075741161044848570, guid: 54a6bc2da0c255549a371963c261bc7b,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8075741161044848570, guid: 54a6bc2da0c255549a371963c261bc7b,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8075741161044848570, guid: 54a6bc2da0c255549a371963c261bc7b,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8075741161044848570, guid: 54a6bc2da0c255549a371963c261bc7b,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.424
       objectReference: {fileID: 0}
@@ -1587,6 +1598,11 @@ PrefabInstance:
     - target: {fileID: 8075741161044848570, guid: 54a6bc2da0c255549a371963c261bc7b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8075741161044848570, guid: 54a6bc2da0c255549a371963c261bc7b,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
