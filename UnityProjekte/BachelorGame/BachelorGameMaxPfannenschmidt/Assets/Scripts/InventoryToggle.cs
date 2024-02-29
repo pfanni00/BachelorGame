@@ -6,14 +6,14 @@ public class InventoryToggle : MonoBehaviour
 {
 public Toggle toggle;
 
-[SerializeField]
-private List<GameObject> SelectedItem = new List<GameObject>();
+//[SerializeField]
+public List<GameObject> SelectedItem = new List<GameObject>();
 
-[SerializeField]
-private List<GameObject> OtherItem = new List<GameObject>();
+//[SerializeField]
+public List<GameObject> OtherItem = new List<GameObject>();
 public string[] itemTags = new string[] {"ItemTabletten","ItemPostkarte"};
   
-  public void AssignToggle()
+  public void AssignToggle(string Selectedtag)
     {
         //Fetch the Toggle GameObject
         toggle = GetComponent<Toggle>();
@@ -21,25 +21,26 @@ public string[] itemTags = new string[] {"ItemTabletten","ItemPostkarte"};
         toggle.onValueChanged.AddListener(delegate {
         ToggleValueChanged(toggle);
         });
-        //Tag dieses GameObjectes wird zugewiesen
-        string thisTag = gameObject.tag;
-        Debug.Log(thisTag);
 
-        //Schleife durchsucht alle bekannten Item Tags und weißt Alle Assets mit dem Aktuellen ItemTag zu SelectedItem und alle übrigen Assets zu OtherItems
+        //alle Item Prefabs die dem Toggle untergeordnet sind werden den Selected Items hinzugefügt
+		    GameObject[] selectedobjects = GameObject.FindGameObjectsWithTag(Selectedtag);
+        SelectedItem.AddRange(selectedobjects);
+
+        //Schleife durchsucht alle bekannten Item Tags und weißt Alle Assets mit dem einem anderen als dem SelectiertenTag  zu OtherItems
         foreach (string s in itemTags)
         {
-          if (s == thisTag)
+          if (s != Selectedtag)
         {
-        //  GameObject go = GameObject.FindGameObjectsWithTag(thisTag);
-         // SelectedItem.Add(go);
+        GameObject[] otherobjects = GameObject.FindGameObjectsWithTag(s);
+        OtherItem.AddRange(otherobjects);
         }
         }
 
     }
 
-    public void TestMethod()
+    public void TestMethod(string Selectedtag)
     {
-      Debug.Log("TEST");
+      Debug.Log(Selectedtag);
     }
 
     //Output the new state of the Toggle into Text
