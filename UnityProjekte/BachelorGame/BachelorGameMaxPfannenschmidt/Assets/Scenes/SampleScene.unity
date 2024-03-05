@@ -228,7 +228,6 @@ GameObject:
   - component: {fileID: 186205703}
   - component: {fileID: 186205705}
   - component: {fileID: 186205704}
-  - component: {fileID: 186205706}
   m_Layer: 5
   m_Name: InventarNamePosition
   m_TagString: Untagged
@@ -294,23 +293,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AllowSwitchOff: 0
---- !u!114 &186205706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 186205702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b872f76ccd4b04eaa1a4d1ce0c829d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toggle: {fileID: 0}
-  thisTag: 
-  SelectedItem: []
-  OtherItem: []
-  itemTags: []
 --- !u!1 &209151996
 GameObject:
   m_ObjectHideFlags: 0
@@ -2337,6 +2319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1819741883}
   - component: {fileID: 1819741884}
+  - component: {fileID: 1819741885}
   m_Layer: 0
   m_Name: InventarManager
   m_TagString: Untagged
@@ -2379,6 +2362,24 @@ MonoBehaviour:
   ItemText: {fileID: 0}
   ItemModel: {fileID: 0}
   toggleGroup: {fileID: 186205705}
+--- !u!114 &1819741885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819741882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a357923aa6b859545bfd0689d2215736, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UITabletten:
+  - {fileID: 3448723814972595273}
+  - {fileID: 1026369958209045485}
+  UIPostkarte:
+  - {fileID: 3372384499845770137}
+  - {fileID: 6834654322314456456}
 --- !u!1 &2012154528
 GameObject:
   m_ObjectHideFlags: 0
@@ -2558,7 +2559,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1588513068518221350
 GameObject:
   m_ObjectHideFlags: 0
@@ -2810,7 +2811,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &3448723814972595273
 GameObject:
   m_ObjectHideFlags: 0
@@ -2828,7 +2829,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3494082579873137535
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3024,7 +3025,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &7432784779019939029
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,25 +4,53 @@ using UnityEngine;
 using UnityEngine.UI;
 public class InventoryToggleOLD : MonoBehaviour
 {
-/*public Toggle toggle;
+public Toggle toggle;
 
-[SerializeField]
+public string thisTag;
+
 //a list with all Prefabs including ItemDescriptions and ItemModel for the currently Selected ItemName Toggle
-private List<GameObject> SelectedItem = new List<GameObject>();
+private GameObject[] SelectedItem;
 
-[SerializeField]
+
 //a list with all Prefabs including ItemDescriptions and ItemModel for the currently Unselected ItemName Toggles
-private List<GameObject> OtherItem = new List<GameObject>();
+private GameObject[] OtherItem;
 
 //a list with all Possible Tags for all Items. Each Item has its own already defined Tag
 public string[] itemTags = new string[] {"ItemTabletten","ItemPostkarte"};
 
 //This Method SHOULD look for all of the Prefabs with the Selectedtag and assignes the Game Objects to SelectedItem. It also assignes all Game Object with aTag != ItemTag to OtherObjects  
+
+void Update()
+{
+    SelectedItem = GameObject.FindGameObjectsWithTag(thisTag);
+    //Debug.Log(SelectedItem);
+
+    foreach (string s in itemTags)
+        {
+            if (s != thisTag)
+            {
+                OtherItem = GameObject.FindGameObjectsWithTag(s);
+            }
+        }
+}
 public void AssignToggle(string Selectedtag)
     {
+        //Fetch the Toggle GameObject
+        toggle = GetComponent<Toggle>();
+        //Add listener for when the state of the Toggle changes, to take action
+        toggle.onValueChanged.AddListener(delegate {
+        ToggleValueChanged(toggle);
+        });
 
+		
 
-		    GameObject[] selectedobjects = GameObject.FindGameObjectsWithTag(Selectedtag);
+    }
+
+    public void TestMethod(string Selectedtag)
+    {
+      Debug.Log(Selectedtag);
+
+             /*   GameObject[] selectedobjects = GameObject.FindGameObjectsWithTag(Selectedtag);
         SelectedItem.AddRange(selectedobjects);
 
         foreach (string s in itemTags)
@@ -32,29 +60,31 @@ public void AssignToggle(string Selectedtag)
         GameObject[] otherobjects = GameObject.FindGameObjectsWithTag(s);
         OtherItem.AddRange(otherobjects);
         }
-        }
-
-    }
-
-    public void TestMethod(string Selectedtag)
-    {
-      Debug.Log(Selectedtag);
-
-            //Fetch the Toggle GameObject
-        toggle = GetComponent<Toggle>();
-        //Add listener for when the state of the Toggle changes, to take action
-        toggle.onValueChanged.AddListener(delegate {
-        ToggleValueChanged(toggle);
-        });
+        }*/
 
     }
 
     //Output the new state of the Toggle into Text
-    void ToggleValueChanged(Toggle change)
+    public void ToggleValueChanged(Toggle change)
     {
+        Debug.Log("ToggleHasChanged");
         if (toggle.isOn == true)
         {
+            //SelectedItem = GameObject.FindGameObjectsWithTag(thisTag);
 
+            foreach (GameObject selectedItems in SelectedItem)
+            {
+            selectedItems.SetActive(true);
+            }
+        
+           
+            foreach (GameObject otherItems in SelectedItem)
+            {
+            otherItems.SetActive(false);
+            }
+                
+            }
         }
-    }*/
-}
+    }
+
+    

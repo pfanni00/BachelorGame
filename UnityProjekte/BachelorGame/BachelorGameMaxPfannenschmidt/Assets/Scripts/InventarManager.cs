@@ -76,11 +76,11 @@ public class InventarManager : MonoBehaviour
 
           //fügt dem generierten Items einen Tag zu dieser dient der Funktionsweise des Toggles. mit der Funktion AssignToggle werden die Item Prefabs dem richtigen Toggle zugeordnet
 
-          string itemTag = item.Itemtag;
+          //string itemTag = item.Itemtag;
           //ID.tag = itemTag;
 
-          InventoryToggle sn = IN.GetComponent<InventoryToggle>();
-          sn.AssignToggle(itemTag);
+         // InventoryToggle sn = IN.GetComponent<InventoryToggle>();
+          //sn.AssignToggle(itemTag);
 
         }}
     }

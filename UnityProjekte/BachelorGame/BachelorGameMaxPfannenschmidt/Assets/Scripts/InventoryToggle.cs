@@ -8,18 +8,21 @@ public Toggle toggle;
 
 public string thisTag;
 
+public GameObject inventarManager;
+
 //a list with all Prefabs including ItemDescriptions and ItemModel for the currently Selected ItemName Toggle
-private GameObject[] SelectedItem;
+//private GameObject[] SelectedItem;
 
 
 //a list with all Prefabs including ItemDescriptions and ItemModel for the currently Unselected ItemName Toggles
-private GameObject[] OtherItem;
+//private GameObject[] OtherItem;
 
 //a list with all Possible Tags for all Items. Each Item has its own already defined Tag
-public string[] itemTags = new string[] {"ItemTabletten","ItemPostkarte"};
+//public string[] itemTags = new string[] {"ItemTabletten","ItemPostkarte"};
 
 //This Method SHOULD look for all of the Prefabs with the Selectedtag and assignes the Game Objects to SelectedItem. It also assignes all Game Object with aTag != ItemTag to OtherObjects  
 
+/*
 void Update()
 {
     SelectedItem = GameObject.FindGameObjectsWithTag(thisTag);
@@ -62,6 +65,8 @@ public void AssignToggle(string Selectedtag)
         }
         }*/
 
+    void Start()
+    {
     }
 
     //Output the new state of the Toggle into Text
@@ -70,21 +75,17 @@ public void AssignToggle(string Selectedtag)
         Debug.Log("ToggleHasChanged");
         if (toggle.isOn == true)
         {
-            //SelectedItem = GameObject.FindGameObjectsWithTag(thisTag);
-
-            foreach (GameObject selectedItems in SelectedItem)
+            if (thisTag == "ItemTableten")
             {
-            selectedItems.SetActive(true);
-            }
-        
-           
-            foreach (GameObject otherItems in SelectedItem)
+            ToggleManager tm = inventarManager.GetComponent<ToggleManager>();
+            tm.SelectTabletten();
+            }else if(thisTag =="ItemPostkarte")
             {
-            otherItems.SetActive(false);
-            }
-                
+            ToggleManager tm = inventarManager.GetComponent<ToggleManager>();
+            tm.SelectPostkarte(); 
             }
         }
     }
+}
 
     
