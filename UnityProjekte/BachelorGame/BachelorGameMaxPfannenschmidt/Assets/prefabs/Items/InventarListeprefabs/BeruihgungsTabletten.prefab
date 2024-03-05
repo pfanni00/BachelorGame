@@ -125,14 +125,13 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3378828660257929907, guid: 54a6bc2da0c255549a371963c261bc7b,
-          type: 3}
-        m_TargetAssemblyTypeName: ItemController, Assembly-CSharp
-        m_MethodName: SelectItem
-        m_Mode: 1
+      - m_Target: {fileID: 3495721749653327699}
+        m_TargetAssemblyTypeName: InventoryToggle, Assembly-CSharp
+        m_MethodName: ToggleValueChanged
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1108706874373251185}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Toggle, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -152,8 +151,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toggle: {fileID: 1108706874373251185}
+  thisTag: ItemTabletten
   SelectedItem: []
-  OtherItems: []
+  OtherItem: []
   itemTags:
   - ItemPostkarte
   - ItemTabletten

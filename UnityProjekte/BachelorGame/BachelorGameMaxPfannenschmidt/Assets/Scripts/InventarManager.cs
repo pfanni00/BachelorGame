@@ -54,14 +54,14 @@ public class InventarManager : MonoBehaviour
             if (item.isInstatiated == false)
             {
             ItemName = item.title;
-            ItemDescription = item.description;
+            //ItemDescription = item.description;
             
           //  ItemText = item.text;
            // ItemModel = item.model;
 
             GameObject IN = Instantiate(ItemName, NameParent) as GameObject;
 
-            GameObject ID = Instantiate(ItemDescription, DescriptionParent) as GameObject;
+            //GameObject ID = Instantiate(ItemDescription, DescriptionParent) as GameObject;
 
            item.isInstatiated = true;
            Debug.Log(item.isInstatiated);
@@ -77,7 +77,7 @@ public class InventarManager : MonoBehaviour
           //fügt dem generierten Items einen Tag zu dieser dient der Funktionsweise des Toggles. mit der Funktion AssignToggle werden die Item Prefabs dem richtigen Toggle zugeordnet
 
           string itemTag = item.Itemtag;
-          ID.tag = itemTag;
+          //ID.tag = itemTag;
 
           InventoryToggle sn = IN.GetComponent<InventoryToggle>();
           sn.AssignToggle(itemTag);
