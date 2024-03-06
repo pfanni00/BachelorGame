@@ -152,11 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toggle: {fileID: 1108706874373251185}
   thisTag: ItemTabletten
-  SelectedItem: []
-  OtherItem: []
-  itemTags:
-  - ItemPostkarte
-  - ItemTabletten
+  inventarManager: {fileID: 0}
 --- !u!1 &3812682155895927459
 GameObject:
   m_ObjectHideFlags: 0

@@ -88,6 +88,9 @@ public void AssignToggle(string Selectedtag)
             ToggleManager tm = inventarManager.GetComponent<ToggleManager>();
             tm.SelectPostkarte(); 
             }
+        }else if (toggle.isOn != true)
+        {
+            
         }
     }
 }

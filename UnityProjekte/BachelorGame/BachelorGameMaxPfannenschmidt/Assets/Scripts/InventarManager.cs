@@ -73,6 +73,7 @@ public class InventarManager : MonoBehaviour
         //fügt den ItemNamen der ToggleGroup hinzu
           newToggle = IN.GetComponent<Toggle>(); 
           newToggle.group = toggleGroup;
+          newToggle.isOn = true;
 
           //fügt dem generierten Items einen Tag zu dieser dient der Funktionsweise des Toggles. mit der Funktion AssignToggle werden die Item Prefabs dem richtigen Toggle zugeordnet
 
