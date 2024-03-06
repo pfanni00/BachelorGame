@@ -10,6 +10,7 @@ public class ToggleManager : MonoBehaviour
     
     public void SelectTabletten()
     {
+        Debug.Log("SelectTabletten");
         foreach (GameObject uitabletten in UITabletten)
         {
             uitabletten.SetActive(true);
@@ -23,6 +24,8 @@ public class ToggleManager : MonoBehaviour
 
     public void SelectPostkarte()
     {
+                Debug.Log("SelectPostkarte");
+
        foreach (GameObject uitabletten in UITabletten)
         {
             uitabletten.SetActive(false);

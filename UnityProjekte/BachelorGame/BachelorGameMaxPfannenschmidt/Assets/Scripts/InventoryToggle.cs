@@ -67,6 +67,8 @@ public void AssignToggle(string Selectedtag)
 
     void Start()
     {
+         inventarManager = GameObject.Find("InventarManager");
+
     }
 
     //Output the new state of the Toggle into Text
@@ -75,7 +77,9 @@ public void AssignToggle(string Selectedtag)
         Debug.Log("ToggleHasChanged");
         if (toggle.isOn == true)
         {
-            if (thisTag == "ItemTableten")
+                    Debug.Log("ToggleIsOn");
+
+            if (thisTag == "ItemTabletten")
             {
             ToggleManager tm = inventarManager.GetComponent<ToggleManager>();
             tm.SelectTabletten();
