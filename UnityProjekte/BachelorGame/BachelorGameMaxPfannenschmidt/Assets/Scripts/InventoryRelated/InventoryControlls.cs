@@ -8,6 +8,8 @@ public class InventoryControlls : MonoBehaviour
     public bool InventoryisOpen;
     public GameObject ItemUI;
 
+    public GameObject volumeController;
+
 
 
     // Start is called before the first frame update
@@ -47,6 +49,8 @@ public class InventoryControlls : MonoBehaviour
         ItemUI.SetActive(true);
         FPSController fps = gameObject.GetComponent<FPSController>();
         fps.lockMovement();
+        BackgroundBlur bg = volumeController.GetComponent<BackgroundBlur>();
+        bg.StartFadeOut(); 
     }
 
 }
