@@ -54,14 +54,11 @@ public class InventarManager : MonoBehaviour
             if (item.isInstatiated == false)
             {
             ItemName = item.title;
-            //ItemDescription = item.description;
-            
-          //  ItemText = item.text;
+
            // ItemModel = item.model;
 
             GameObject IN = Instantiate(ItemName, NameParent) as GameObject;
 
-            //GameObject ID = Instantiate(ItemDescription, DescriptionParent) as GameObject;
 
            item.isInstatiated = true;
            Debug.Log(item.isInstatiated);

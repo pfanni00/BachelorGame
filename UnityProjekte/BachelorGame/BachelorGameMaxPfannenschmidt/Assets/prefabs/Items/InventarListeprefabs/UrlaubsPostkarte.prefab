@@ -287,8 +287,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toggle: {fileID: 1796007271867592358}
   thisTag: ItemPostkarte
-  SelectedItem: []
-  OtherItem: []
-  itemTags:
-  - ItemTabletten
-  - ItemPostkarte
+  inventarManager: {fileID: 0}
