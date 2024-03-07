@@ -6,7 +6,7 @@ public class ReadButton : MonoBehaviour
 {
     public bool IsVisible;
    // public GameObject TextObject; 
-    private Image image;
+    public GameObject textobject;
 
     // Start is called before the first frame update
     void Start()
@@ -16,17 +16,18 @@ public class ReadButton : MonoBehaviour
 
    void update ()
    {
-    if (IsVisible == false)
-    {
-       image.enabled = false;
-    }else if (IsVisible == true)
-    {
-        image.enabled = true;
-    }
+    
    }
 
    public void ClickReadButton()
    {
     IsVisible = !IsVisible;
-   }
+if (IsVisible == false)
+    {
+       textobject.SetActive(false);
+    }else if (IsVisible == true)
+    {
+       textobject.SetActive(true);
+    }   
+    }
 }
