@@ -6,6 +6,8 @@ public class ToggleManager : MonoBehaviour
 {
     public GameObject[] UITabletten;
     public GameObject[] UIPostkarte;
+
+    public GameObject[] UIBriefanMama;
     // Start is called before the first frame update
     
     public void SelectTabletten()
@@ -18,6 +20,10 @@ public class ToggleManager : MonoBehaviour
         foreach (GameObject uipostkarte in UIPostkarte)
         {
             uipostkarte.SetActive(false);
+        }
+        foreach (GameObject uibriefanmama in UIBriefanMama)
+        {
+            uibriefanmama.SetActive(false);
         }
         
     }
@@ -33,6 +39,26 @@ public class ToggleManager : MonoBehaviour
         foreach (GameObject uipostkarte in UIPostkarte)
         {
             uipostkarte.SetActive(true);
+        }
+         foreach (GameObject uibriefanmama in UIBriefanMama)
+        {
+            uibriefanmama.SetActive(false);
+        }
+    }
+
+    public void SelectBriefanMama()
+    {
+       foreach (GameObject uitabletten in UITabletten)
+        {
+            uitabletten.SetActive(false);
+        }
+        foreach (GameObject uipostkarte in UIPostkarte)
+        {
+            uipostkarte.SetActive(false);
+        }
+         foreach (GameObject uibriefanmama in UIBriefanMama)
+        {
+            uibriefanmama.SetActive(true);
         }
     }
 

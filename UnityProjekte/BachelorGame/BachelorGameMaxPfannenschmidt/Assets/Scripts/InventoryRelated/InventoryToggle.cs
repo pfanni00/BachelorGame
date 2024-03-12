@@ -33,6 +33,10 @@ public GameObject inventarManager;
             {
             ToggleManager tm = inventarManager.GetComponent<ToggleManager>();
             tm.SelectPostkarte(); 
+            }else if(thisTag =="BriefanMama")
+            {
+               ToggleManager tm = inventarManager.GetComponent<ToggleManager>();
+            tm.SelectBriefanMama();  
             }
         }else if (toggle.isOn != true)
         {

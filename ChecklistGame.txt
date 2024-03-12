@@ -1,0 +1,8 @@
+Inventar:
+- Scrollbar für texte
+	-Maske fürScroll view verkleinern 
+- Logic der Kombinierten Items
+- Sound für Emmas Tagebuch
+- Verbesserung der Item Collection 
+	- beim Hovern auf item Objecten cursor und Item Name anzeigen. 
+	- Hitbox der Items beim Einsammeln vergrößern 

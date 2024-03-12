@@ -14,10 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   title: {fileID: 7601990508655091635, guid: b92ced762fb2fd3428aceabde3239423, type: 3}
-  description: {fileID: 3372384499116614240, guid: c6a8d0160dc829b4b9b26c0f9f911ac9,
-    type: 3}
-  text: {fileID: 0}
-  model: {fileID: 7852641537515337608, guid: 54a6bc2da0c255549a371963c261bc7b, type: 3}
-  isInstatiated: 1
-  isSelected: 0
-  Itemtag: ItemPostkarte
+  isInstatiated: 0
