@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -1906418995345345543}
   - component: {fileID: -2285330314820608439}
   m_Layer: 0
-  m_Name: TestItem
+  m_Name: Postkarte
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

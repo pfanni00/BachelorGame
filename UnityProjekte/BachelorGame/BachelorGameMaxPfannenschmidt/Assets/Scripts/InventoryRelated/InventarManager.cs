@@ -11,14 +11,8 @@ public class InventarManager : MonoBehaviour
     public List<Item> Items = new List<Item>();
 
     public Transform NameParent;
-    public Transform DescriptionParent;
-  //  public Transform ModelParent;
-//    public Transform TextParent;
 
-    public GameObject ItemName;
-    public GameObject ItemDescription;
-    public GameObject ItemText;
-    public GameObject ItemModel;
+    private GameObject ItemName;
 
     private GameObject ID;
 
@@ -33,12 +27,14 @@ public class InventarManager : MonoBehaviour
     // Start is called before the first frame update
     public void Add(Item item)
     {
+        if (item.isInstatiated == false)
+        {
         Items.Add(item);
 
         ListItems();
        // toggleGroupController sn = NameParent.GetComponent<toggleGroupController>();
        // sn.AddToggle();
-
+        }
     }
 
     public void Remove(Item item)
@@ -61,7 +57,6 @@ public class InventarManager : MonoBehaviour
 
 
            item.isInstatiated = true;
-           Debug.Log(item.isInstatiated);
            
           
 
@@ -72,13 +67,7 @@ public class InventarManager : MonoBehaviour
           newToggle.group = toggleGroup;
           newToggle.isOn = true;
 
-          //fügt dem generierten Items einen Tag zu dieser dient der Funktionsweise des Toggles. mit der Funktion AssignToggle werden die Item Prefabs dem richtigen Toggle zugeordnet
-
-          //string itemTag = item.Itemtag;
-          //ID.tag = itemTag;
-
-         // InventoryToggle sn = IN.GetComponent<InventoryToggle>();
-          //sn.AssignToggle(itemTag);
+          
 
         }}
     }

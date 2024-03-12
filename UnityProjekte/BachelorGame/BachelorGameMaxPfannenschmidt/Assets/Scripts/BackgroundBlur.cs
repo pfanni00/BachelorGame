@@ -28,7 +28,6 @@ public class BackgroundBlur : MonoBehaviour
 
         // Speichere den aktuellen weight Wert, um von diesem Wert zu beginnen
         float startWeight = m_Volume.weight;
-        Debug.Log(startWeight);
         float goalweight = 0f;
         
         if (startWeight != goalweight)
@@ -62,7 +61,6 @@ public class BackgroundBlur : MonoBehaviour
         // Speichere den aktuellen weight Wert, um von diesem Wert zu beginnen
         float startWeight = m_Volume.weight + 0.6f;
         float goalweight = 1f;
-        Debug.Log(startWeight);
 
         if (startWeight != goalweight)
         {

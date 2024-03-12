@@ -12,19 +12,18 @@ public GameObject inventarManager;
 
 
 
-    void Start()
+    void Awake()
     {
-         inventarManager = GameObject.Find("InventarManager");
-
+        inventarManager = GameObject.Find("InventarManager");
+    	Debug.Log("Hier ist der Erste:");
+        Debug.Log(inventarManager);
     }
 
     //Output the new state of the Toggle into Text
     public void ToggleValueChanged(Toggle change)
     {
-        Debug.Log("ToggleHasChanged");
         if (toggle.isOn == true)
         {
-                    Debug.Log("ToggleIsOn");
 
             if (thisTag == "ItemTabletten")
             {
