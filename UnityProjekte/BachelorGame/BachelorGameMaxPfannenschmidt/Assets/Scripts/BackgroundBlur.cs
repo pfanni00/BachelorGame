@@ -28,6 +28,7 @@ public class BackgroundBlur : MonoBehaviour
 
         // Speichere den aktuellen weight Wert, um von diesem Wert zu beginnen
         float startWeight = m_Volume.weight;
+        Debug.Log(startWeight);
         float goalweight = 0f;
         
         if (startWeight != goalweight)
@@ -37,7 +38,7 @@ public class BackgroundBlur : MonoBehaviour
         {
             // Aktualisiere die verstrichene Zeit
             currentTime += Time.deltaTime;
-            Debug.Log(currentTime);
+            //Debug.Log(currentTime);
             // Aktualisiere den weight Wert von m_Volume
             m_Volume.weight = Mathf.SmoothStep(startWeight, goalweight, currentTime / duration);
             yield return null; // Warte bis zum nächsten Frame
@@ -59,8 +60,9 @@ public class BackgroundBlur : MonoBehaviour
         float currentTime = 0f; // Aktuelle Zeit, startet bei 0
 
         // Speichere den aktuellen weight Wert, um von diesem Wert zu beginnen
-        float startWeight = m_Volume.weight;
+        float startWeight = m_Volume.weight + 0.6f;
         float goalweight = 1f;
+        Debug.Log(startWeight);
 
         if (startWeight != goalweight)
         {
@@ -69,7 +71,7 @@ public class BackgroundBlur : MonoBehaviour
         {
             // Aktualisiere die verstrichene Zeit
             currentTime += Time.deltaTime;
-                        Debug.Log(currentTime);
+                 //       Debug.Log(currentTime);
 
             // Aktualisiere den weight Wert von m_Volume
             m_Volume.weight = Mathf.SmoothStep(startWeight, goalweight, currentTime / duration);

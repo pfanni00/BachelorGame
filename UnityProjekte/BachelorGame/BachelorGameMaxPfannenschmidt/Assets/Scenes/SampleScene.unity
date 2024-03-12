@@ -322,7 +322,7 @@ MonoBehaviour:
   m_IsGlobal: 1
   priority: 1
   blendDistance: 0
-  weight: 0
+  weight: 1
   sharedProfile: {fileID: 11400000, guid: 69fb742f16053e44686365cb18b914af, type: 2}
 --- !u!4 &159731414
 Transform:
@@ -3003,7 +3003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Volume: {fileID: 159731413}
-  duration: 1
+  duration: 0.5
 --- !u!4 &1598925846
 Transform:
   m_ObjectHideFlags: 0
