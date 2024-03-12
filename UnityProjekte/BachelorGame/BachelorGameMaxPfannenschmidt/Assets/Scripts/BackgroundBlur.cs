@@ -20,6 +20,7 @@ public class BackgroundBlur : MonoBehaviour
 
     IEnumerator FadeOut()
     {
+
         if (m_Volume == null)
             yield break; // Beendet die Coroutine, falls m_Volume nicht gesetzt ist
 
@@ -27,17 +28,52 @@ public class BackgroundBlur : MonoBehaviour
 
         // Speichere den aktuellen weight Wert, um von diesem Wert zu beginnen
         float startWeight = m_Volume.weight;
+        float goalweight = 0f;
+        
+        if (startWeight != goalweight)
+        {
 
         while (currentTime < duration)
         {
             // Aktualisiere die verstrichene Zeit
             currentTime += Time.deltaTime;
+            Debug.Log(currentTime);
             // Aktualisiere den weight Wert von m_Volume
-            m_Volume.weight = Mathf.SmoothStep(startWeight, 0f, currentTime / duration);
+            m_Volume.weight = Mathf.SmoothStep(startWeight, goalweight, currentTime / duration);
             yield return null; // Warte bis zum nächsten Frame
         }
+        }
+    }
 
-        // Sicherstellen, dass der weight Wert am Ende genau 0 ist
-      //  m_Volume.weight = 0f;
+    public void StartFadeIn()
+    {
+        // Startet die Coroutine, um den FadeOut Effekt zu beginnen
+        StartCoroutine(FadeIn());
+    }
+
+    IEnumerator FadeIn()
+    {
+        if (m_Volume == null)
+            yield break; // Beendet die Coroutine, falls m_Volume nicht gesetzt ist
+
+        float currentTime = 0f; // Aktuelle Zeit, startet bei 0
+
+        // Speichere den aktuellen weight Wert, um von diesem Wert zu beginnen
+        float startWeight = m_Volume.weight;
+        float goalweight = 1f;
+
+        if (startWeight != goalweight)
+        {
+
+        while (currentTime < duration)
+        {
+            // Aktualisiere die verstrichene Zeit
+            currentTime += Time.deltaTime;
+                        Debug.Log(currentTime);
+
+            // Aktualisiere den weight Wert von m_Volume
+            m_Volume.weight = Mathf.SmoothStep(startWeight, goalweight, currentTime / duration);
+            yield return null; // Warte bis zum nächsten Frame
+        }}
     }
 }

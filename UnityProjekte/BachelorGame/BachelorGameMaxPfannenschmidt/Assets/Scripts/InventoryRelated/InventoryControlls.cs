@@ -41,6 +41,8 @@ public class InventoryControlls : MonoBehaviour
         ItemUI.SetActive(false);
         FPSController fps = gameObject.GetComponent<FPSController>();
         fps.unlockMovement();
+        BackgroundBlur bg = volumeController.GetComponent<BackgroundBlur>();
+        bg.StartFadeOut(); 
     }
     
     private void openInventory()
@@ -50,7 +52,7 @@ public class InventoryControlls : MonoBehaviour
         FPSController fps = gameObject.GetComponent<FPSController>();
         fps.lockMovement();
         BackgroundBlur bg = volumeController.GetComponent<BackgroundBlur>();
-        bg.StartFadeOut(); 
+        bg.StartFadeIn(); 
     }
 
 }
