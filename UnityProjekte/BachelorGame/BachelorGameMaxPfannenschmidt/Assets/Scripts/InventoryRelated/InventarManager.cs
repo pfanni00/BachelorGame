@@ -40,35 +40,32 @@ public class InventarManager : MonoBehaviour
     public void Remove(Item item)
     {
         Items.Remove(item);
+                ListItems();
+
     }
 
     public void ListItems()
     {
-        
+// zu beginn der Methode werden alle Item Toggles aus der Liste Gelöscht
+    foreach (Transform child in NameParent)
+    {
+        Destroy(child.gameObject);
+    }
+
+//Jetzt wird jedes Toggle Prefab unter NameParent instanziert 
         foreach (var item in Items)
         {
-            if (item.isInstatiated == false)
-            {
             ItemName = item.title;
-
-           // ItemModel = item.model;
-
             GameObject IN = Instantiate(ItemName, NameParent) as GameObject;
-
-
-           item.isInstatiated = true;
-           
-          
-
 
         
         //fügt den ItemNamen der ToggleGroup hinzu
           newToggle = IN.GetComponent<Toggle>(); 
           newToggle.group = toggleGroup;
           newToggle.isOn = true;
-
-          
-
+        
         }}
     }
-}
+    
+
+

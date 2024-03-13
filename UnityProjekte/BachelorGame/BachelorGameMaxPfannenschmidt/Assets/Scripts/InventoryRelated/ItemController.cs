@@ -10,7 +10,9 @@ public class ItemController : MonoBehaviour
     private void Awake()
 {
     Item.isInstatiated = false;
+    Item.isDeleted = false;
 
 }
+
 }
 

@@ -18,8 +18,7 @@ public GameObject inventarManager;
     	Debug.Log("Hier ist der Erste:");
         Debug.Log(inventarManager);
     }
-
-    //Output the new state of the Toggle into Text
+// Diese Funktion wird jedem einzelnen Toggle Object angefügt. Wenn sich der Wert des Toggel verändert wird entsprechend der Variable thistag welche für jedes Toggle Object definiert wird, über das script ToggleManager die entsprechende UI Gruppe angezeigt.
     public void ToggleValueChanged(Toggle change)
     {
         if (toggle.isOn == true)
@@ -35,8 +34,21 @@ public GameObject inventarManager;
             tm.SelectPostkarte(); 
             }else if(thisTag =="BriefanMama")
             {
-               ToggleManager tm = inventarManager.GetComponent<ToggleManager>();
+            ToggleManager tm = inventarManager.GetComponent<ToggleManager>();
             tm.SelectBriefanMama();  
+            }else if(thisTag =="EmmasTagebuchGeöffnet")
+            {
+            ToggleManager tm = inventarManager.GetComponent<ToggleManager>();
+            tm.SelectEmmasTagebuchGeöffnet();  
+            }else if(thisTag =="EmmasTagebuchGeschlossen")
+            {
+            ToggleManager tm = inventarManager.GetComponent<ToggleManager>();
+            tm.SelectEmmasTagebuchGeschlossen();  
+            }
+            else if(thisTag =="EmmasTagebuchGeöffnet")
+            {
+            ToggleManager tm = inventarManager.GetComponent<ToggleManager>();
+            tm.SelectEmmasTagebuchGeöffnet();  
             }
         }else if (toggle.isOn != true)
         {

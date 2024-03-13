@@ -9,11 +9,7 @@ public class Item : ScriptableObject
 {
     public int id;
     public GameObject title;
-    //public GameObject description;
-    //public GameObject text;
-    //public GameObject model;
+    //public GameObject titleInstantiated = null;
     public bool isInstatiated;
-   // public bool isSelected;
-
-    //public string Itemtag;
+    public bool isDeleted;
 }

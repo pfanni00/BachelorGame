@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 345601360c05e7245be5d143d7b6c41f, type: 3}
-  m_Name: EmmastagebuchGeschlossen
+  m_Name: "Schl\xFCssel"
   m_EditorClassIdentifier: 
-  id: 10
-  title: {fileID: 3181581888450025173, guid: 876ecb383472d154d842a05713a61bab, type: 3}
+  id: 0
+  title: {fileID: 0}
   isInstatiated: 0

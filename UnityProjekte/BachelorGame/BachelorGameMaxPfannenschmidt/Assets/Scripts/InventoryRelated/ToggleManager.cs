@@ -6,6 +6,8 @@ public class ToggleManager : MonoBehaviour
 {
     public GameObject[] UITabletten;
     public GameObject[] UIPostkarte;
+    public GameObject[] UIEmmasTagebuchGeschlossen;
+    public GameObject[] UIEmmasTagebuchGeöffnet;
 
     public GameObject[] UIBriefanMama;
     // Start is called before the first frame update
@@ -13,10 +15,7 @@ public class ToggleManager : MonoBehaviour
     public void SelectTabletten()
     {
         Debug.Log("SelectTabletten");
-        foreach (GameObject uitabletten in UITabletten)
-        {
-            uitabletten.SetActive(true);
-        }
+        
         foreach (GameObject uipostkarte in UIPostkarte)
         {
             uipostkarte.SetActive(false);
@@ -24,6 +23,18 @@ public class ToggleManager : MonoBehaviour
         foreach (GameObject uibriefanmama in UIBriefanMama)
         {
             uibriefanmama.SetActive(false);
+        }
+        foreach (GameObject uiemmastagebuchgeöffnet in UIEmmasTagebuchGeöffnet)
+        {
+            uiemmastagebuchgeöffnet.SetActive(false);
+        }
+        foreach (GameObject uiemmastagebuchgeschlossen in UIEmmasTagebuchGeschlossen)
+        {
+            uiemmastagebuchgeschlossen.SetActive(false);
+        }
+        foreach (GameObject uitabletten in UITabletten)
+        {
+            uitabletten.SetActive(true);
         }
         
     }
@@ -36,13 +47,22 @@ public class ToggleManager : MonoBehaviour
         {
             uitabletten.SetActive(false);
         }
-        foreach (GameObject uipostkarte in UIPostkarte)
-        {
-            uipostkarte.SetActive(true);
-        }
+
          foreach (GameObject uibriefanmama in UIBriefanMama)
         {
             uibriefanmama.SetActive(false);
+        }
+                foreach (GameObject uiemmastagebuchgeöffnet in UIEmmasTagebuchGeöffnet)
+        {
+            uiemmastagebuchgeöffnet.SetActive(false);
+        }
+                         foreach (GameObject uiemmastagebuchgeschlossen in UIEmmasTagebuchGeschlossen)
+        {
+            uiemmastagebuchgeschlossen.SetActive(false);
+        }
+                foreach (GameObject uipostkarte in UIPostkarte)
+        {
+            uipostkarte.SetActive(true);
         }
     }
 
@@ -56,10 +76,66 @@ public class ToggleManager : MonoBehaviour
         {
             uipostkarte.SetActive(false);
         }
+                foreach (GameObject uiemmastagebuchgeöffnet in UIEmmasTagebuchGeöffnet)
+        {
+            uiemmastagebuchgeöffnet.SetActive(false);
+        }
+                         foreach (GameObject uiemmastagebuchgeschlossen in UIEmmasTagebuchGeschlossen)
+        {
+            uiemmastagebuchgeschlossen.SetActive(false);
+        }
          foreach (GameObject uibriefanmama in UIBriefanMama)
         {
             uibriefanmama.SetActive(true);
         }
+        
     }
 
+public void SelectEmmasTagebuchGeöffnet()
+    {
+       foreach (GameObject uitabletten in UITabletten)
+        {
+            uitabletten.SetActive(false);
+        }
+        foreach (GameObject uipostkarte in UIPostkarte)
+        {
+            uipostkarte.SetActive(false);
+        }
+         foreach (GameObject uibriefanmama in UIBriefanMama)
+        {
+            uibriefanmama.SetActive(false);
+        }
+                 foreach (GameObject uiemmastagebuchgeschlossen in UIEmmasTagebuchGeschlossen)
+        {
+            uiemmastagebuchgeschlossen.SetActive(false);
+        }
+        foreach (GameObject uiemmastagebuchgeöffnet in UIEmmasTagebuchGeöffnet)
+        {
+            uiemmastagebuchgeöffnet.SetActive(true);
+        }
+    }
+
+public void SelectEmmasTagebuchGeschlossen()
+    {
+       foreach (GameObject uitabletten in UITabletten)
+        {
+            uitabletten.SetActive(false);
+        }
+        foreach (GameObject uipostkarte in UIPostkarte)
+        {
+            uipostkarte.SetActive(false);
+        }
+         foreach (GameObject uibriefanmama in UIBriefanMama)
+        {
+            uibriefanmama.SetActive(false);
+        }
+        foreach (GameObject uiemmastagebuchgeöffnet in UIEmmasTagebuchGeöffnet)
+        {
+            uiemmastagebuchgeöffnet.SetActive(false);
+        }
+         foreach (GameObject uiemmastagebuchgeschlossen in UIEmmasTagebuchGeschlossen)
+        {
+            uiemmastagebuchgeschlossen.SetActive(true);
+        }
+    }
 }
