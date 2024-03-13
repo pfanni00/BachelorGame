@@ -1,6 +1,6 @@
 Inventar:
 - Scrollbar für texte
-	-Maske fürScroll view verkleinern 
+	-Maske für Scroll view verkleinern 
 - Logic der Kombinierten Items
 - Sound für Emmas Tagebuch
 - Verbesserung der Item Collection 
