@@ -3,17 +3,23 @@ using UnityEngine.UI;
 
 public class UIScrollbarHandleSize : MonoBehaviour
 {
-public Scrollbar scrollbar;
-public float size = 0.2f;
+	public ScrollRect scrollRect;
+    public Slider slider;
 
-public void OnValueChangeSize()
-{
-    scrollbar.size = size;
-}
+    void Start()
+    {
+        slider.onValueChanged.AddListener(OnSliderValueChanged);
+    }
 
-private void LateUpdate()
-{
-    enabled = false;
-    OnValueChangeSize();
-}
+    void OnSliderValueChanged(float value)
+    {
+        if (scrollRect.horizontal)
+        {
+            scrollRect.horizontalNormalizedPosition = value;
+        }
+        else if (scrollRect.vertical)
+        {
+            scrollRect.verticalNormalizedPosition = value;
+        }
+    }
 }
