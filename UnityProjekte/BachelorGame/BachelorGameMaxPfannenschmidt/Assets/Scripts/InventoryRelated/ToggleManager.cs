@@ -8,7 +8,8 @@ public class ToggleManager : MonoBehaviour
     public GameObject[] UIPostkarte;
     public GameObject[] UIEmmasTagebuchGeschlossen;
     public GameObject[] UIEmmasTagebuchGeöffnet;
-
+    public GameObject[] UIZerissenerZettel;
+    public GameObject[] UIPatientenaktie;
     public GameObject[] UIBriefanMama;
     // Start is called before the first frame update
     
@@ -32,6 +33,14 @@ public class ToggleManager : MonoBehaviour
         {
             uiemmastagebuchgeschlossen.SetActive(false);
         }
+        foreach (GameObject uizerissenerzettel in UIZerissenerZettel)
+        {
+            uizerissenerzettel.SetActive(false);
+        }
+        foreach (GameObject uipatientenaktie in UIPatientenaktie)
+        {
+            uipatientenaktie.SetActive(false);
+        }
         foreach (GameObject uitabletten in UITabletten)
         {
             uitabletten.SetActive(true);
@@ -52,13 +61,21 @@ public class ToggleManager : MonoBehaviour
         {
             uibriefanmama.SetActive(false);
         }
-                foreach (GameObject uiemmastagebuchgeöffnet in UIEmmasTagebuchGeöffnet)
+        foreach (GameObject uiemmastagebuchgeöffnet in UIEmmasTagebuchGeöffnet)
         {
             uiemmastagebuchgeöffnet.SetActive(false);
         }
-                         foreach (GameObject uiemmastagebuchgeschlossen in UIEmmasTagebuchGeschlossen)
+        foreach (GameObject uiemmastagebuchgeschlossen in UIEmmasTagebuchGeschlossen)
         {
             uiemmastagebuchgeschlossen.SetActive(false);
+        }
+         foreach (GameObject uizerissenerzettel in UIZerissenerZettel)
+        {
+            uizerissenerzettel.SetActive(false);
+        }
+        foreach (GameObject uipatientenaktie in UIPatientenaktie)
+        {
+            uipatientenaktie.SetActive(false);
         }
                 foreach (GameObject uipostkarte in UIPostkarte)
         {
@@ -83,6 +100,14 @@ public class ToggleManager : MonoBehaviour
                          foreach (GameObject uiemmastagebuchgeschlossen in UIEmmasTagebuchGeschlossen)
         {
             uiemmastagebuchgeschlossen.SetActive(false);
+        }
+         foreach (GameObject uizerissenerzettel in UIZerissenerZettel)
+        {
+            uizerissenerzettel.SetActive(false);
+        }
+        foreach (GameObject uipatientenaktie in UIPatientenaktie)
+        {
+            uipatientenaktie.SetActive(false);
         }
          foreach (GameObject uibriefanmama in UIBriefanMama)
         {
@@ -109,6 +134,14 @@ public void SelectEmmasTagebuchGeöffnet()
         {
             uiemmastagebuchgeschlossen.SetActive(false);
         }
+         foreach (GameObject uizerissenerzettel in UIZerissenerZettel)
+        {
+            uizerissenerzettel.SetActive(false);
+        }
+        foreach (GameObject uipatientenaktie in UIPatientenaktie)
+        {
+            uipatientenaktie.SetActive(false);
+        }
         foreach (GameObject uiemmastagebuchgeöffnet in UIEmmasTagebuchGeöffnet)
         {
             uiemmastagebuchgeöffnet.SetActive(true);
@@ -133,9 +166,80 @@ public void SelectEmmasTagebuchGeschlossen()
         {
             uiemmastagebuchgeöffnet.SetActive(false);
         }
+         foreach (GameObject uizerissenerzettel in UIZerissenerZettel)
+        {
+            uizerissenerzettel.SetActive(false);
+        }
+        foreach (GameObject uipatientenaktie in UIPatientenaktie)
+        {
+            uipatientenaktie.SetActive(false);
+        }
          foreach (GameObject uiemmastagebuchgeschlossen in UIEmmasTagebuchGeschlossen)
         {
             uiemmastagebuchgeschlossen.SetActive(true);
+        }
+    }
+
+public void SelectZerissenerZettel()
+    {
+       foreach (GameObject uitabletten in UITabletten)
+        {
+            uitabletten.SetActive(false);
+        }
+        foreach (GameObject uipostkarte in UIPostkarte)
+        {
+            uipostkarte.SetActive(false);
+        }
+         foreach (GameObject uibriefanmama in UIBriefanMama)
+        {
+            uibriefanmama.SetActive(false);
+        }
+        foreach (GameObject uiemmastagebuchgeöffnet in UIEmmasTagebuchGeöffnet)
+        {
+            uiemmastagebuchgeöffnet.SetActive(false);
+        }
+        foreach (GameObject uipatientenaktie in UIPatientenaktie)
+        {
+            uipatientenaktie.SetActive(false);
+        }
+         foreach (GameObject uiemmastagebuchgeschlossen in UIEmmasTagebuchGeschlossen)
+        {
+            uiemmastagebuchgeschlossen.SetActive(false);
+        }
+        foreach (GameObject uizerissenerzettel in UIZerissenerZettel)
+        {
+            uizerissenerzettel.SetActive(true);
+        }
+    }
+public void SelectPatientenaktie()
+    {
+       foreach (GameObject uitabletten in UITabletten)
+        {
+            uitabletten.SetActive(false);
+        }
+        foreach (GameObject uipostkarte in UIPostkarte)
+        {
+            uipostkarte.SetActive(false);
+        }
+         foreach (GameObject uibriefanmama in UIBriefanMama)
+        {
+            uibriefanmama.SetActive(false);
+        }
+        foreach (GameObject uiemmastagebuchgeöffnet in UIEmmasTagebuchGeöffnet)
+        {
+            uiemmastagebuchgeöffnet.SetActive(false);
+        }
+         foreach (GameObject uiemmastagebuchgeschlossen in UIEmmasTagebuchGeschlossen)
+        {
+            uiemmastagebuchgeschlossen.SetActive(false);
+        }
+        foreach (GameObject uizerissenerzettel in UIZerissenerZettel)
+        {
+            uizerissenerzettel.SetActive(false);
+        }
+        foreach (GameObject uipatientenaktie in UIPatientenaktie)
+        {
+            uipatientenaktie.SetActive(true);
         }
     }
 }

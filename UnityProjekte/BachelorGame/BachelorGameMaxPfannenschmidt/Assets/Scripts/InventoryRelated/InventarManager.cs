@@ -20,6 +20,7 @@ public class InventarManager : MonoBehaviour
    
     private Toggle newToggle; 
 
+
     private void Awake()
     {
         Instance = this;
@@ -65,6 +66,9 @@ public class InventarManager : MonoBehaviour
           newToggle.isOn = true;
         
         }}
+
+    
+      
     }
     
 

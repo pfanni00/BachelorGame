@@ -50,6 +50,16 @@ public GameObject inventarManager;
             ToggleManager tm = inventarManager.GetComponent<ToggleManager>();
             tm.SelectEmmasTagebuchGeöffnet();  
             }
+            else if (thisTag=="ZerissenerZettel")
+            {
+            ToggleManager tm = inventarManager.GetComponent<ToggleManager>();
+            tm.SelectZerissenerZettel();       
+            }
+            else if (thisTag=="Patientenaktie")
+            {
+            ToggleManager tm = inventarManager.GetComponent<ToggleManager>();
+            tm.SelectPatientenaktie();       
+            }
         }else if (toggle.isOn != true)
         {
             
