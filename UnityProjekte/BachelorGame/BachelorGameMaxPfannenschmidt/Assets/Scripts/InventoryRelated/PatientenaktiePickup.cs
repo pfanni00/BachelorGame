@@ -11,7 +11,10 @@ public GameObject PatientenaktieLogicGO;
     void Pickup()
     {
      PatientenaktieLogic pl = PatientenaktieLogicGO.GetComponent<PatientenaktieLogic>();
-            pl.PatientenaktieStates();     }
+            pl.PatientenaktieStates();
+                  Destroy(gameObject);
+
+    }
 
     private void OnMouseDown()
     {

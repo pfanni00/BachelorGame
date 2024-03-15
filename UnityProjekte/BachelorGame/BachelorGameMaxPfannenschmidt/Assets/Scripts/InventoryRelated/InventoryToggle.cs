@@ -55,7 +55,7 @@ public GameObject inventarManager;
             ToggleManager tm = inventarManager.GetComponent<ToggleManager>();
             tm.SelectZerissenerZettel();       
             }
-            else if (thisTag=="Patientenaktie")
+            else if (thisTag=="MeinePatientenaktie")
             {
             ToggleManager tm = inventarManager.GetComponent<ToggleManager>();
             tm.SelectPatientenaktie();       
