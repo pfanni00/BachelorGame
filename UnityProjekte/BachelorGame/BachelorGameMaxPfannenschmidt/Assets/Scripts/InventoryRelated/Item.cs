@@ -12,4 +12,6 @@ public class Item : ScriptableObject
     //public GameObject titleInstantiated = null;
     public bool isInstatiated;
     public bool isDeleted;
+
+    public GameObject hoverTitle;
 }

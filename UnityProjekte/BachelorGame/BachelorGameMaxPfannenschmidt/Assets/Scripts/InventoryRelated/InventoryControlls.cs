@@ -8,6 +8,7 @@ public class InventoryControlls : MonoBehaviour
     public bool InventoryisOpen;
     public GameObject ItemUI;
 
+    public GameObject GameUI;
     public GameObject volumeController;
 
 
@@ -39,6 +40,7 @@ public class InventoryControlls : MonoBehaviour
     {
         InventoryisOpen = false;
         ItemUI.SetActive(false);
+        GameUI.SetActive(true);
         FPSController fps = gameObject.GetComponent<FPSController>();
         fps.unlockMovement();
         BackgroundBlur bg = volumeController.GetComponent<BackgroundBlur>();
@@ -49,6 +51,7 @@ public class InventoryControlls : MonoBehaviour
     {
         InventoryisOpen = true;
         ItemUI.SetActive(true);
+        GameUI.SetActive(false);
         FPSController fps = gameObject.GetComponent<FPSController>();
         fps.lockMovement();
         BackgroundBlur bg = volumeController.GetComponent<BackgroundBlur>();
