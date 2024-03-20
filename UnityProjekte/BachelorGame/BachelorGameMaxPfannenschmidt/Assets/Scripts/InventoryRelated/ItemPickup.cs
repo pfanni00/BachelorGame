@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour, IInteractable {
     public Item Item;
+    public GameObject HoverUi;
+    
     
    public void Interact()
     {
@@ -11,5 +13,14 @@ public class ItemPickup : MonoBehaviour, IInteractable {
         Destroy(gameObject);
     }
 
+    public void HoverInteract()
+    {
+        HoverUi.SetActive(true);
+    }
+
+public void HoverInteractOFF()
+    {
+        HoverUi.SetActive(false);
+    }
 }
 
