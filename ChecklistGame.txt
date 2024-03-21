@@ -1,8 +1,6 @@
 Inventar:
-- Scrollbar für texte
-	-Maske für Scroll view verkleinern 
+- ein NEU Symbol einbauen das noch nicht angesehene Items im Inventar Markiert. 
 - Logic der Kombinierten Items
 - Sound für Emmas Tagebuch
 - Verbesserung der Item Collection 
-	- beim Hovern auf item Objecten cursor und Item Name anzeigen. 
 	- Hitbox der Items beim Einsammeln vergrößern 

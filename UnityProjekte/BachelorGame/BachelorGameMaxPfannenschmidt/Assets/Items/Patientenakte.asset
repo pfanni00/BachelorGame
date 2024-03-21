@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 8
   title: {fileID: 203300822529441661, guid: 00b5dee328037ab4a9258b87922f7172, type: 3}
-  isInstatiated: 0
+  isNew: 0
+  isDeleted: 0
+  Itemtag: MeinePatientenaktie
+  hoverTitle: {fileID: 0}

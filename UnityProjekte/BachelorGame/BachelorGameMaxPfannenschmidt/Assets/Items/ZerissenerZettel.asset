@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   title: {fileID: 3754571860462128328, guid: 02f361d12cbf9354284b999f0b0408ff, type: 3}
-  isInstatiated: 0
+  isNew: 0
   isDeleted: 0
+  Itemtag: ZerissenerZettel
+  hoverTitle: {fileID: 0}

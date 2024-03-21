@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 9
   title: {fileID: 3181581888450025173, guid: 086375ab31417364889ed7022c373650, type: 3}
-  isInstatiated: 0
+  isNew: 1
+  isDeleted: 0
+  Itemtag: "EmmasTagebuchGe\xF6ffnet"
+  hoverTitle: {fileID: 0}

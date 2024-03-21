@@ -9,10 +9,14 @@ public class ItemController : MonoBehaviour
 // stellt sicher das Items beim Start des Spiels als nicht aufgehoben Gelten
     private void Awake()
 {
-    Item.isInstatiated = false;
+    Item.isNew = true;
     Item.isDeleted = false;
-
 }
+
+    public void Select()
+    {
+        Item.isNew = false;
+    }
 
 }
 

@@ -10,8 +10,8 @@ public class Item : ScriptableObject
     public int id;
     public GameObject title;
     //public GameObject titleInstantiated = null;
-    public bool isInstatiated;
+    public bool isNew;
     public bool isDeleted;
-
+    public string Itemtag;
     public GameObject hoverTitle;
 }

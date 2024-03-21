@@ -13,6 +13,46 @@ public class ToggleManager : MonoBehaviour
     public GameObject[] UIBriefanMama;
     // Start is called before the first frame update
     
+       public void SelectItem(string tag)
+{
+           if (tag == "ItemTabletten")
+            {
+            SelectTabletten();
+            
+            }else if(tag =="ItemPostkarte")
+            {
+           SelectPostkarte(); 
+
+            }else if(tag =="BriefanMama")
+            {
+           SelectBriefanMama();  
+            
+            }else if(tag =="EmmasTagebuchGeöffnet")
+            {
+           SelectEmmasTagebuchGeöffnet();
+            
+            }else if(tag =="EmmasTagebuchGeschlossen")
+            {
+            SelectEmmasTagebuchGeschlossen();  
+           
+            }
+            else if(tag =="EmmasTagebuchGeöffnet")
+            {
+            SelectEmmasTagebuchGeöffnet(); 
+           
+            }
+            else if (tag=="ZerissenerZettel")
+            {
+           SelectZerissenerZettel();   
+           
+            }
+            else if (tag=="MeinePatientenaktie")
+            {
+           SelectPatientenaktie();
+                
+            }
+}
+   
     public void SelectTabletten()
     {
         Debug.Log("SelectTabletten");

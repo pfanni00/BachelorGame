@@ -36,7 +36,7 @@ public class InventoryControlls : MonoBehaviour
             }
         }
     }
-    private void closeInventory()
+    public void closeInventory()
     {
         InventoryisOpen = false;
         ItemUI.SetActive(false);
@@ -47,7 +47,7 @@ public class InventoryControlls : MonoBehaviour
         bg.StartFadeOut(); 
     }
     
-    private void openInventory()
+    public void openInventory()
     {
         InventoryisOpen = true;
         ItemUI.SetActive(true);

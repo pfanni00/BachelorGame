@@ -14,7 +14,9 @@ public class InventarManager : MonoBehaviour
 
     private GameObject ItemName;
 
-    private GameObject ID;
+    private GameObject SelectedItem;
+
+    public GameObject NEUicon;
 
     public ToggleGroup toggleGroup; 
    
@@ -28,14 +30,15 @@ public class InventarManager : MonoBehaviour
     // Start is called before the first frame update
     public void Add(Item item)
     {
-        if (item.isInstatiated == false)
-        {
+      
         Items.Add(item);
-
+        
         ListItems();
+        
+        SelectNewItem(item);
        // toggleGroupController sn = NameParent.GetComponent<toggleGroupController>();
        // sn.AddToggle();
-        }
+        
     }
 
     public void Remove(Item item)
@@ -59,15 +62,32 @@ public class InventarManager : MonoBehaviour
             ItemName = item.title;
             GameObject IN = Instantiate(ItemName, NameParent) as GameObject;
 
+           if(item.isNew == true)
+            {
+                IN = SelectedItem;
+            }
         
         //fügt den ItemNamen der ToggleGroup hinzu
           newToggle = IN.GetComponent<Toggle>(); 
           newToggle.group = toggleGroup;
           newToggle.isOn = true;
         
-        }}
-
+        }
+    {
+         
+           
+            }
+    }
     
+    void SelectNewItem(Item item)
+    {
+         ToggleManager it = gameObject.GetComponent<ToggleManager>();
+            it.SelectItem(item.Itemtag);  
+            item.isNew = false;
+    }
+
+
+   
       
     }
     

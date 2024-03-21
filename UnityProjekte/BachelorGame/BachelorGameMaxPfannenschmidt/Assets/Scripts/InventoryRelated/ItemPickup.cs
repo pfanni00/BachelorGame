@@ -5,12 +5,15 @@ using UnityEngine;
 public class ItemPickup : MonoBehaviour, IInteractable {
     public Item Item;
     public GameObject HoverUi;
+    public GameObject Player;
     
     
    public void Interact()
     {
         InventarManager.Instance.Add(Item);
         Destroy(gameObject);
+        InventoryControlls ic = Player.GetComponent<InventoryControlls>();
+        ic.openInventory();  
     }
 
     public void HoverInteract()
