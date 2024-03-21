@@ -8,11 +8,11 @@ public class DialogsystemManager : MonoBehaviour
     bool varianteSD;
     // Controlliert ob variante Schlau oder Dumm aktiv ist.
 
-    bool ItemDialogoptionenAktiv
+    bool ItemDialogoptionenAktiv;
     // erlaubt es ItemDialogoptionen 
     GameObject DialogSystemUI;
     GameObject DialogOption1a;
-    GameObjectDialogOption1b; 
+    GameObject DialogOption1b; 
     // Start is called before the first frame update
     void Start()
     {
