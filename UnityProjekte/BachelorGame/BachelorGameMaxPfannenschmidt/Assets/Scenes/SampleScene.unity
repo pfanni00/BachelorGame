@@ -5657,7 +5657,7 @@ GameObject:
   - component: {fileID: 1183657773}
   - component: {fileID: 1183657772}
   - component: {fileID: 1183657771}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5677,6 +5677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PatientenaktieLogicGO: {fileID: 1819741882}
+  HoverUi: {fileID: 728101393}
 --- !u!65 &1183657772
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6764,7 +6765,7 @@ GameObject:
   - component: {fileID: 1504439151}
   - component: {fileID: 1504439150}
   - component: {fileID: 1504439149}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6784,6 +6785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PatientenaktieLogicGO: {fileID: 1819741882}
+  HoverUi: {fileID: 728101393}
 --- !u!65 &1504439150
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7659,6 +7661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ZerissenerZettel: {fileID: 11400000, guid: da2a325fc1effa74da37020a8fa5f696, type: 2}
   Patientenaktie: {fileID: 11400000, guid: 2eb6bb4614d075544ad2be6013b06b91, type: 2}
+  Player: {fileID: 156214819}
 --- !u!1 &1865488899
 GameObject:
   m_ObjectHideFlags: 0
@@ -7860,6 +7863,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4666845268911591987, guid: b8f080472b22c1b40b427a06d0d55e50,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 156214819}
+    - target: {fileID: -4666845268911591987, guid: b8f080472b22c1b40b427a06d0d55e50,
+        type: 3}
+      propertyPath: HoverUi
+      value: 
+      objectReference: {fileID: 728101393}
     - target: {fileID: 2561376512280000249, guid: b8f080472b22c1b40b427a06d0d55e50,
         type: 3}
       propertyPath: m_LocalPosition.x

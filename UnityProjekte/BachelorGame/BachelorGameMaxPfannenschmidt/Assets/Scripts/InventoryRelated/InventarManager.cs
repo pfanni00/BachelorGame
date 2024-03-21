@@ -35,7 +35,6 @@ public class InventarManager : MonoBehaviour
         
         ListItems();
         
-        SelectNewItem(item);
        // toggleGroupController sn = NameParent.GetComponent<toggleGroupController>();
        // sn.AddToggle();
         
@@ -62,16 +61,18 @@ public class InventarManager : MonoBehaviour
             ItemName = item.title;
             GameObject IN = Instantiate(ItemName, NameParent) as GameObject;
 
-           if(item.isNew == true)
-            {
-                IN = SelectedItem;
-            }
+           
         
         //fügt den ItemNamen der ToggleGroup hinzu
           newToggle = IN.GetComponent<Toggle>(); 
           newToggle.group = toggleGroup;
           newToggle.isOn = true;
-        
+        if (item.isNew == true)
+        {
+       SelectNewItem(item);
+       item.isNew = false;
+        }
+
         }
     {
          

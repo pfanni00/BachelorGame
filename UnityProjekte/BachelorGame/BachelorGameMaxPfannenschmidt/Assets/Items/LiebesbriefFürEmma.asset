@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   title: {fileID: 7139272502773248508, guid: 2ce087b6f57d1f148b9b231c05599add, type: 3}
-  isInstatiated: 0
+  isNew: 1
+  isDeleted: 0
+  Itemtag: 
+  hoverTitle: {fileID: 0}

@@ -8,6 +8,7 @@ public class PatientenaktieLogic : MonoBehaviour
     public Item ZerissenerZettel;
     public Item Patientenaktie;
 
+    public GameObject Player;
     private int patientenaktieState;
 
 void Start()
@@ -20,10 +21,15 @@ void Start()
             if (patientenaktieState == 1)
             {
                 InventarManager.Instance.Add(ZerissenerZettel);
+                InventoryControlls ic = Player.GetComponent<InventoryControlls>();
+                ic.openInventory();  
+
             }else if (patientenaktieState == 2)
             {
-                 InventarManager.Instance.Remove(ZerissenerZettel);
-                 InventarManager.Instance.Add(Patientenaktie);
+                InventoryControlls ic = Player.GetComponent<InventoryControlls>();
+                ic.openInventory();  
+                InventarManager.Instance.Remove(ZerissenerZettel);
+                InventarManager.Instance.Add(Patientenaktie);
             }
         }
 }

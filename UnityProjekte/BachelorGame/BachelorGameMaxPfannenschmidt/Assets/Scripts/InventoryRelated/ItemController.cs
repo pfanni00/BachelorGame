@@ -12,11 +12,11 @@ public class ItemController : MonoBehaviour
     Item.isNew = true;
     Item.isDeleted = false;
 }
-
+/* 
     public void Select()
     {
         Item.isNew = false;
-    }
+    }*/
 
 }
 
