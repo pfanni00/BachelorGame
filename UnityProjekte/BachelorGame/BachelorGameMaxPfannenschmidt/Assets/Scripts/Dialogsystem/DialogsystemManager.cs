@@ -29,6 +29,8 @@ public class DialogsystemManager : MonoBehaviour
     public GameObject DOIchWäreMeinLebenLangEineLast;
     public GameObject DOIchWillEmmaNichtVerlieren;
 
+    public GameObject LeaveButton;
+
     // Items welche mit Dialogsystem Interagieren
     public Item EmmasTagebuch;
     public Item BriefanMama;
@@ -67,6 +69,7 @@ public class DialogsystemManager : MonoBehaviour
         DOFütterDieKatzeIsSpawned = false;
         DOFragNachEmmasTagebuchIsSpawned = false;
         DOFragNachEmmasBriefIsSpawned = false;
+        LeaveButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -113,6 +116,8 @@ public class DialogsystemManager : MonoBehaviour
         
         if (DialogState >= 4)
         {
+            LeaveButton.SetActive(true);
+
             if (InventarManager.Instance.Items.Contains(BriefanMama) && DOFragNachEmmasBriefIsSpawned == false && DOFragNachEmmasBriefWasSelected == false)
                 {
                 GameObject DO3 = Instantiate(DOFragNachEmmasBrief, DOParent) as GameObject;
