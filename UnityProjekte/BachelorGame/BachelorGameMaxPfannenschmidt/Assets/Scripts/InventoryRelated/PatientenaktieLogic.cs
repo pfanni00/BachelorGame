@@ -14,6 +14,8 @@ public class PatientenaktieLogic : MonoBehaviour
 void Start()
 {
     patientenaktieState = 0;
+    ZerissenerZettel.isNew = true;
+    Patientenaktie.isNew = true;
 }
     public void PatientenaktieStates()
         {

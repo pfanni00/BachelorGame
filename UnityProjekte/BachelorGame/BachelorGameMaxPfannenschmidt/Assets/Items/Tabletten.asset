@@ -16,5 +16,5 @@ MonoBehaviour:
   title: {fileID: 3754571860462128328, guid: 16da00c3837749d419ebfed9d6dbbc14, type: 3}
   isNew: 1
   isDeleted: 0
-  Itemtag: 
+  Itemtag: ItemTabletten
   hoverTitle: {fileID: 0}

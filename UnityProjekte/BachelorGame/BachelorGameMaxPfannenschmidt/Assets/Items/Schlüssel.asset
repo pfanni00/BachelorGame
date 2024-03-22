@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   title: {fileID: 0}
-  isInstatiated: 0
+  isNew: 1
+  isDeleted: 0
+  Itemtag: 
+  hoverTitle: {fileID: 0}
