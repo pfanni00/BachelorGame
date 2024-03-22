@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DialogsystemManager : MonoBehaviour
 {
+    public static DialogsystemManager Instance;
     public int DialogState;
     private bool varianteSD;
     // Controlliert ob variante Schlau oder Dumm aktiv ist.
@@ -27,13 +28,25 @@ public class DialogsystemManager : MonoBehaviour
     public GameObject DOFragNachKoma;
     public GameObject DOIchWäreMeinLebenLangEineLast;
     public GameObject DOIchWillEmmaNichtVerlieren;
+
+    // Items welche mit Dialogsystem Interagieren
+    public Item EmmasTagebuch;
+    public Item BriefanMama;
+    public Item Patientenakte;
+    public Item Tunfischdose;
     
     // Start is called before the first frame update
+    
+    
+        private void Awake()
+    {
+        Instance = this;
+    }
+
     void Start()
     {
         DialogState = 1;
-        DOPrefabsareSpawned = false;
-        
+        DOPrefabsareSpawned = false; 
     }
 
     // Update is called once per frame
@@ -50,15 +63,41 @@ public class DialogsystemManager : MonoBehaviour
         {
         GameObject DO1 = Instantiate(DODannRedeIchJetztMitEinerKatze, DOParent) as GameObject;
         GameObject DO2 = Instantiate(DODasIstVerrücktIchMussAufwachen, DOParent) as GameObject;
+        DOPrefabsareSpawned = true;
+
         }
         else if (DialogState == 3 && DOPrefabsareSpawned == false)
         {
         GameObject DO1 = Instantiate(DOWOIstEmma, DOParent) as GameObject;
         GameObject DO2 = Instantiate(DOWieBinIchHierhergekommen, DOParent) as GameObject;
+        DOPrefabsareSpawned = true;
+
         }
         else if (DialogState == 4 && DOPrefabsareSpawned == false)
         {
-
+        GameObject DO1 = Instantiate(DOBinIchTod, DOParent) as GameObject;
+        GameObject DO2 = Instantiate(DOUndWasJetzt, DOParent) as GameObject;
+        
+          /*  if (InventarManager.Instance.Items.Contains(BriefanMama))
+                {
+                GameObject DO3 = Instantiate(DOFragNachEmmasBrief, DOParent) as GameObject;
+                }
+            
+            if (InventarManager.Instance.Items.Contains(EmmastagebuchGeschlossen))
+                {
+                GameObject DO4 = Instantiate(DOFragNachEmmasTagebuch, DOParent) as GameObject;
+                }
+            
+            if (InventarManager.Instance.Items.Contains(Patientenakte))
+                {
+                GameObject DO5 = Instantiate(DOFragNachKoma, DOParent) as GameObject;
+                }
+            
+            if (InventarManager.Instance.Items.Contains(Tunfischdose))
+                {
+                GameObject DO6 = Instantiate(DOFütterDieKatze, DOParent) as GameObject;
+                }*/
+        
         }
     }
 
@@ -71,8 +110,9 @@ public class DialogsystemManager : MonoBehaviour
         Destroy(child.gameObject);
     }
 
-    DialogState = DialogState +1;
     DOPrefabsareSpawned = false;
+        DialogState = DialogState +1;
+
     }
 
 //Dialogoptionen der ersten Phase: 

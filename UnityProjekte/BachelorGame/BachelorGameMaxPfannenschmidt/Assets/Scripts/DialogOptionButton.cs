@@ -5,14 +5,12 @@ using System.Collections.Generic;
 
 public class DialogOptionButton : MonoBehaviour {
 	public Button thisButton;
-    public GameObject DialogsystemManagerGO;
     public string DOName;
     //Name der Dialogoption die dieser Button Betätigt
 
 	void Awake () {
 		Button btn = thisButton.GetComponent<Button>();
 		btn.onClick.AddListener(TaskOnClick);
-        DialogsystemManagerGO = GameObject.Find("DialogsystemManager");
 
 	}
 
@@ -20,74 +18,60 @@ public class DialogOptionButton : MonoBehaviour {
 		Debug.Log ("You have clicked the button!");
     if (DOName == "DOWarumKannstDuReden")
     {
-        DialogsystemManager DM = DialogsystemManagerGO.GetComponent<DialogsystemManager>();
-        DM.SelectDOWarumKannstDuReden();  
+        DialogsystemManager.Instance.SelectDOWarumKannstDuReden();  
     }
     else if(DOName == "DODasMussEinTraumSein")
     {
-        DialogsystemManager DM = DialogsystemManagerGO.GetComponent<DialogsystemManager>();
-        DM.SelectDODasMussEinTraumSein();  
+        DialogsystemManager.Instance.SelectDODasMussEinTraumSein();  
     }
     else if(DOName == "DODasIstVerrücktIchMussAufwachen")
     {
-        DialogsystemManager DM = DialogsystemManagerGO.GetComponent<DialogsystemManager>();
-        DM.SelectDODasIstVerrücktIchMussAufwachen();  
+        DialogsystemManager.Instance.SelectDODasIstVerrücktIchMussAufwachen();  
     }
     else if(DOName == "DODannRedeIchJetztMitEinerKatze")
     {
-        DialogsystemManager DM = DialogsystemManagerGO.GetComponent<DialogsystemManager>();
-        DM.SelectDODannRedeIchWohlMitEinerKatze();  
+        DialogsystemManager.Instance.SelectDODannRedeIchWohlMitEinerKatze();  
     }
     else if(DOName == "DOWOIstEmma")
     {
-        DialogsystemManager DM = DialogsystemManagerGO.GetComponent<DialogsystemManager>();
-        DM.SelectDOWoistEmma();  
+        DialogsystemManager.Instance.SelectDOWoistEmma();  
     }
     else if(DOName == "DOWieBinIchHierhergekommen")
     {
-        DialogsystemManager DM = DialogsystemManagerGO.GetComponent<DialogsystemManager>();
-        DM.SelectDOWieBinIchHierhergekommen();  
+        DialogsystemManager.Instance.SelectDOWieBinIchHierhergekommen();  
     }
     else if(DOName == "DOBinIchTod")
     {
-        DialogsystemManager DM = DialogsystemManagerGO.GetComponent<DialogsystemManager>();
-        DM.SelectDOBinIchTod();  
+        DialogsystemManager.Instance.SelectDOBinIchTod();  
     }
     else if(DOName == "DOUndWasJetzt")
     {
-        DialogsystemManager DM = DialogsystemManagerGO.GetComponent<DialogsystemManager>();
-        DM.SelectDOUndWasJetzt();  
+        DialogsystemManager.Instance.SelectDOUndWasJetzt();  
     }
 
      else if(DOName == "DOFragNachEmmasTagebuch")
     {
-        DialogsystemManager DM = DialogsystemManagerGO.GetComponent<DialogsystemManager>();
-        DM.SelectDOFragNachEmmasTagebuch();  
+        DialogsystemManager.Instance.SelectDOFragNachEmmasTagebuch();  
     }
      else if(DOName == "DOFütterDieKatze")
     {
-        DialogsystemManager DM = DialogsystemManagerGO.GetComponent<DialogsystemManager>();
-        DM.SelectDOFütterDieKatze();  
+        DialogsystemManager.Instance.SelectDOFütterDieKatze();  
     }
     else if(DOName == "DOFragNachEmmasBrief")
     {
-        DialogsystemManager DM = DialogsystemManagerGO.GetComponent<DialogsystemManager>();
-        DM.SelectDOFragNachEmmasBrief();  
+        DialogsystemManager.Instance.SelectDOFragNachEmmasBrief();  
     }
     else if(DOName == "DOFragNachKoma")
     {
-        DialogsystemManager DM = DialogsystemManagerGO.GetComponent<DialogsystemManager>();
-        DM.SelectDOFragNachKoma();  
+        DialogsystemManager.Instance.SelectDOFragNachKoma();  
     }
     else if(DOName == "DOIchWäreMeinLebenLangEineLast")
     {
-        DialogsystemManager DM = DialogsystemManagerGO.GetComponent<DialogsystemManager>();
-        DM.SelectDOIchWäreMeinLebenLangEineLast();  
+        DialogsystemManager.Instance.SelectDOIchWäreMeinLebenLangEineLast();  
     }
     else if(DOName == "DOIchWillEmmaNichtVerlieren")
     {
-        DialogsystemManager DM = DialogsystemManagerGO.GetComponent<DialogsystemManager>();
-        DM.SelectDOIchWillEmmaNichtVerlieren();  
+        DialogsystemManager.Instance.SelectDOIchWillEmmaNichtVerlieren();  
     }
     
     Destroy(gameObject);
