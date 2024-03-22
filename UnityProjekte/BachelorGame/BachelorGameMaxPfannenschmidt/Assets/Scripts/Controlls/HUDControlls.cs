@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryControlls : MonoBehaviour
-{
+public class HUDControlls : MonoBehaviour
+{// Dieses Script verwaltet die Zustände der Verschiedenen Menüs im Spiel wie Inventar oder Dialogsystem
     public bool Inventroryisuseabale;
     public bool InventoryisOpen;
     public GameObject ItemUI;
-
     public GameObject GameUI;
     public GameObject volumeController;
 

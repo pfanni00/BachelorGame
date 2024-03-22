@@ -16,7 +16,7 @@ public class SchlüsselPickup : MonoBehaviour, IInteractable {
         InventarManager.Instance.Remove(tagebuchGeschlossen);
         InventarManager.Instance.Add(tagebuchGeöffnet);
         Destroy(gameObject);
-        InventoryControlls ic = Player.GetComponent<InventoryControlls>();
+        HUDControlls ic = Player.GetComponent<HUDControlls>();
         ic.openInventory();  
     }
 

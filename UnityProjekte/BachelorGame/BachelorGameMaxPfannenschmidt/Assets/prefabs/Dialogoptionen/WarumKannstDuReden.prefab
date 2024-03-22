@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd0bf099528c2c43ad39a71c3e3fe20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisButton: {fileID: 0}
+  thisButton: {fileID: 1788089142652533599}
   DialogsystemManagerGO: {fileID: 155235869631704505}
   DOName: DOWarumKannstDuReden
 --- !u!1 &6433812692913283208

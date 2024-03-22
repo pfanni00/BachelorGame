@@ -21,12 +21,12 @@ void Start()
             if (patientenaktieState == 1)
             {
                 InventarManager.Instance.Add(ZerissenerZettel);
-                InventoryControlls ic = Player.GetComponent<InventoryControlls>();
-                ic.openInventory();  
+                HUDControlls ic = Player.GetComponent<HUDControlls>();
+                ic.openInventory();    
 
             }else if (patientenaktieState == 2)
             {
-                InventoryControlls ic = Player.GetComponent<InventoryControlls>();
+                HUDControlls ic = Player.GetComponent<HUDControlls>();
                 ic.openInventory();  
                 InventarManager.Instance.Remove(ZerissenerZettel);
                 InventarManager.Instance.Add(Patientenaktie);
