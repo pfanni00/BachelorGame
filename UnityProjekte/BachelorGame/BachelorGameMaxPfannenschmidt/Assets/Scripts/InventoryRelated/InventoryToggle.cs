@@ -27,62 +27,7 @@ public GameObject inventarManager;
             tm.SelectItem(thisTag);
            
     }}
-/*
-    public void SelectItem(string tag)
-{
-           if (tag == "ItemTabletten")
-            {
-            ToggleManager tm = inventarManager.GetComponent<ToggleManager>();
-            tm.SelectTabletten();
-            ItemController ic = gameObject.GetComponent<ItemController>();
-            ic.Select();
-            }else if(tag =="ItemPostkarte")
-            {
-            ToggleManager tm = inventarManager.GetComponent<ToggleManager>();
-            tm.SelectPostkarte(); 
-            ItemController ic = gameObject.GetComponent<ItemController>();
-            ic.Select();
-            }else if(tag =="BriefanMama")
-            {
-            ToggleManager tm = inventarManager.GetComponent<ToggleManager>();
-            tm.SelectBriefanMama();  
-            ItemController ic = gameObject.GetComponent<ItemController>();
-            ic.Select();
-            }else if(tag =="EmmasTagebuchGeöffnet")
-            {
-            ToggleManager tm = inventarManager.GetComponent<ToggleManager>();
-            tm.SelectEmmasTagebuchGeöffnet();
-            ItemController ic = gameObject.GetComponent<ItemController>();
-            ic.Select();  
-            }else if(tag =="EmmasTagebuchGeschlossen")
-            {
-            ToggleManager tm = inventarManager.GetComponent<ToggleManager>();
-            tm.SelectEmmasTagebuchGeschlossen();  
-            ItemController ic = gameObject.GetComponent<ItemController>();
-            ic.Select();
-            }
-            else if(tag =="EmmasTagebuchGeöffnet")
-            {
-            ToggleManager tm = inventarManager.GetComponent<ToggleManager>();
-            tm.SelectEmmasTagebuchGeöffnet(); 
-            ItemController ic = gameObject.GetComponent<ItemController>();
-            ic.Select(); 
-            }
-            else if (tag=="ZerissenerZettel")
-            {
-            ToggleManager tm = inventarManager.GetComponent<ToggleManager>();
-            tm.SelectZerissenerZettel();   
-            ItemController ic = gameObject.GetComponent<ItemController>();
-            ic.Select();    
-            }
-            else if (tag=="MeinePatientenaktie")
-            {
-            ToggleManager tm = inventarManager.GetComponent<ToggleManager>();
-            tm.SelectPatientenaktie();
-            ItemController ic = gameObject.GetComponent<ItemController>();
-            ic.Select();       
-            }
-}*/
+
 }
 
 

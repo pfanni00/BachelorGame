@@ -8,10 +8,10 @@ public class DialogsystemManager : MonoBehaviour
     public int DialogState;
     private bool varianteSD;
     // Controlliert ob variante Schlau oder Dumm aktiv ist.
-    
     private bool DOPrefabsareSpawned;
     public GameObject DialogSystemUI;
     public Transform DOParent;
+    public GameObject Katze;
 
     // DO sind die Prefabs der DialogoptionButtons im UI
     public GameObject DOWarumKannstDuReden;
@@ -134,20 +134,16 @@ public class DialogsystemManager : MonoBehaviour
                 DOFragNachEmmasTagebuchIsSpawned = true;
                 }
 
-            if (InventarManager.Instance.Items.Contains(Tunfischdose) && DOFragNachEmmasTagebuchWasSelected == true && DOFütterDieKatzeWasSelected == false)
+            if (InventarManager.Instance.Items.Contains(Tunfischdose) && DOFütterDieKatzeIsSpawned == false && DOFragNachEmmasTagebuchWasSelected == true && DOFütterDieKatzeWasSelected == false)
                 {
                 GameObject DO6 = Instantiate(DOFütterDieKatze, DOParent) as GameObject;
                 DOFütterDieKatzeIsSpawned = true;
                 }
                 
         }
-       
             
             
             
-            
-            
-           
         
         // Phase 5 beinhaltet 2 weitere Dialogoptionen. Item Dialogoptionen sind hier Pausiert und erst in Phase 6 wieder Wählbar
 
@@ -159,6 +155,15 @@ public class DialogsystemManager : MonoBehaviour
         DOPrefabsareSpawned = true;
         }
 
+        // Wenn Alle DialogStates Abgeschlossen sind und keine Itembedingten DOs mehr verfügbar sind wird die interaktionsmöglichkeit mit der Katze Deaktiviert.
+        if (DialogState == 6)
+        {
+            if (DOFragNachEmmasBriefWasSelected == true && DOFragNachEmmasTagebuchWasSelected == true && DOFütterDieKatzeWasSelected == true)
+            {
+                KatzeInteraction ki = Katze.GetComponent<KatzeInteraction>();
+                ki.MakeUnusable(); 
+            }
+        }
     }
 
 // Diese Methode erhöht den DialogState um jeweils 1 
@@ -245,10 +250,12 @@ public class DialogsystemManager : MonoBehaviour
     {
         //AudioIstPlayed
         //AnimationisPlayed
+        DOFütterDieKatzeWasSelected = true;
     }
     public void SelectDOFragNachEmmasBrief()
     {
         //AudioIstPlayed
+        DOFragNachEmmasBriefWasSelected = true;
     }
      public void SelectDOFragNachKoma()
     {
