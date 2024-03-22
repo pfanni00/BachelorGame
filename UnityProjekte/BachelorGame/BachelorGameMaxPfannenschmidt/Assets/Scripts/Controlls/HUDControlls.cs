@@ -6,8 +6,12 @@ public class HUDControlls : MonoBehaviour
 {// Dieses Script verwaltet die Zustände der Verschiedenen Menüs im Spiel wie Inventar oder Dialogsystem
     public bool Inventroryisuseabale;
     public bool InventoryisOpen;
+
+    public bool DialogsystemisOpen;
     public GameObject ItemUI;
     public GameObject GameUI;
+    
+    public GameObject DialogSystemUI;
     public GameObject volumeController;
 
 
@@ -22,7 +26,7 @@ public class HUDControlls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("i"))
+        if (Input.GetKeyDown("i") && Inventroryisuseabale == true)
         {
          Debug.Log("INVENTAR");
             if (InventoryisOpen == false)
@@ -57,4 +61,21 @@ public class HUDControlls : MonoBehaviour
         bg.StartFadeIn(); 
     }
 
+    public void openDialogsystem()
+    {
+    Inventroryisuseabale = false;
+    GameUI.SetActive(false);
+    DialogSystemUI.SetActive(true);
+    FPSController fps = gameObject.GetComponent<FPSController>();
+    fps.lockMovement();
+    }
+
+    public void closeDialogsystem()
+    {
+    Inventroryisuseabale = true;
+    GameUI.SetActive(true);
+    DialogSystemUI.SetActive(false);
+    FPSController fps = gameObject.GetComponent<FPSController>();
+    fps.unlockMovement();
+    }
 }
