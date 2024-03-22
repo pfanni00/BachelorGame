@@ -3699,6 +3699,10 @@ MonoBehaviour:
     type: 3}
   DOIchWillEmmaNichtVerlieren: {fileID: 155235869631704505, guid: 894d69f602722d14da04ff796151d82c,
     type: 3}
+  EmmasTagebuch: {fileID: 11400000, guid: 1257ee83a4fa5fc44bcb1f005d4b51ed, type: 2}
+  BriefanMama: {fileID: 11400000, guid: 911504bddd23a6645aed249520967448, type: 2}
+  Patientenakte: {fileID: 11400000, guid: 2eb6bb4614d075544ad2be6013b06b91, type: 2}
+  Tunfischdose: {fileID: 11400000, guid: 189611036c178994c996212278ceb7f0, type: 2}
 --- !u!1 &796792136
 GameObject:
   m_ObjectHideFlags: 0
