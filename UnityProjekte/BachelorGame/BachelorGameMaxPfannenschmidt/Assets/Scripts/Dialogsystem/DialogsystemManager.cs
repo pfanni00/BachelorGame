@@ -75,7 +75,7 @@ public class DialogsystemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //in den Ersten Drei Phasen des DIalogs sind jeweils 2 Dialogoptionen verfügbar
+        //in den Ersten Drei Phasen des Dialogs sind jeweils 2 Dialogoptionen verfügbar
         if(DialogState == 1 && DOPrefabsareSpawned == false)
         {
         GameObject DO1 = Instantiate(DOWarumKannstDuReden, DOParent) as GameObject;
@@ -98,15 +98,20 @@ public class DialogsystemManager : MonoBehaviour
         DOPrefabsareSpawned = true;
 
         }
+
+
         // In Phase 4 sind 2 weitere Dialogoptionen verfügbar die jedoch nicht die Phaen voranschreiten lassen. Ein Leave Button wird ebenfalls hinzugefügt.
         // Zudem sind 4 Item Abhängige Dialogoptionen verfügbar. DOFragNachKoma lässt den DialogState weiter voranschreiten die Anderen DOs sind jetzt in jeder weiteren Phase verfügbar
         
-        if (DialogState == 4 && DOPrefabsareSpawned == false)
+        if (DialogState == 4)
         {
-        GameObject DO1 = Instantiate(DOBinIchTod, DOParent) as GameObject;
-        GameObject DO2 = Instantiate(DOUndWasJetzt, DOParent) as GameObject;
-        DOPrefabsareSpawned = true;
-           
+        
+            if (DOPrefabsareSpawned == false)
+                {
+                GameObject DO1 = Instantiate(DOBinIchTod, DOParent) as GameObject;
+                GameObject DO2 = Instantiate(DOUndWasJetzt, DOParent) as GameObject;
+                DOPrefabsareSpawned = true;
+                }  
             if (InventarManager.Instance.Items.Contains(Patientenakte) && DOFragNachKomaIsSpawned == false)
                 {
                 GameObject DO5 = Instantiate(DOFragNachKoma, DOParent) as GameObject;
@@ -114,7 +119,7 @@ public class DialogsystemManager : MonoBehaviour
                 }
         }
         
-        if (DialogState >= 4)
+        if (DialogState == 4 || DialogState == 6)
         {
             LeaveButton.SetActive(true);
 
@@ -144,10 +149,11 @@ public class DialogsystemManager : MonoBehaviour
             
            
         
-        // Phase 5 ist die Finale Phase und beinhaltet 2 weitere Dialogoptionen. Noch nicht selectierte Item bezogenen Optionen sind noch verfügbar
+        // Phase 5 beinhaltet 2 weitere Dialogoptionen. Item Dialogoptionen sind hier Pausiert und erst in Phase 6 wieder Wählbar
 
         if (DialogState == 5 && DOPrefabsareSpawned == false)
         {
+        LeaveButton.SetActive(false);
         GameObject DO1 = Instantiate(DOIchWillEmmaNichtVerlieren, DOParent) as GameObject;
         GameObject DO2 = Instantiate(DOIchWäreMeinLebenLangEineLast, DOParent) as GameObject;
         DOPrefabsareSpawned = true;
