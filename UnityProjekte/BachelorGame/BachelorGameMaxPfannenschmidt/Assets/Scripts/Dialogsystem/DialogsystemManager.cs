@@ -5,6 +5,7 @@ using UnityEngine;
 public class DialogsystemManager : MonoBehaviour
 {
     public static DialogsystemManager Instance;
+    
     public int DialogState;
     private bool varianteSD;
     // Controlliert ob variante Schlau oder Dumm aktiv ist.
@@ -187,9 +188,10 @@ public class DialogsystemManager : MonoBehaviour
 //Dialogoptionen der ersten Phase: 
     public void SelectDOWarumKannstDuReden()
     {
-        //Audio is Played in another Script
-        NextDialogState();    
-        }
+        DialogAudioController.Instance.PlayDialogueOption(1);
+        NextDialogState(); 
+
+    }
 
    public void SelectDODasMussEinTraumSein()
     {
