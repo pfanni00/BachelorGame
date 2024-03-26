@@ -76,6 +76,16 @@ public class DialogsystemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // wenn Dialog Gespielt wird wird das UI Ausgeblendet
+        if (DialogAudioController.Instance.AudioisActive == true)
+        {
+            DialogSystemUI.SetActive(false);
+        }else if (DialogAudioController.Instance.AudioisActive == false)
+        {
+            DialogSystemUI.SetActive(true);
+        }
+
+
         //in den Ersten Drei Phasen des Dialogs sind jeweils 2 Dialogoptionen verfügbar
         if(DialogState == 1 && DOPrefabsareSpawned == false)
         {
@@ -195,7 +205,7 @@ public class DialogsystemManager : MonoBehaviour
 
    public void SelectDODasMussEinTraumSein()
     {
-        //Audio is Played in another Script
+        DialogAudioController.Instance.PlayDialogueOption(2);
         NextDialogState();    
     }
 

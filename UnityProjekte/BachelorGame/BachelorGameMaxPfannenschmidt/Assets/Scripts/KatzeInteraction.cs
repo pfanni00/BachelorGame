@@ -14,7 +14,7 @@ public class KatzeInteraction : MonoBehaviour, IInteractable {
     }
    public void Interact()
     {
-        if (isUsabale = true)
+        if (isUsabale == true)
         {
         HUDControlls ic = Player.GetComponent<HUDControlls>();
         ic.openDialogsystem();  
@@ -23,7 +23,7 @@ public class KatzeInteraction : MonoBehaviour, IInteractable {
 
     public void HoverInteract()
     {
-        if (isUsabale = true)
+        if (isUsabale == true)
         {
         HoverUi.SetActive(true);
         }
