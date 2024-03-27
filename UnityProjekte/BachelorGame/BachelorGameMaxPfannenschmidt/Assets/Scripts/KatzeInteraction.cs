@@ -12,6 +12,15 @@ public class KatzeInteraction : MonoBehaviour, IInteractable {
     {
         isUsabale = true;
     }
+
+    void Update()
+    {
+        if (DialogAudioController.Instance.AudioisActive == true || DialogsystemManager.Instance.AlldialogisFinished == true)
+        {
+            MakeUnusable();
+        }else MakeUsable();
+       
+    }
    public void Interact()
     {
         if (isUsabale == true)
@@ -34,9 +43,14 @@ public void HoverInteractOFF()
         HoverUi.SetActive(false);
     }
 
-public void MakeUnusable()
+private void MakeUnusable()
 {
 isUsabale = false;
+HoverInteractOFF();
+}
+private void MakeUsable()
+{
+isUsabale = true;
 }
 }
 

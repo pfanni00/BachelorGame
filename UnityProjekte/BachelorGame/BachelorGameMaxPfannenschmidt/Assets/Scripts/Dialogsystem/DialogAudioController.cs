@@ -8,6 +8,9 @@ public class DialogAudioController : MonoBehaviour
     public AudioSource catAudioSource;
 
     public bool AudioisActive; 
+    private bool DialogwasStarted;
+    private bool FreeRoamDialogWasStarted;
+    public Collider InitialDialogTrigger;
 
     // Struktur, um einen Dialogeintrag zu definieren
     [System.Serializable]
@@ -21,6 +24,7 @@ public class DialogAudioController : MonoBehaviour
     {
         Instance = this;
         AudioisActive = false;
+        DialogwasStarted = false;
     }
 
     //Dialogoption: Warum kannst du Reden? AudioFiles
@@ -47,5 +51,29 @@ public class DialogAudioController : MonoBehaviour
         }
         AudioisActive = false;
 
+    }
+
+  public void StartFreeRoamDialog()
+  {
+    if (DialogwasStarted == false || FreeRoamDialogWasStarted == false)
+    {
+    FreeRoamDialogWasStarted = true;
+    StartCoroutine(FreeRoamDialog());
+    }
+  }
+
+   IEnumerator FreeRoamDialog()
+    {
+        PlayDialogueOption(1);
+        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+        yield return new WaitForSeconds(15);
+        PlayDialogueOption(2);
+    }
+
+    public void StartFirstDialog()
+    {
+        StopCoroutine(FreeRoamDialog());    
+        PlayDialogueOption(1);
+        DialogwasStarted = true;
     }
 }

@@ -13,6 +13,7 @@ public class DialogsystemManager : MonoBehaviour
     public GameObject DialogSystemUI;
     public Transform DOParent;
     public GameObject Katze;
+    public bool AlldialogisFinished;
 
     // DO sind die Prefabs der DialogoptionButtons im UI
     public GameObject DOWarumKannstDuReden;
@@ -71,6 +72,7 @@ public class DialogsystemManager : MonoBehaviour
         DOFragNachEmmasTagebuchIsSpawned = false;
         DOFragNachEmmasBriefIsSpawned = false;
         LeaveButton.SetActive(false);
+        AlldialogisFinished = false;
     }
 
     // Update is called once per frame
@@ -171,8 +173,9 @@ public class DialogsystemManager : MonoBehaviour
         {
             if (DOFragNachEmmasBriefWasSelected == true && DOFragNachEmmasTagebuchWasSelected == true && DOFütterDieKatzeWasSelected == true)
             {
-                KatzeInteraction ki = Katze.GetComponent<KatzeInteraction>();
-                ki.MakeUnusable(); 
+                /*KatzeInteraction ki = Katze.GetComponent<KatzeInteraction>();
+                ki.MakeUnusable(); */
+                AlldialogisFinished = true;
             }
         }
     }

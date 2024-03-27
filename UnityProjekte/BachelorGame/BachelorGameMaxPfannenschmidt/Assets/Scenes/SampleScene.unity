@@ -2558,6 +2558,7 @@ MonoBehaviour:
   playerAudioSource: {fileID: 156214824}
   catAudioSource: {fileID: 764728871}
   AudioisActive: 0
+  InitialDialogTrigger: {fileID: 1010817796}
   dialogueOption1:
   - clip: {fileID: 8300000, guid: ba4e86d9cb6241f49b77eba94e70328c, type: 3}
     isPlayer: 1
@@ -4042,6 +4043,7 @@ MonoBehaviour:
   DialogSystemUI: {fileID: 159752043}
   DOParent: {fileID: 978003554}
   Katze: {fileID: 764728865}
+  AlldialogisFinished: 0
   DOWarumKannstDuReden: {fileID: 155235869631704505, guid: 7f83c2ef51914274bb827ecc00386b45,
     type: 3}
   DODasMussEinTraumSein: {fileID: 155235869631704505, guid: a2adab8ef138e884d91f94382dbbe7e3,
@@ -5046,7 +5048,7 @@ GameObject:
   - component: {fileID: 918022699}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5511,6 +5513,73 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982530257}
   m_CullTransparentMesh: 1
+--- !u!1 &1010817796
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1010817798}
+  - component: {fileID: 1010817797}
+  - component: {fileID: 1010817799}
+  m_Layer: 0
+  m_Name: KatzeDialogTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1010817797
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010817796}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.44, y: 0.19, z: 2.31}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1010817798
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010817796}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.87, y: 0.76, z: 1.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1010817799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010817796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb38a43110a2cb4d8bcf249a48d2c38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Playercollider: {fileID: 918022697}
 --- !u!1 &1012627927
 GameObject:
   m_ObjectHideFlags: 0
@@ -10384,3 +10453,4 @@ SceneRoots:
   - {fileID: 1328857511}
   - {fileID: 554161624}
   - {fileID: 2066181329}
+  - {fileID: 1010817798}
