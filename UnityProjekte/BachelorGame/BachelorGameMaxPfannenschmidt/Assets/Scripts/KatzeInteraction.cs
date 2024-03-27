@@ -5,20 +5,31 @@ using UnityEngine;
 public class KatzeInteraction : MonoBehaviour, IInteractable {
     public GameObject HoverUi;
     public GameObject Player;
+    public GameObject dialogTrigger;
+    private bool triggerActive;
 
     public bool isUsabale;
     
     void Start()
-    {
+    {      // triggerActive = dialogTrigger.GetComponent<DialogTrigger>().TriggerActive;
+
+      
         isUsabale = true;
+        Debug.Log(triggerActive);
     }
 
     void Update()
     {
-        if (DialogAudioController.Instance.AudioisActive == true || DialogsystemManager.Instance.AlldialogisFinished == true)
+        DialogTrigger dt = dialogTrigger.GetComponent<DialogTrigger>();
+        triggerActive = dt.TriggerActive;  
+
+        if (DialogAudioController.Instance.AudioisActive == true || DialogsystemManager.Instance.AlldialogisFinished == true || triggerActive == false)
         {
             MakeUnusable();
-        }else MakeUsable();
+        }else if (triggerActive == true)
+        {
+            MakeUsable();
+        }
        
     }
    public void Interact()
