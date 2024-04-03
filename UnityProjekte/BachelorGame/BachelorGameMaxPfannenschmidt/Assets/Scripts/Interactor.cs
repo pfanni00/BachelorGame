@@ -40,7 +40,6 @@ void Start()
 
   if (Physics.Raycast(r, out RaycastHit hoverinfo, InteractRange, InteractableLayer)) {
             if (hoverinfo.collider.gameObject.TryGetComponent(out IInteractable interactObj)) {
-                Debug.Log("HIT");
                 interactObj.HoverInteract();
                 if (!onHover) {
                     onHover = true;
