@@ -2,6 +2,9 @@ Texturen:
 https://www.cgbookcase.com/textures/white-tiles-01
 https://freepbr.com/materials/brushed-metal1/´
 https://freepbr.com/materials/fiber-textured-wall1/
-https://ambientcg.com/view?id=Fabric036
+https://www.cgbookcase.com/textures/parquet-flooring-08
+https://polyhaven.com/a/book_pattern
+
 Schriftarten: 
+https://www.dafont.com/handwriting-16.font?text=Emmas+Tagebuch&l[]=10&l[]=1&back=theme
 https://www.dafont.com/de/coolvetica.font?l[]=10&l[]=1&text=Emmas+Tagebuch
