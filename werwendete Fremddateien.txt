@@ -4,6 +4,9 @@ https://freepbr.com/materials/brushed-metal1/´
 https://freepbr.com/materials/fiber-textured-wall1/
 https://www.cgbookcase.com/textures/parquet-flooring-08
 https://polyhaven.com/a/book_pattern
+https://freepbr.com/materials/scuffed-aluminum-pbr-metal-material/
+https://freepbr.com/materials/black-leather-pbr/
+https://ambientcg.com/view?id=Paper001
 
 Schriftarten: 
 https://www.dafont.com/handwriting-16.font?text=Emmas+Tagebuch&l[]=10&l[]=1&back=theme
