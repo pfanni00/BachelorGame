@@ -7,7 +7,12 @@ https://polyhaven.com/a/book_pattern
 https://freepbr.com/materials/scuffed-aluminum-pbr-metal-material/
 https://freepbr.com/materials/black-leather-pbr/
 https://ambientcg.com/view?id=Paper001
+https://ambientcg.com/view?id=Plastic017A
 
 Schriftarten: 
 https://www.dafont.com/handwriting-16.font?text=Emmas+Tagebuch&l[]=10&l[]=1&back=theme
 https://www.dafont.com/de/coolvetica.font?l[]=10&l[]=1&text=Emmas+Tagebuch
+
+Sonstiges:
+Glas Shader:
+https://github.com/omid3098/Unity-URP-GlassShader?tab=MIT-1-ov-file
