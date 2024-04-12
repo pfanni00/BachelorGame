@@ -16,3 +16,5 @@ https://www.dafont.com/de/coolvetica.font?l[]=10&l[]=1&text=Emmas+Tagebuch
 Sonstiges:
 Glas Shader:
 https://github.com/omid3098/Unity-URP-GlassShader?tab=MIT-1-ov-file
+FischIcon
+https://www.vecteezy.com/vector-art/10748860-tuna-icon-design
