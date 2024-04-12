@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3078464, g: 0.38031277, b: 0.2524253, a: 1}
+  m_IndirectSpecularColor: {r: 0.30786276, g: 0.3803542, b: 0.25248086, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2702,6 +2702,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6841568841870403004, guid: 4c74df8eacaf5d240b399b128eba620b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8522ade984f6140438fd0db44963e125, type: 2}
+    - target: {fileID: -4027040822850659380, guid: 4c74df8eacaf5d240b399b128eba620b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8522ade984f6140438fd0db44963e125, type: 2}
     - target: {fileID: 919132149155446097, guid: 4c74df8eacaf5d240b399b128eba620b,
         type: 3}
       propertyPath: m_Name
@@ -3379,6 +3389,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2579293815158611610, guid: fd563d2f9a3a28e41a54d14ad1304aca,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8522ade984f6140438fd0db44963e125, type: 2}
     - target: {fileID: 919132149155446097, guid: fd563d2f9a3a28e41a54d14ad1304aca,
         type: 3}
       propertyPath: m_Name
@@ -3389,6 +3404,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4a21046788b93a548ad05b0962501932, type: 2}
+    - target: {fileID: 8877906107171130252, guid: fd563d2f9a3a28e41a54d14ad1304aca,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8522ade984f6140438fd0db44963e125, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4595,6 +4615,89 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 796792136}
   m_CullTransparentMesh: 1
+--- !u!1001 &798365195
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: a78f7fa0ac91d5a48bc959de4c576d08,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.204
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a78f7fa0ac91d5a48bc959de4c576d08,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.648
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a78f7fa0ac91d5a48bc959de4c576d08,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.9286613
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a78f7fa0ac91d5a48bc959de4c576d08,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a78f7fa0ac91d5a48bc959de4c576d08,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a78f7fa0ac91d5a48bc959de4c576d08,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a78f7fa0ac91d5a48bc959de4c576d08,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a78f7fa0ac91d5a48bc959de4c576d08,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a78f7fa0ac91d5a48bc959de4c576d08,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a78f7fa0ac91d5a48bc959de4c576d08,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1256337187616108762, guid: a78f7fa0ac91d5a48bc959de4c576d08,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b2ad7e03654bba4fae2dcefe315fc00, type: 2}
+    - target: {fileID: 919132149155446097, guid: a78f7fa0ac91d5a48bc959de4c576d08,
+        type: 3}
+      propertyPath: m_Name
+      value: Liebesbrief
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351356600967678781, guid: a78f7fa0ac91d5a48bc959de4c576d08,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0cb4b4dfd34ab674c9096ca856ba6d45, type: 2}
+    - target: {fileID: 8750892258650930352, guid: a78f7fa0ac91d5a48bc959de4c576d08,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b2ad7e03654bba4fae2dcefe315fc00, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a78f7fa0ac91d5a48bc959de4c576d08, type: 3}
 --- !u!1 &798870651
 GameObject:
   m_ObjectHideFlags: 0
@@ -11776,3 +11879,4 @@ SceneRoots:
   - {fileID: 1793599081}
   - {fileID: 483434816}
   - {fileID: 383701240}
+  - {fileID: 798365195}

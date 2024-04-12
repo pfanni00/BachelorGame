@@ -68,13 +68,13 @@ Material:
     - _Metalic: 0.246
     - _Metallic: 0
     - _NormalStrenght: 0.01
-    - _NormalStrength: 0.66
+    - _NormalStrength: 0.41
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReflectionStrenght: 0.05
-    - _ReflectionStrength: 0.73
+    - _ReflectionStrength: 0.05
     - _RefractionStrenght: 1.15
-    - _Smoothness: 1
+    - _Smoothness: 0.545
     - _Strenght: 0.12
     - _Tiling: 122
     m_Colors:
