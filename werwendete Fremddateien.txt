@@ -13,9 +13,12 @@ https://ambientcg.com/view?id=Wood028
 Schriftarten: 
 https://www.dafont.com/handwriting-16.font?text=Emmas+Tagebuch&l[]=10&l[]=1&back=theme
 https://www.dafont.com/de/coolvetica.font?l[]=10&l[]=1&text=Emmas+Tagebuch
+https://www.dafont.com/de/daniel.font?l[]=10&l[]=1
 
 Sonstiges:
 Glas Shader:
 https://github.com/omid3098/Unity-URP-GlassShader?tab=MIT-1-ov-file
 FischIcon
-https://www.vecteezy.com/vector-art/10748860-tuna-icon-design
+https://www.vecteezy.com/vector-art/10748860-tuna-icon-design Attribution 
+https://www.freepik.com/free-vector/hand-drawn-heart-illustration-pack_9881588.htm#query=hand%20drawn%20heart&position=0&from_view=keyword&track=ais&uuid=e6d9fc6a-48cb-43db-b3a0-170cf3309c0d
+Attribution 
