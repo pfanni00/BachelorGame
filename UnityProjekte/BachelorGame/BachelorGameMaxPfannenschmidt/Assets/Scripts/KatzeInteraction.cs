@@ -15,7 +15,7 @@ public class KatzeInteraction : MonoBehaviour, IInteractable {
 
       
         isUsabale = true;
-        Debug.Log(triggerActive);
+        //Debug.Log(triggerActive);
     }
 
     void Update()
