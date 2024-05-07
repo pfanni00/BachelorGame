@@ -3,40 +3,64 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DoorOpenInteractor : MonoBehaviour, IInteractable {
-   //public GameObject Door;
+
    private bool isOpen;
    private bool isRotating;
-   public Quaternion ClosedRotation;    
-   public Quaternion OpenRotation;
-   private Quaternion targetRotation;
+   public int rotationDegrees;  
+   private Quaternion ClosedRotation;
+   private Quaternion OpenRotation;
    public GameObject HoverUiOpen;
    public GameObject HoverUiClose;
    public float rotationSpeed;
+   public bool RotationDirection;
 
-   
+   // dieses Script rotiert ein GameObject beim Interagieren durch den Spieler. Der Grad der Rotation kann mit int rotatingDegrees bestimmt werden. Mit rotationSpeed wird die Geschwindigkeit der Rotation bestimmt und mit RotationDirection die Richtung
     
     void Start()
-    {      // triggerActive = dialogTrigger.GetComponent<DialogTrigger>().TriggerActive;
-    isOpen = false;
+    {
+  
+        ClosedRotation = transform.rotation;  
 
+        if (RotationDirection == true)
+        {
+            OpenRotation = Quaternion.Euler(0, transform.eulerAngles.y + rotationDegrees, 0);  
+        }else if (RotationDirection == false){
+            OpenRotation = Quaternion.Euler(0, transform.eulerAngles.y - rotationDegrees, 0);  
+        }
+        isOpen = false;
     }
 
     void Update()
     {
-           if (isOpen == true)
+        if (isRotating == true)
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, OpenRotation, rotationSpeed * Time.deltaTime);
-        }else if (isOpen == false)
-        {
-             transform.rotation = Quaternion.RotateTowards(transform.rotation, ClosedRotation, rotationSpeed * Time.deltaTime);
+            if (isOpen == true)
+            {
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, OpenRotation, rotationSpeed * Time.deltaTime);
 
+
+                if (Quaternion.Angle(transform.rotation, OpenRotation) < 0.1f)
+                {
+                    transform.rotation = OpenRotation;
+                    isRotating = false;
+                }
+            } else if (isOpen == false)
+            {
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, ClosedRotation, rotationSpeed * Time.deltaTime);
+
+                if (Quaternion.Angle(transform.rotation, ClosedRotation) < 0.1f)
+                {
+                    transform.rotation = ClosedRotation;
+                    isRotating = false;
+                }
+            }
         }
     }
    public void Interact()
     {
-    isOpen = !isOpen;
-            HoverInteractOFF();
-
+          isOpen = !isOpen;
+          isRotating = true;
+          HoverInteractOFF();
     }
 
     public void HoverInteract()
@@ -49,8 +73,6 @@ public class DoorOpenInteractor : MonoBehaviour, IInteractable {
         {
             HoverUiOpen.SetActive(true);
         }
-        //HoverUi.SetActive(true);
-        
     }
 
     public void HoverInteractOFF()
@@ -59,7 +81,6 @@ public class DoorOpenInteractor : MonoBehaviour, IInteractable {
         HoverUiOpen.SetActive(false);
 
     }
-
     }
 
 

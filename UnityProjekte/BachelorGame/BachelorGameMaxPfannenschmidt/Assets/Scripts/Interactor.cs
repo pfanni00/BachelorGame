@@ -20,16 +20,13 @@ public  LayerMask InteractableLayer;
 
 void Start()
     {
-     //   onHover = false
     }
-//Ray r = new Ray(InteractorSource.position, InteractorSource.forward);
-    // Update is called once per frame
+
     void Update()
     {          
             Ray r = new Ray(InteractorSource.position, InteractorSource.forward);
 
         if (Input.GetKeyDown(KeyCode.E)) {
-           // Ray r = new Ray(InteractorSource.position, InteractorSource.forward);
             if (Physics.Raycast(r, out RaycastHit hitInfo, InteractRange, InteractableLayer)) {
                 if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj)) {
                     interactObj.Interact();
