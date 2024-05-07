@@ -15,7 +15,8 @@ public Transform InteractorSource;
 public float InteractRange;
 private IInteractable currentInteractable; // Referenz auf das aktuelle IInteractable-Objekt
 private bool onHover;
-
+    private bool InteractActivated;
+public LayerMask DefaultLayer;
 public  LayerMask InteractableLayer;
 
 void Start()
@@ -23,33 +24,35 @@ void Start()
     }
 
     void Update()
-    {          
-            Ray r = new Ray(InteractorSource.position, InteractorSource.forward);
+    {
+        Ray r = new Ray(InteractorSource.position, InteractorSource.forward);
+      
 
-        if (Input.GetKeyDown(KeyCode.E)) {
-            if (Physics.Raycast(r, out RaycastHit hitInfo, InteractRange, InteractableLayer)) {
-                if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj)) {
-                    interactObj.Interact();
+        if (Physics.Raycast(r, out RaycastHit hitInfo, InteractRange, DefaultLayer))
+        {
+            if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
+            {
+                currentInteractable = interactObj;
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    currentInteractable.Interact();
+                }
+                
+                currentInteractable.HoverInteract();
+                onHover = true;
+        } else
+            {
+                if (onHover)
+                {
+                    currentInteractable.HoverInteractOFF();
+                    onHover = false;
+                    currentInteractable = null;
                 }
             }
-        }
 
 
-  if (Physics.Raycast(r, out RaycastHit hoverinfo, InteractRange, InteractableLayer)) {
-            if (hoverinfo.collider.gameObject.TryGetComponent(out IInteractable interactObj)) {
-                interactObj.HoverInteract();
-                if (!onHover) {
-                    onHover = true;
-                    currentInteractable = interactObj;
-                }
-            }
-        }
-        else {
-            if (onHover) {
-                currentInteractable.HoverInteractOFF();
-                onHover = false;
-                currentInteractable = null;
-            }
+           
         }
     }
-}
+    }
