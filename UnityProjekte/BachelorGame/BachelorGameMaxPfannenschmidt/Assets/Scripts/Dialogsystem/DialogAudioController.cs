@@ -66,8 +66,11 @@ public class DialogAudioController : MonoBehaviour
     {
         PlayDialogueOption(1);
         Debug.Log("Started Coroutine at timestamp : " + Time.time);
-        yield return new WaitForSeconds(15);
-        PlayDialogueOption(2);
+        yield return new WaitForSeconds(10);
+        if (DialogwasStarted == false)
+        {
+            PlayDialogueOption(2); 
+        }
     }
 
     public void StartFirstDialog()

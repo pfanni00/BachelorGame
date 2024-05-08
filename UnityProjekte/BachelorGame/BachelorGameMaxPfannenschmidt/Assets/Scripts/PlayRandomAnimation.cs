@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KatzeStehendAnimationController : StateMachineBehaviour
+public class PlayRandomAnimation : StateMachineBehaviour
 {
+    public string state;
+    //public float activateState;
     private float _timeUntilStart;
     public float _MintimeToStart;
     public float _MaxtimetoStart;
@@ -37,7 +39,7 @@ public class KatzeStehendAnimationController : StateMachineBehaviour
                 _currentAnimation = Random.Range(1, _numberOfAnimations + 1);
                 _currentAnimation = _currentAnimation * 2 - 1;
 
-                animator.SetFloat("StehendBaseAnimations", _currentAnimation - 1);
+                animator.SetFloat(state, _currentAnimation - 1);
             }
         }
         else if (stateInfo.normalizedTime % 1 > 0.98)
@@ -45,7 +47,7 @@ public class KatzeStehendAnimationController : StateMachineBehaviour
             ResetAnimation();
         }
 
-        animator.SetFloat("StehendBaseAnimations", _currentAnimation, 0.2f, Time.deltaTime);
+        animator.SetFloat(state, _currentAnimation, 0.2f, Time.deltaTime);
     
       
     }
