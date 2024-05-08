@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class KatzeStehendAnimationController : StateMachineBehaviour
 {
-    [SerializeField]
     private float _timeUntilStart;
+    public float _MintimeToStart;
+    public float _MaxtimetoStart;
 
     [SerializeField]
     private int _numberOfAnimations;
 
     private bool _isActive;
     private float _AnimationTime;
+
     private int _currentAnimation;
   //  OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -57,5 +59,7 @@ public class KatzeStehendAnimationController : StateMachineBehaviour
 
         _isActive = false;
         _AnimationTime = 0;
+        _timeUntilStart = Random.Range(_MintimeToStart, _MaxtimetoStart);
     }
+
 }

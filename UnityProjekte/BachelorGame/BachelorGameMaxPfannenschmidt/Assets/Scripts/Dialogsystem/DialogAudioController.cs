@@ -55,7 +55,7 @@ public class DialogAudioController : MonoBehaviour
 
   public void StartFreeRoamDialog()
   {
-    if (DialogwasStarted == false || FreeRoamDialogWasStarted == false)
+    if (DialogwasStarted == false && FreeRoamDialogWasStarted == false)
     {
     FreeRoamDialogWasStarted = true;
     StartCoroutine(FreeRoamDialog());
