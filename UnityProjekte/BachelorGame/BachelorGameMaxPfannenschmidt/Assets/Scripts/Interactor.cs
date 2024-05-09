@@ -34,11 +34,14 @@ public class Interactor : MonoBehaviour
 
             // prüfung of hitObject Interactiv ist
             if (hitObject.TryGetComponent(out IInteractable interactObj))
-            {
-                //if (!onHover)
-                //  {
-                //onHover = true;
-                // currentInteractable = interactObj;
+            {  //Hover Text wird eingeblendet
+    	        
+            if (!onHover || currentInteractable == null)
+                {   //Hover wert wird gespeichert
+                    onHover = true;
+                    Debug.Log(onHover);
+                    interactObj.HoverInteract();
+                    currentInteractable = interactObj;
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
@@ -46,14 +49,21 @@ public class Interactor : MonoBehaviour
                     interactObj.Interact();
                 }
 
-                //Hover Text wird eingeblendet
-                interactObj.HoverInteract();
-
-                if (!onHover)
-                {   //Hover wert wird gespeichert
-                    onHover = true;
+                } 
+            
+            else if(onHover || currentInteractable != null)
+                {
+                    currentInteractable?.HoverInteractOFF();
                     Debug.Log(onHover);
+                    interactObj.HoverInteract();
                     currentInteractable = interactObj;
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    //mit object kann interagiert werden
+                    interactObj.Interact();
+                }
+
                 }
             }
             else
