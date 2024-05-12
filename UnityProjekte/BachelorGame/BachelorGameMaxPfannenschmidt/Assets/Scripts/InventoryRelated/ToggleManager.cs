@@ -11,8 +11,9 @@ public class ToggleManager : MonoBehaviour
     public GameObject[] UIZerissenerZettel;
     public GameObject[] UIPatientenaktie;
     public GameObject[] UIBriefanMama;
-
+    public GameObject[] UILiebesbrief;
     public GameObject[] UITunfischdose;
+    public GameObject[] UIKühlschrankmagnet;
     // Start is called before the first frame update
     
        public void SelectItem(string tag)
@@ -57,6 +58,10 @@ public class ToggleManager : MonoBehaviour
             {
            SelectTunfischdose();    
             }
+            else if (tag=="Liebesbrief")
+            {
+                SelectLiebesbrief();
+            }
 }
    
     public void SelectTabletten()
@@ -90,6 +95,10 @@ public class ToggleManager : MonoBehaviour
         foreach (GameObject uiTunfischdose in UITunfischdose)
         {
         uiTunfischdose.SetActive(false);
+        }
+         foreach (GameObject uiLiebesbrief in UILiebesbrief)
+        {
+            uiLiebesbrief.SetActive(false);
         }
         foreach (GameObject uitabletten in UITabletten)
         {
@@ -131,6 +140,14 @@ public class ToggleManager : MonoBehaviour
         {
         uiTunfischdose.SetActive(false);
         }
+         foreach (GameObject uiLiebesbrief in UILiebesbrief)
+        {
+            uiLiebesbrief.SetActive(false);
+        }
+        foreach (GameObject uiKühlschrankmagnet in UIKühlschrankmagnet)
+        {
+        uiKühlschrankmagnet.SetActive(true);
+        }
                 foreach (GameObject uipostkarte in UIPostkarte)
         {
             uipostkarte.SetActive(true);
@@ -167,6 +184,14 @@ public class ToggleManager : MonoBehaviour
         {
         uiTunfischdose.SetActive(false);
         }
+         foreach (GameObject uiLiebesbrief in UILiebesbrief)
+        {
+            uiLiebesbrief.SetActive(false);
+        }
+        foreach (GameObject uiKühlschrankmagnet in UIKühlschrankmagnet)
+        {
+        uiKühlschrankmagnet.SetActive(true);
+        }
          foreach (GameObject uibriefanmama in UIBriefanMama)
         {
             uibriefanmama.SetActive(true);
@@ -188,7 +213,7 @@ public void SelectEmmasTagebuchGeöffnet()
         {
             uibriefanmama.SetActive(false);
         }
-                 foreach (GameObject uiemmastagebuchgeschlossen in UIEmmasTagebuchGeschlossen)
+         foreach (GameObject uiemmastagebuchgeschlossen in UIEmmasTagebuchGeschlossen)
         {
             uiemmastagebuchgeschlossen.SetActive(false);
         }
@@ -203,6 +228,14 @@ public void SelectEmmasTagebuchGeöffnet()
         foreach (GameObject uiTunfischdose in UITunfischdose)
         {
         uiTunfischdose.SetActive(false);
+        }
+         foreach (GameObject uiLiebesbrief in UILiebesbrief)
+        {
+            uiLiebesbrief.SetActive(false);
+        }
+        foreach (GameObject uiKühlschrankmagnet in UIKühlschrankmagnet)
+        {
+        uiKühlschrankmagnet.SetActive(true);
         }
         foreach (GameObject uiemmastagebuchgeöffnet in UIEmmasTagebuchGeöffnet)
         {
@@ -240,6 +273,14 @@ public void SelectEmmasTagebuchGeschlossen()
         {
         uiTunfischdose.SetActive(false);
         }
+         foreach (GameObject uiLiebesbrief in UILiebesbrief)
+        {
+            uiLiebesbrief.SetActive(false);
+        }
+        foreach (GameObject uiKühlschrankmagnet in UIKühlschrankmagnet)
+        {
+        uiKühlschrankmagnet.SetActive(true);
+        }
          foreach (GameObject uiemmastagebuchgeschlossen in UIEmmasTagebuchGeschlossen)
         {
             uiemmastagebuchgeschlossen.SetActive(true);
@@ -276,6 +317,14 @@ public void SelectZerissenerZettel()
         {
         uiTunfischdose.SetActive(false);
         }
+        foreach (GameObject uiLiebesbrief in UILiebesbrief)
+        {
+            uiLiebesbrief.SetActive(false);
+        }
+        foreach (GameObject uiKühlschrankmagnet in UIKühlschrankmagnet)
+        {
+        uiKühlschrankmagnet.SetActive(true);
+        }
         foreach (GameObject uizerissenerzettel in UIZerissenerZettel)
         {
             uizerissenerzettel.SetActive(true);
@@ -310,6 +359,14 @@ public void SelectPatientenaktie()
          foreach (GameObject uiTunfischdose in UITunfischdose)
         {
         uiTunfischdose.SetActive(false);
+        }
+        foreach (GameObject uiLiebesbrief in UILiebesbrief)
+        {
+            uiLiebesbrief.SetActive(false);
+        }
+        foreach (GameObject uiKühlschrankmagnet in UIKühlschrankmagnet)
+        {
+        uiKühlschrankmagnet.SetActive(true);
         }
         foreach (GameObject uipatientenaktie in UIPatientenaktie)
         {
@@ -347,8 +404,105 @@ public void SelectPatientenaktie()
         {
             uipatientenaktie.SetActive(false);
         }
+        foreach (GameObject uiLiebesbrief in UILiebesbrief)
+        {
+            uiLiebesbrief.SetActive(false);
+        }
+        foreach (GameObject uiKühlschrankmagnet in UIKühlschrankmagnet)
+        {
+        uiKühlschrankmagnet.SetActive(true);
+        }
         foreach (GameObject uiTunfischdose in UITunfischdose)
         {
         uiTunfischdose.SetActive(true);
         }
-}}
+    }
+        public void SelectLiebesbrief()
+        {
+             foreach (GameObject uitabletten in UITabletten)
+        {
+            uitabletten.SetActive(false);
+        }
+        foreach (GameObject uipostkarte in UIPostkarte)
+        {
+            uipostkarte.SetActive(false);
+        }
+         foreach (GameObject uibriefanmama in UIBriefanMama)
+        {
+            uibriefanmama.SetActive(false);
+        }
+        foreach (GameObject uiemmastagebuchgeöffnet in UIEmmasTagebuchGeöffnet)
+        {
+            uiemmastagebuchgeöffnet.SetActive(false);
+        }
+         foreach (GameObject uiemmastagebuchgeschlossen in UIEmmasTagebuchGeschlossen)
+        {
+            uiemmastagebuchgeschlossen.SetActive(false);
+        }
+        foreach (GameObject uizerissenerzettel in UIZerissenerZettel)
+        {
+            uizerissenerzettel.SetActive(false);
+        }
+        foreach (GameObject uipatientenaktie in UIPatientenaktie)
+        {
+            uipatientenaktie.SetActive(false);
+        }
+        foreach (GameObject uiTunfischdose in UITunfischdose)
+        {
+        uiTunfischdose.SetActive(false);
+        }
+        foreach (GameObject uiKühlschrankmagnet in UIKühlschrankmagnet)
+        {
+        uiKühlschrankmagnet.SetActive(true);
+        }
+        foreach (GameObject uiLiebesbrief in UILiebesbrief)
+        {
+            uiLiebesbrief.SetActive(true);
+        }
+        }
+
+        public void SelectKühlschrankmagnet()
+            {
+       foreach (GameObject uitabletten in UITabletten)
+        {
+            uitabletten.SetActive(false);
+        }
+        foreach (GameObject uipostkarte in UIPostkarte)
+        {
+            uipostkarte.SetActive(false);
+        }
+         foreach (GameObject uibriefanmama in UIBriefanMama)
+        {
+            uibriefanmama.SetActive(false);
+        }
+        foreach (GameObject uiemmastagebuchgeöffnet in UIEmmasTagebuchGeöffnet)
+        {
+            uiemmastagebuchgeöffnet.SetActive(false);
+        }
+         foreach (GameObject uiemmastagebuchgeschlossen in UIEmmasTagebuchGeschlossen)
+        {
+            uiemmastagebuchgeschlossen.SetActive(false);
+        }
+        foreach (GameObject uizerissenerzettel in UIZerissenerZettel)
+        {
+            uizerissenerzettel.SetActive(false);
+        }
+        foreach (GameObject uipatientenaktie in UIPatientenaktie)
+        {
+            uipatientenaktie.SetActive(false);
+        }
+        foreach (GameObject uiLiebesbrief in UILiebesbrief)
+        {
+            uiLiebesbrief.SetActive(false);
+        }
+        foreach (GameObject uiTunfischdose in UITunfischdose)
+        {
+        uiTunfischdose.SetActive(false);
+        }
+        foreach (GameObject uiKühlschrankmagnet in UIKühlschrankmagnet)
+        {
+        uiKühlschrankmagnet.SetActive(true);
+        }
+    }
+
+}

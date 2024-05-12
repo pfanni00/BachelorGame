@@ -286,5 +286,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toggle: {fileID: 1682155150229585986}
-  thisTag: LiebesbriefanEmma
+  thisTag: Liebesbrief
   inventarManager: {fileID: 0}
