@@ -14,54 +14,59 @@ public class ToggleManager : MonoBehaviour
     public GameObject[] UILiebesbrief;
     public GameObject[] UITunfischdose;
     public GameObject[] UIKühlschrankmagnet;
+    public GameObject[] UIKarte;
     // Start is called before the first frame update
     
        public void SelectItem(string tag)
 {
            if (tag == "ItemTabletten")
-            {
-            SelectTabletten();
-            
-            }else if(tag =="ItemPostkarte")
-            {
-           SelectPostkarte(); 
-
-            }else if(tag =="BriefanMama")
-            {
-           SelectBriefanMama();  
-            
-            }else if(tag =="EmmasTagebuchGeöffnet")
-            {
-           SelectEmmasTagebuchGeöffnet();
-            
-            }else if(tag =="EmmasTagebuchGeschlossen")
-            {
-            SelectEmmasTagebuchGeschlossen();  
-           
-            }
+                {
+                SelectTabletten();
+                }
+            else if(tag =="ItemPostkarte")
+                {
+                SelectPostkarte(); 
+                }
+            else if(tag =="BriefanMama")
+                {
+                SelectBriefanMama();  
+                }
             else if(tag =="EmmasTagebuchGeöffnet")
-            {
-            SelectEmmasTagebuchGeöffnet(); 
-           
-            }
+                {
+                SelectEmmasTagebuchGeöffnet();
+                }
+            else if(tag =="EmmasTagebuchGeschlossen")
+                {
+                SelectEmmasTagebuchGeschlossen();  
+                }
+            else if(tag =="EmmasTagebuchGeöffnet")
+                {
+                SelectEmmasTagebuchGeöffnet(); 
+                }
             else if (tag=="ZerissenerZettel")
-            {
-           SelectZerissenerZettel();   
-           
-            }
+                {
+                SelectZerissenerZettel();   
+                }
             else if (tag=="MeinePatientenaktie")
-            {
-           SelectPatientenaktie();
-                
-            }
+                {
+                SelectPatientenaktie();    
+                }
             else if (tag=="Tunfischdose")
-            {
-           SelectTunfischdose();    
-            }
+                {
+                SelectTunfischdose();    
+                }
             else if (tag=="Liebesbrief")
-            {
+                {
                 SelectLiebesbrief();
-            }
+                }
+            else if (tag== "Kühlschrankmagnet")
+                {
+                SelectKühlschrankmagnet();
+                }
+           else if (tag == "Karte")
+                {
+                SelectKarte();
+                }
 }
    
     public void SelectTabletten()
@@ -100,6 +105,14 @@ public class ToggleManager : MonoBehaviour
         {
             uiLiebesbrief.SetActive(false);
         }
+        foreach (GameObject uiKühlschrankmagnet in UIKühlschrankmagnet)
+        {
+            uiKühlschrankmagnet.SetActive(false);
+        }
+        foreach (GameObject uiKarte in UIKarte)
+        {
+            uiKarte.SetActive(false);
+        }
         foreach (GameObject uitabletten in UITabletten)
         {
             uitabletten.SetActive(true);
@@ -116,7 +129,7 @@ public class ToggleManager : MonoBehaviour
             uitabletten.SetActive(false);
         }
 
-         foreach (GameObject uibriefanmama in UIBriefanMama)
+        foreach (GameObject uibriefanmama in UIBriefanMama)
         {
             uibriefanmama.SetActive(false);
         }
@@ -140,15 +153,19 @@ public class ToggleManager : MonoBehaviour
         {
         uiTunfischdose.SetActive(false);
         }
-         foreach (GameObject uiLiebesbrief in UILiebesbrief)
+        foreach (GameObject uiLiebesbrief in UILiebesbrief)
         {
             uiLiebesbrief.SetActive(false);
         }
         foreach (GameObject uiKühlschrankmagnet in UIKühlschrankmagnet)
         {
-        uiKühlschrankmagnet.SetActive(true);
+        uiKühlschrankmagnet.SetActive(false);
         }
-                foreach (GameObject uipostkarte in UIPostkarte)
+        foreach (GameObject uiKarte in UIKarte)
+        {
+            uiKarte.SetActive(false);
+        }
+        foreach (GameObject uipostkarte in UIPostkarte)
         {
             uipostkarte.SetActive(true);
         }
@@ -190,9 +207,13 @@ public class ToggleManager : MonoBehaviour
         }
         foreach (GameObject uiKühlschrankmagnet in UIKühlschrankmagnet)
         {
-        uiKühlschrankmagnet.SetActive(true);
+            uiKühlschrankmagnet.SetActive(false);
         }
-         foreach (GameObject uibriefanmama in UIBriefanMama)
+        foreach (GameObject uiKarte in UIKarte)
+        {
+            uiKarte.SetActive(false);
+        }
+        foreach (GameObject uibriefanmama in UIBriefanMama)
         {
             uibriefanmama.SetActive(true);
         }
@@ -235,7 +256,11 @@ public void SelectEmmasTagebuchGeöffnet()
         }
         foreach (GameObject uiKühlschrankmagnet in UIKühlschrankmagnet)
         {
-        uiKühlschrankmagnet.SetActive(true);
+            uiKühlschrankmagnet.SetActive(false);
+        }
+        foreach (GameObject uiKarte in UIKarte)
+        {
+            uiKarte.SetActive(false);
         }
         foreach (GameObject uiemmastagebuchgeöffnet in UIEmmasTagebuchGeöffnet)
         {
@@ -279,9 +304,13 @@ public void SelectEmmasTagebuchGeschlossen()
         }
         foreach (GameObject uiKühlschrankmagnet in UIKühlschrankmagnet)
         {
-        uiKühlschrankmagnet.SetActive(true);
+        uiKühlschrankmagnet.SetActive(false);
         }
-         foreach (GameObject uiemmastagebuchgeschlossen in UIEmmasTagebuchGeschlossen)
+        foreach (GameObject uiKarte in UIKarte)
+        {
+            uiKarte.SetActive(false);
+        }
+        foreach (GameObject uiemmastagebuchgeschlossen in UIEmmasTagebuchGeschlossen)
         {
             uiemmastagebuchgeschlossen.SetActive(true);
         }
@@ -323,7 +352,11 @@ public void SelectZerissenerZettel()
         }
         foreach (GameObject uiKühlschrankmagnet in UIKühlschrankmagnet)
         {
-        uiKühlschrankmagnet.SetActive(true);
+        uiKühlschrankmagnet.SetActive(false);
+        }
+        foreach (GameObject uiKarte in UIKarte)
+        {
+            uiKarte.SetActive(false);
         }
         foreach (GameObject uizerissenerzettel in UIZerissenerZettel)
         {
@@ -366,7 +399,11 @@ public void SelectPatientenaktie()
         }
         foreach (GameObject uiKühlschrankmagnet in UIKühlschrankmagnet)
         {
-        uiKühlschrankmagnet.SetActive(true);
+        uiKühlschrankmagnet.SetActive(false);
+        }
+        foreach (GameObject uiKarte in UIKarte)
+        {
+            uiKarte.SetActive(false);
         }
         foreach (GameObject uipatientenaktie in UIPatientenaktie)
         {
@@ -410,7 +447,11 @@ public void SelectPatientenaktie()
         }
         foreach (GameObject uiKühlschrankmagnet in UIKühlschrankmagnet)
         {
-        uiKühlschrankmagnet.SetActive(true);
+        uiKühlschrankmagnet.SetActive(false);
+        }
+        foreach (GameObject uiKarte in UIKarte)
+        {
+            uiKarte.SetActive(false);
         }
         foreach (GameObject uiTunfischdose in UITunfischdose)
         {
@@ -453,7 +494,11 @@ public void SelectPatientenaktie()
         }
         foreach (GameObject uiKühlschrankmagnet in UIKühlschrankmagnet)
         {
-        uiKühlschrankmagnet.SetActive(true);
+        uiKühlschrankmagnet.SetActive(false);
+        }
+        foreach (GameObject uiKarte in UIKarte)
+        {
+            uiKarte.SetActive(false);
         }
         foreach (GameObject uiLiebesbrief in UILiebesbrief)
         {
@@ -499,10 +544,63 @@ public void SelectPatientenaktie()
         {
         uiTunfischdose.SetActive(false);
         }
+        foreach (GameObject uiKarte in UIKarte)
+        {
+            uiKarte.SetActive(false);
+        }
         foreach (GameObject uiKühlschrankmagnet in UIKühlschrankmagnet)
         {
         uiKühlschrankmagnet.SetActive(true);
         }
     }
+
+    public void SelectKarte()
+    {
+        foreach (GameObject uitabletten in UITabletten)
+        {
+            uitabletten.SetActive(false);
+        }
+        foreach (GameObject uipostkarte in UIPostkarte)
+        {
+            uipostkarte.SetActive(false);
+        }
+        foreach (GameObject uibriefanmama in UIBriefanMama)
+        {
+            uibriefanmama.SetActive(false);
+        }
+        foreach (GameObject uiemmastagebuchgeöffnet in UIEmmasTagebuchGeöffnet)
+        {
+            uiemmastagebuchgeöffnet.SetActive(false);
+        }
+        foreach (GameObject uiemmastagebuchgeschlossen in UIEmmasTagebuchGeschlossen)
+        {
+            uiemmastagebuchgeschlossen.SetActive(false);
+        }
+        foreach (GameObject uizerissenerzettel in UIZerissenerZettel)
+        {
+            uizerissenerzettel.SetActive(false);
+        }
+        foreach (GameObject uipatientenaktie in UIPatientenaktie)
+        {
+            uipatientenaktie.SetActive(false);
+        }
+        foreach (GameObject uiLiebesbrief in UILiebesbrief)
+        {
+            uiLiebesbrief.SetActive(false);
+        }
+        foreach (GameObject uiTunfischdose in UITunfischdose)
+        {
+            uiTunfischdose.SetActive(false);
+        }
+        foreach (GameObject uiKühlschrankmagnet in UIKühlschrankmagnet)
+        {
+            uiKühlschrankmagnet.SetActive(false);
+        }
+        foreach (GameObject uiKarte in UIKarte)
+        {
+            uiKarte.SetActive(true);
+        }
+    }
+
 
 }

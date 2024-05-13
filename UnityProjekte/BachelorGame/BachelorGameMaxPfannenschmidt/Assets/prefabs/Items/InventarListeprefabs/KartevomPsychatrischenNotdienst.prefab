@@ -286,5 +286,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toggle: {fileID: 1854430297019292147}
-  thisTag: KartevomPsychatrischenNotdienst
+  thisTag: Karte
   inventarManager: {fileID: 0}

@@ -242,7 +242,7 @@ AnimatorController:
   - m_Name: BaseStates
     m_Type: 3
     m_DefaultFloat: 0
-    m_DefaultInt: 1
+    m_DefaultInt: 3
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: StehendBaseAnimations
@@ -315,7 +315,7 @@ AnimatorStateMachine:
     m_Position: {x: 320, y: 70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3860626268031650840}
-    m_Position: {x: 555.2663, y: 310.3358, z: 0}
+    m_Position: {x: 560, y: 310, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -425,7 +425,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 8282734335591054135, guid: 066515a478fcfb3478245ae4aa801a5a,
+  m_Motion: {fileID: -7598285603489466629, guid: 066515a478fcfb3478245ae4aa801a5a,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
