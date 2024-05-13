@@ -244,7 +244,7 @@ AnimatorController:
   - m_Name: BaseStates
     m_Type: 3
     m_DefaultFloat: 0
-    m_DefaultInt: 0
+    m_DefaultInt: 4
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: StehendBaseAnimations
@@ -271,7 +271,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: VelocityY
+  - m_Name: VelocityZ
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -538,12 +538,12 @@ BlendTree:
     m_DirectBlendParameter: StehendBaseAnimations
     m_Mirror: 0
   m_BlendParameter: VelocityX
-  m_BlendParameterY: VelocityY
+  m_BlendParameterY: VelocityZ
   m_MinThreshold: 0
   m_MaxThreshold: 1
   m_UseAutomaticThresholds: 1
   m_NormalizedBlendValues: 0
-  m_BlendType: 2
+  m_BlendType: 1
 --- !u!1102 &7031648631315498845
 AnimatorState:
   serializedVersion: 6
