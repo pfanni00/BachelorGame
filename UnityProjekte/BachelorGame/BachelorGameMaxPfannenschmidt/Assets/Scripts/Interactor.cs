@@ -39,7 +39,7 @@ public class Interactor : MonoBehaviour
             if (!onHover || currentInteractable == null)
                 {   //Hover wert wird gespeichert
                     onHover = true;
-                    Debug.Log(onHover);
+                    //Debug.Log(onHover);
                     interactObj.HoverInteract();
                     currentInteractable = interactObj;
 
@@ -54,7 +54,7 @@ public class Interactor : MonoBehaviour
             else if(onHover || currentInteractable != null)
                 {
                     currentInteractable?.HoverInteractOFF();
-                    Debug.Log(onHover);
+                   // Debug.Log(onHover);
                     interactObj.HoverInteract();
                     currentInteractable = interactObj;
 
@@ -73,7 +73,7 @@ public class Interactor : MonoBehaviour
                 {
                     currentInteractable?.HoverInteractOFF();
                     onHover = false;
-                    Debug.Log(onHover);
+                    //Debug.Log(onHover);
 
                     currentInteractable = null;
                 }
@@ -86,7 +86,7 @@ public class Interactor : MonoBehaviour
             {
                 currentInteractable?.HoverInteractOFF();
                 onHover = false;
-                Debug.Log(onHover);
+               // Debug.Log(onHover);
 
                 currentInteractable = null;
             }
