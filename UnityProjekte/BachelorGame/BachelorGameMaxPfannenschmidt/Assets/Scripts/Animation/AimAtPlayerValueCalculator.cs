@@ -37,11 +37,12 @@ public class AimAtPlayerValueCalculator : MonoBehaviour
         XPercent = (float)Math.Round(xpercent, 2);
         
         float rangeZ = ZMax - ZMin;
-        float currentValueZ = ZMax - Zcordinate;
+        float ZMaxPercent = ZMin * -1;
+        float currentValueZ = ZMaxPercent + Zcordinate;
         float zpercent = currentValueZ / rangeZ;
         ZPercent = (float)Math.Round(zpercent, 2);
 
-        Debug.Log(XPercent);
+       // Debug.Log(XPercent);
 
     }
 

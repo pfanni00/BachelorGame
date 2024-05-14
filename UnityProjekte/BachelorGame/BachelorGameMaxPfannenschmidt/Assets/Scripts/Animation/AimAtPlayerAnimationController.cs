@@ -11,6 +11,7 @@ public class AimAtPlayerAnimationController : MonoBehaviour
     private float velocityZTarget;
     private float velocityZ;
     public float speed;
+    private float AnimationStates;
     // Start is called before the first frame update
     void Start()
     {
