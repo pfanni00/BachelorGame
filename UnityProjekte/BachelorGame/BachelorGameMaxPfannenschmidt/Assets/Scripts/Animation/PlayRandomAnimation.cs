@@ -48,6 +48,7 @@ public class PlayRandomAnimation : StateMachineBehaviour
         }
 
         animator.SetFloat(state, _currentAnimation, 0.2f, Time.deltaTime);
+        animator.SetBool("AnimationisPlaying",  _isActive);
     
       
     }
