@@ -34,4 +34,9 @@ public class KatzeAnimationsController : MonoBehaviour
 
         animator.SetInteger("BaseStates", baseStates);
     }
+
+    public void StartKeyAnimation()
+    {
+        baseStates = 2;
+    }
 }
