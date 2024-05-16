@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class VaseAnimationsController : MonoBehaviour
 {
-
+    // dieses Script spielt die Animationen der Zerbrechenden Vase in richtiger Reihenfolge ab. Wenn StartAnimation = true ist wird zuerst die VaseFallAnimation Abgespielt und danach VaseSplitter- und SchlüsselAnimation
     public Animator VaseFallAnimation;
     public Animator VaseSplitterAnimation;
     public Animator SchlüsselAnimator;
+    public Animator KatzeAnimator;
     public bool StartAnimation;
     // Start is called before the first frame update
     void Start()
@@ -23,13 +24,24 @@ public class VaseAnimationsController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        // wenn die Katzen Animation in welcher die Vase umgeworfen wird läuft, wird die entsprechend darauffolgende Vasen animation gestarted 
+        bool AnimationTrigger = KatzeAnimator.GetBool("VaseAnimationTrigger");
+        Debug.Log(AnimationTrigger);
+        if (AnimationTrigger == true)
+        {
+            StartCoroutine(StartAnimationAfterSeconds());
+        }
+
+        
         if (StartAnimation == true && VaseFallAnimation != null)
         {
             VaseFallAnimation.SetBool("Start", true);
             StartCoroutine(WaitForAnimationEnd("Vase_fall"));
         }
+       
     }
-
+    // Hier wird geprüft ob die Erste VasenAnimation zuende Abgespielt wurde
     private IEnumerator WaitForAnimationEnd(string animation)
     {
         if (VaseFallAnimation != null)
@@ -52,7 +64,17 @@ public class VaseAnimationsController : MonoBehaviour
         }
     }
 
+    private IEnumerator StartAnimationAfterSeconds()
+    {
+       // animation wird nach Sekundenzahl gestarted 
+        yield return new WaitForSeconds(0.5f);
+        StartAnimation = true;
+        
+    }
+
+
     private void OnAnimationEnd()
+    // Wenn die erste Animation der Herunterfallenden Vase Endet wird die Animation des Schlüssels und der Zersplitternden Vase Abgespielt. 
     {
         VaseSplitterAnimation.gameObject.SetActive(true);
         VaseSplitterAnimation.SetBool("Start", true);
