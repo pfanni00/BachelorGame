@@ -32,6 +32,9 @@ public class DialogAudioController : MonoBehaviour
     //Dialogoption: Das muss ein Traum sein. AudioFiles
     public DialogueEntry[] dialogueOption2;
 
+    //Fütter die Katze
+    public DialogueEntry[] dialogueOption3;
+
     // Methode zum Abspielen einer Dialogoption die zahl am ende des AudioFile Arrays muss dabei als int angegeben werden. 
     public void PlayDialogueOption(int option)
     {

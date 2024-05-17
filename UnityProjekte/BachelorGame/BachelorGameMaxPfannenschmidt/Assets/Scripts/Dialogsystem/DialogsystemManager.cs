@@ -15,6 +15,9 @@ public class DialogsystemManager : MonoBehaviour
     public GameObject Katze;
     public bool AlldialogisFinished;
 
+    public Animator katzeanimator;
+    public GameObject Thunfischdose;
+
     // DO sind die Prefabs der DialogoptionButtons im UI
     public GameObject DOWarumKannstDuReden;
     public GameObject DODasMussEinTraumSein; 
@@ -73,6 +76,8 @@ public class DialogsystemManager : MonoBehaviour
         DOFragNachEmmasBriefIsSpawned = false;
         LeaveButton.SetActive(false);
         AlldialogisFinished = false;
+
+        Thunfischdose.SetActive(false);
     }
 
     // Update is called once per frame
@@ -196,9 +201,23 @@ public class DialogsystemManager : MonoBehaviour
         DialogState = DialogState +1;
     }
 
+    private IEnumerator StartAudioAfterSeconds(float seconds,int dialogOption )
+    {
+        // animation wird nach Sekundenzahl gestarted 
+        yield return new WaitForSeconds(seconds);
+        DialogAudioController.Instance.PlayDialogueOption(dialogOption);
+    }
+
+    private IEnumerator StartAnimationAfterSeconds(float seconds, int animationState)
+    {
+        // animation wird nach Sekundenzahl gestarted 
+        yield return new WaitForSeconds(seconds);
+        katzeanimator.SetInteger("BaseStates", animationState);
+
+    }
 
 
-//Dialogoptionen der ersten Phase: 
+    //Dialogoptionen der ersten Phase: 
     public void SelectDOWarumKannstDuReden()
     {
         DialogAudioController.Instance.PlayDialogueOption(1);
@@ -263,8 +282,11 @@ public class DialogsystemManager : MonoBehaviour
     }
      public void SelectDOFütterDieKatze()
     {
-        //AudioIstPlayed
-        //AnimationisPlayed
+        Thunfischdose.SetActive(true);
+
+        katzeanimator.SetInteger("BaseStates", 3);
+        StartCoroutine(StartAudioAfterSeconds(6.5f, 3));
+        StartCoroutine(StartAnimationAfterSeconds(14f,2));
         DOFütterDieKatzeWasSelected = true;
     }
     public void SelectDOFragNachEmmasBrief()
