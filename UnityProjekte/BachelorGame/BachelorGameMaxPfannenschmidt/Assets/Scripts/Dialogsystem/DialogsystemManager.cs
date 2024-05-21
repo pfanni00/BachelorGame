@@ -201,11 +201,11 @@ public class DialogsystemManager : MonoBehaviour
         DialogState = DialogState +1;
     }
 
-    private IEnumerator StartAudioAfterSeconds(float seconds,int dialogOption )
+    private IEnumerator StartAudioAfterSeconds(float seconds)
     {
         // animation wird nach Sekundenzahl gestarted 
         yield return new WaitForSeconds(seconds);
-        DialogAudioController.Instance.PlayDialogueOption(dialogOption);
+        DialogAudioController.Instance.PlayDialogueOption(3);
     }
 
     private IEnumerator StartAnimationAfterSeconds(float seconds, int animationState)
@@ -285,7 +285,7 @@ public class DialogsystemManager : MonoBehaviour
         Thunfischdose.SetActive(true);
 
         katzeanimator.SetInteger("BaseStates", 3);
-        StartCoroutine(StartAudioAfterSeconds(6.5f, 3));
+        StartCoroutine(StartAudioAfterSeconds(6.5f));
         StartCoroutine(StartAnimationAfterSeconds(14f,2));
         DOFütterDieKatzeWasSelected = true;
     }

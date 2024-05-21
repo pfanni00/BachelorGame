@@ -35,10 +35,26 @@ public class DialogAudioController : MonoBehaviour
     //Fütter die Katze
     public DialogueEntry[] dialogueOption3;
 
-    // Methode zum Abspielen einer Dialogoption die zahl am ende des AudioFile Arrays muss dabei als int angegeben werden. 
+    // Methode zum Abspielen einer Dialogoption die zahl am ende des AudioFile Arrays muss dabei als int angegeben werden. im Switch case wird dann der Correcte Clip Abgespielt 
     public void PlayDialogueOption(int option)
     {
-        StartCoroutine(PlayDialogueCoroutine(option == 1 ? dialogueOption1 : dialogueOption2));
+        switch (option)
+        {
+            case 1:
+                StartCoroutine(PlayDialogueCoroutine(dialogueOption1));
+                break;
+            case 2:
+                StartCoroutine(PlayDialogueCoroutine(dialogueOption2));
+                break;
+            case 3:
+                StartCoroutine(PlayDialogueCoroutine(dialogueOption3));
+                break;
+            
+            default:
+                Debug.LogWarning("Ungültige Dialogoption ausgewählt");
+                break;
+        }
+        //  StartCoroutine(PlayDialogueCoroutine(option == 1 ? dialogueOption1 : dialogueOption2));
     }
 
     // Koroutine zum sequenziellen Abspielen der Dialoge
