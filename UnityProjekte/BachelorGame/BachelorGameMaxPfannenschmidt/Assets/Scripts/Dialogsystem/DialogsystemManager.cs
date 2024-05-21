@@ -5,15 +5,20 @@ using UnityEngine;
 public class DialogsystemManager : MonoBehaviour
 {
     public static DialogsystemManager Instance;
-    
+
+    public bool DialogsystemIsUsabale;
     public int DialogState;
-    private bool varianteSD;
+    public bool AlldialogisFinished;
+
     // Controlliert ob variante Schlau oder Dumm aktiv ist.
+    private bool varianteSD;
+    
     private bool DOPrefabsareSpawned;
     public GameObject DialogSystemUI;
     public Transform DOParent;
     public GameObject Katze;
-    public bool AlldialogisFinished;
+    public GameObject Player;
+
 
     public Animator katzeanimator;
     public GameObject Thunfischdose;
@@ -68,6 +73,8 @@ public class DialogsystemManager : MonoBehaviour
 
     void Start()
     {
+        DialogsystemIsUsabale = true;
+
         DialogState = 1;
         DOPrefabsareSpawned = false; 
         DOFragNachKomaIsSpawned = false;
@@ -83,11 +90,21 @@ public class DialogsystemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Ist das Dialogsystem nicht nutzbar wird das HUD ausgeblendet Außerdem ist die Interaktion mit der Katze nicht mehr möglich 
+        if (DialogsystemIsUsabale == false)
+        {
+            DialogSystemUI.SetActive(false);
+        }
+        else if (DialogsystemIsUsabale == true)
+        {
+            DialogSystemUI.SetActive(true);
+        }
+
         // wenn Dialog Gespielt wird wird das UI Ausgeblendet
         if (DialogAudioController.Instance.AudioisActive == true)
         {
             DialogSystemUI.SetActive(false);
-        }else if (DialogAudioController.Instance.AudioisActive == false)
+        }else if (DialogAudioController.Instance.AudioisActive == false && DialogsystemIsUsabale == true)
         {
             DialogSystemUI.SetActive(true);
         }
@@ -216,18 +233,39 @@ public class DialogsystemManager : MonoBehaviour
 
     }
 
+    // Wenn der Spieler die Katze füttert wird eine Reihe von Animationen und dialogen Abgespielt in welcher er den Schlüssel erhält
+    private IEnumerator PlayGetKeySequence()
+    {
+        DialogsystemIsUsabale = false;
+        katzeanimator.SetInteger("BaseStates", 3);
+
+        yield return new WaitForSeconds(6f);
+        
+        DialogAudioController.Instance.PlayDialogueOption(5);
+        
+        yield return new WaitForSeconds(8f);
+        
+        katzeanimator.SetInteger("BaseStates", 2);
+        HUDControlls hc = Player.GetComponent<HUDControlls>();
+        hc.closeDialogsystem();
+
+        yield return new WaitForSeconds(5f);
+
+        DialogsystemIsUsabale = true;
+    }
+
 
     //Dialogoptionen der ersten Phase: 
     public void SelectDOWarumKannstDuReden()
     {
-        DialogAudioController.Instance.PlayDialogueOption(1);
+        DialogAudioController.Instance.PlayDialogueOption(4);
         NextDialogState(); 
 
     }
 
    public void SelectDODasMussEinTraumSein()
     {
-        DialogAudioController.Instance.PlayDialogueOption(2);
+        DialogAudioController.Instance.PlayDialogueOption(4);
         NextDialogState();    
     }
 
@@ -284,9 +322,8 @@ public class DialogsystemManager : MonoBehaviour
     {
         Thunfischdose.SetActive(true);
 
-        katzeanimator.SetInteger("BaseStates", 3);
-        StartCoroutine(StartAudioAfterSeconds(6.5f));
-        StartCoroutine(StartAnimationAfterSeconds(14f,2));
+        StartCoroutine(PlayGetKeySequence());
+       
         DOFütterDieKatzeWasSelected = true;
     }
     public void SelectDOFragNachEmmasBrief()

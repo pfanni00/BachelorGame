@@ -7,12 +7,11 @@ public class KatzeInteraction : MonoBehaviour, IInteractable {
     public GameObject Player;
     public GameObject dialogTrigger;
     private bool triggerActive;
-
+    private bool HasBeenInteracted;
     public bool isUsabale;
     
     void Start()
     {      // triggerActive = dialogTrigger.GetComponent<DialogTrigger>().TriggerActive;
-
       
         isUsabale = true;
         //Debug.Log(triggerActive);
@@ -21,21 +20,32 @@ public class KatzeInteraction : MonoBehaviour, IInteractable {
     void Update()
     {
         DialogTrigger dt = dialogTrigger.GetComponent<DialogTrigger>();
-        triggerActive = dt.TriggerActive;  
+        triggerActive = dt.TriggerActive;
 
-        if (DialogAudioController.Instance.AudioisActive == true || DialogsystemManager.Instance.AlldialogisFinished == true || triggerActive == false)
+        if (DialogsystemManager.Instance.AlldialogisFinished == false)
         {
-            MakeUnusable();
-        }else if (triggerActive == true)
-        {
-            MakeUsable();
-        }
-       
+            if (DialogAudioController.Instance.AudioisActive == true || DialogsystemManager.Instance.DialogsystemIsUsabale == false || triggerActive == false)
+            {
+                MakeUnusable();
+            }
+            else if (triggerActive == true)
+            {
+                MakeUsable();
+            }
+        } else MakeUnusable();
     }
    public void Interact()
     {
         if (isUsabale == true)
         {
+            // wenn der Spieler zum ersten mal mit der Katze interagiert wird der Initiale Dialog Gestarted
+        if(HasBeenInteracted == false)
+            {
+                HasBeenInteracted = true;
+                DialogAudioController.Instance.StartFirstDialog();
+
+            }
+
         HUDControlls ic = Player.GetComponent<HUDControlls>();
         ic.openDialogsystem();  
         }    

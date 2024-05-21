@@ -8,7 +8,7 @@ public class DialogAudioController : MonoBehaviour
     public AudioSource catAudioSource;
 
     public bool AudioisActive; 
-    private bool DialogwasStarted;
+    public bool DialogwasStarted;
     private bool FreeRoamDialogWasStarted;
     public Collider InitialDialogTrigger;
 
@@ -27,13 +27,16 @@ public class DialogAudioController : MonoBehaviour
         DialogwasStarted = false;
     }
 
-    //Dialogoption: Warum kannst du Reden? AudioFiles
+    // FreeRoamDialog1 AudioFiles
     public DialogueEntry[] dialogueOption1;
-    //Dialogoption: Das muss ein Traum sein. AudioFiles
+    //FreeRoamDialog2 AudioFiles
     public DialogueEntry[] dialogueOption2;
-
-    //Fütter die Katze
+    //KatzeStartDialog AudioFiles
     public DialogueEntry[] dialogueOption3;
+    //Dialogoption: Warum Kannst du Reden? AudioFiles
+    public DialogueEntry[] dialogueOption4;
+    //Dialogoption: FütterDieKatze AudioFiles
+    public DialogueEntry[] dialogueOption5;
 
     // Methode zum Abspielen einer Dialogoption die zahl am ende des AudioFile Arrays muss dabei als int angegeben werden. im Switch case wird dann der Correcte Clip Abgespielt 
     public void PlayDialogueOption(int option)
@@ -49,7 +52,12 @@ public class DialogAudioController : MonoBehaviour
             case 3:
                 StartCoroutine(PlayDialogueCoroutine(dialogueOption3));
                 break;
-            
+            case 4:
+                StartCoroutine(PlayDialogueCoroutine(dialogueOption4));
+                break;
+            case 5:
+                StartCoroutine(PlayDialogueCoroutine(dialogueOption5));
+                break;
             default:
                 Debug.LogWarning("Ungültige Dialogoption ausgewählt");
                 break;
@@ -76,26 +84,36 @@ public class DialogAudioController : MonoBehaviour
   {
     if (DialogwasStarted == false && FreeRoamDialogWasStarted == false)
     {
+    DialogsystemManager.Instance.DialogsystemIsUsabale = false;
     FreeRoamDialogWasStarted = true;
     StartCoroutine(FreeRoamDialog());
+
+        }
     }
-  }
 
    IEnumerator FreeRoamDialog()
     {
+        DialogsystemManager.Instance.DialogsystemIsUsabale = false;
+
         PlayDialogueOption(1);
         Debug.Log("Started Coroutine at timestamp : " + Time.time);
+        DialogsystemManager.Instance.DialogsystemIsUsabale = true;
+
         yield return new WaitForSeconds(10);
         if (DialogwasStarted == false)
         {
-            PlayDialogueOption(2); 
+            DialogsystemManager.Instance.DialogsystemIsUsabale = false;
+
+            PlayDialogueOption(2);
+            DialogsystemManager.Instance.DialogsystemIsUsabale = true;
+
         }
     }
 
     public void StartFirstDialog()
     {
         StopCoroutine(FreeRoamDialog());    
-        PlayDialogueOption(1);
+        PlayDialogueOption(3);
         DialogwasStarted = true;
     }
 }
