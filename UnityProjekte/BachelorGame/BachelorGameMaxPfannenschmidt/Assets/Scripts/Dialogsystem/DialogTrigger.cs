@@ -12,14 +12,19 @@ void Start ()
 {
     TriggerActive = false;
 }
+
+
 void OnTriggerEnter(Collider Playercollider)
 {
     TriggerActive = true;
+    KatzeAnimationsController.Instance.StartAnimationState(TriggerActive);
 }
 
 void OnTriggerExit(Collider Playercollider)
 {
     TriggerActive = false;
-}
+    KatzeAnimationsController.Instance.StartAnimationState(TriggerActive);
+
+    }
 
 }

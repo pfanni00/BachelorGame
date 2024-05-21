@@ -237,17 +237,17 @@ public class DialogsystemManager : MonoBehaviour
     private IEnumerator PlayGetKeySequence()
     {
         DialogsystemIsUsabale = false;
-        katzeanimator.SetInteger("BaseStates", 3);
+        KatzeAnimationsController.Instance.SetState(3);
 
         yield return new WaitForSeconds(6f);
         
         DialogAudioController.Instance.PlayDialogueOption(5);
         
         yield return new WaitForSeconds(8f);
-        
-        katzeanimator.SetInteger("BaseStates", 2);
-        HUDControlls hc = Player.GetComponent<HUDControlls>();
-        hc.closeDialogsystem();
+
+        KatzeAnimationsController.Instance.SetState(2);
+        HUDControlls.Instance.closeDialogsystem();
+
 
         yield return new WaitForSeconds(5f);
 

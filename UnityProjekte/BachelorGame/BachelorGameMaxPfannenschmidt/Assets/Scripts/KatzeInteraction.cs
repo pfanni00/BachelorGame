@@ -7,7 +7,7 @@ public class KatzeInteraction : MonoBehaviour, IInteractable {
     public GameObject Player;
     public GameObject dialogTrigger;
     private bool triggerActive;
-    private bool HasBeenInteracted;
+    public bool HasBeenInteracted;
     public bool isUsabale;
     
     void Start()
@@ -46,8 +46,9 @@ public class KatzeInteraction : MonoBehaviour, IInteractable {
 
             }
 
-        HUDControlls ic = Player.GetComponent<HUDControlls>();
-        ic.openDialogsystem();  
+        // Dialogsystem UI wird geöffnet und die AimAtPlayer Animation wird gestated
+            HUDControlls.Instance.openDialogsystem();
+            KatzeAnimationsController.Instance.SetState(4);
         }    
     }
 
@@ -56,12 +57,16 @@ public class KatzeInteraction : MonoBehaviour, IInteractable {
         if (isUsabale == true)
         {
         HoverUi.SetActive(true);
+           // KatzeAnimationsController.Instance.SetState(4);
+
         }
+
     }
 
-public void HoverInteractOFF()
+    public void HoverInteractOFF()
     {
         HoverUi.SetActive(false);
+
     }
 
 private void MakeUnusable()

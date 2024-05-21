@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class HUDControlls : MonoBehaviour
 {// Dieses Script verwaltet die Zustände der Verschiedenen Menüs im Spiel wie Inventar oder Dialogsystem
+    public static HUDControlls Instance;
+
+
     public bool Inventroryisuseabale;
     public bool InventoryisOpen;
 
@@ -14,7 +17,10 @@ public class HUDControlls : MonoBehaviour
     public GameObject DialogSystemUI;
     public GameObject volumeController;
 
-
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -68,6 +74,7 @@ public class HUDControlls : MonoBehaviour
     DialogSystemUI.SetActive(true);
     FPSController fps = gameObject.GetComponent<FPSController>();
     fps.lockMovement();
+    DialogsystemisOpen = true;
     }
 
     public void closeDialogsystem()
@@ -77,5 +84,7 @@ public class HUDControlls : MonoBehaviour
     DialogSystemUI.SetActive(false);
     FPSController fps = gameObject.GetComponent<FPSController>();
     fps.unlockMovement();
+    DialogsystemisOpen = false;
+
     }
 }
