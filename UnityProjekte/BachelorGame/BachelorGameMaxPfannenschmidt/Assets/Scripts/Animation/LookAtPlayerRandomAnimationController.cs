@@ -1,69 +1,70 @@
-//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-//public class LookAtPlayerRandomAnimation : MonoBehaviour
-//{
-//    public float state;
-//    private int baseState;
-//    //public float activateState;
-//    private float _timeUntilStart;
-//    public float _MintimeToStart;
-//    public float _MaxtimetoStart;
-//    public Animator animator;
-//    [SerializeField]
-//    private int _numberOfAnimations;
+public class LookAtPlayerRandomAnimation : MonoBehaviour
+{
+public Animator animator;
 
-//    private bool _isActive;
-//    private float _AnimationTime;
+public float TimeUntilAnimationStart = 5.0f; // Zeit in Sekunden, die der LookAtPlayer-State dauern soll
 
-//    private int _currentAnimation;
+private float timer;
+private bool LookAtPlayerStateActive;
+    private bool RandomAnimationStateActive;
+    private int currentbaseState;
+
+void Start()
+{
+    timer = 0.0f;
+       // LookAtPlayerStateActive = true;
+    //animator.SetInteger("baseState", 1); // Startet im LookAtPlayer-State
+}
+
+void Update()
+{
+    timer += Time.deltaTime;
     
+       int currentbaseState = animator.GetInteger("BaseStates");
+    if (currentbaseState == 4)
+        {
+            LookAtPlayerStateActive = true;
+            RandomAnimationStateActive = false;
+        } else if (currentbaseState == 5) 
+            {
+            LookAtPlayerStateActive = false;
+            RandomAnimationStateActive = true;
+        } else
+        {
+            LookAtPlayerStateActive = false;
+            RandomAnimationStateActive = false;
+            timer = 0.0f;
+        }
+        
+    if (LookAtPlayerStateActive == true && timer >= TimeUntilAnimationStart)
+    {
+        // Wechsel zu RandomAnimation
+        //LookAtPlayerStateActive = false;
+       // RandomAnimationStateActive = true;
+        float aimAtPlayerAnimations = Random.Range(1, 5); // 1 bis 4 (einschließlich)
+        animator.SetFloat("AimAtPlayerAnimations", aimAtPlayerAnimations);
+            animator.SetInteger("BaseStates", 5);
 
+            //timer = 0.0f; // Reset Timer
+    }
 
-//    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-//    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-//    void Update() 
-//    {
-//        if (_isActive == false)
-//        {
-//            //Wenn die Animation InActiv ist, Läuft die AnimationTime ab
-//            _AnimationTime += Time.deltaTime;
-//           // AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+    if (RandomAnimationStateActive == true && IsAnimationFinished())
+    {
+            // Wechsel zurück zu LookAtPlayer
+        //LookAtPlayerStateActive = true;
+        animator.SetInteger("BaseStates", 4);
+        timer = 0.0f; // Reset Timer
+    }
+}
 
-//            if (_AnimationTime > _timeUntilStart && stateInfo.normalizedTime % 1 < 0.02f)
-//            {
-//                _isActive = true;
-
-//                state = Random.Range(1, _numberOfAnimations);
-//               // _currentAnimation = _currentAnimation * 2 - 1;
-//                baseState = 5;
-//                animator.SetFloat("AimAtPlayerAnimations", state);
-//            }
-//        }
-//        else if (stateInfo.normalizedTime % 1 > 0.98)
-//        {
-//            ResetAnimation();
-//        }
-
-//        //animator.SetFloat(state, _currentAnimation, 0.2f, Time.deltaTime);
-//        animator.SetBool("AnimationisPlaying", _isActive);
-
-//        animator.SetInteger("BaseState", baseState);
-//    }
-
-//    private void ResetAnimation()
-//    {
-//        /*if (_isActive)
-//        {
-//            // _currentAnimation--;
-//        }*/
-
-//        _isActive = false;
-//        _AnimationTime = 0;
-//            baseState = 4;
-//        //_timeUntilStart = Random.Range(_MintimeToStart, _MaxtimetoStart);
-//        // baseState = 4;
-//    }
-
-//}
+bool IsAnimationFinished()
+{
+    // Überprüft, ob die aktuelle Animation in RandomAnimation beendet ist
+    AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+    return stateInfo.IsName("AimRandomAnimation") && stateInfo.normalizedTime >= 1.0f;
+}
+}

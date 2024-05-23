@@ -27,7 +27,7 @@ public class VaseAnimationsController : MonoBehaviour
 
         // wenn die Katzen Animation in welcher die Vase umgeworfen wird läuft, wird die entsprechend darauffolgende Vasen animation gestarted 
         bool AnimationTrigger = KatzeAnimator.GetBool("VaseAnimationTrigger");
-        Debug.Log(AnimationTrigger);
+        //Debug.Log(AnimationTrigger);
         if (AnimationTrigger == true)
         {
             StartCoroutine(StartAnimationAfterSeconds());

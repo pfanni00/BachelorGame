@@ -236,6 +236,7 @@ public class DialogsystemManager : MonoBehaviour
     // Wenn der Spieler die Katze füttert wird eine Reihe von Animationen und dialogen Abgespielt in welcher er den Schlüssel erhält
     private IEnumerator PlayGetKeySequence()
     {
+
         DialogsystemIsUsabale = false;
         KatzeAnimationsController.Instance.SetState(3);
 
@@ -252,6 +253,13 @@ public class DialogsystemManager : MonoBehaviour
         yield return new WaitForSeconds(5f);
 
         DialogsystemIsUsabale = true;
+    }
+
+    private IEnumerator InitialiseEndingChoice(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        GameManager.Instance.InitialiseEndingChoices();
+        HUDControlls.Instance.closeDialogsystem();
     }
 
 
@@ -339,11 +347,13 @@ public class DialogsystemManager : MonoBehaviour
      public void SelectDOIchWäreMeinLebenLangEineLast()
     {
         //AudioIstPlayed
+        StartCoroutine(InitialiseEndingChoice(2));
         NextDialogState();
     }
      public void SelectDOIchWillEmmaNichtVerlieren()
     {
         //AudioIstPlayed
+        StartCoroutine(InitialiseEndingChoice(6));
         NextDialogState();
 
     }
