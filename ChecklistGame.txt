@@ -1,6 +1,33 @@
 Inventar:
 - ein NEU Symbol einbauen das noch nicht angesehene Items im Inventar Markiert. 
-- Logic der Kombinierten Items
+- HUD verschönern 
 - Sound für Emmas Tagebuch
-- Verbesserung der Item Collection 
-	- Hitbox der Items beim Einsammeln vergrößern 
+- kleinen cursor einbauen in GameUI
+
+Animation:
+- Katze variations animationen bei Dialogen 
+- End einleitungsanimationen einbinden Rollo und Fenster plus Tür Auf 
+
+Modeling:
+-Bad Lücke Füllen 
+-Fenster im Schlafzimmer mit besserer Auflösung einbinden
+-Lampen Modelieren (oder aus packages nehmen)
+
+Lighting
+-Innenräume ausleuchten
+-Ending lichter Wohnungstür und krankenzimmer
+
+Audio
+-Sprechertexte Schneiden evtl mixen und einbinden 
+-Audio für Emmas Tagebuch einbinden (Scripting)
+-Musik einbinden (Scripting) 
+-einige foleys (Schritte, Türen öffnen, Kühlschrank öffnen, Krankenzimmer Sounds, Katzen Foleys, Vase Sounds.)
+
+Menu UI
+-UI verschönern (DialogSystem, teilweise Inventar, Neue Schriftart) 
+-Pause Menü einbauen (Spiel verlassen, Controlls)
+-Hauptmenü einbauen 
+
+Sonstiges
+-End Scene erstellen mit audio 
+-Publishing 
