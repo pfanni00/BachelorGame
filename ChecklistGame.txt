@@ -1,8 +1,4 @@
-Inventar:
-- ein NEU Symbol einbauen das noch nicht angesehene Items im Inventar Markiert. 
-- HUD verschönern 
-- Sound für Emmas Tagebuch
-- kleinen cursor einbauen in GameUI
+
 
 Animation:
 - Katze variations animationen bei Dialogen 
@@ -21,12 +17,13 @@ Audio
 -Sprechertexte Schneiden evtl mixen und einbinden 
 -Audio für Emmas Tagebuch einbinden (Scripting)
 -Musik einbinden (Scripting) 
--einige foleys (Schritte, Türen öffnen, Kühlschrank öffnen, Krankenzimmer Sounds, Katzen Foleys, Vase Sounds.)
+-einige foleys (Schritte, Türen öffnen, Kühlschrank öffnen, Krankenzimmer Sounds, Katzen Foleys, Vase Sounds, Schalousie Sound)
 
 Menu UI
 -UI verschönern (DialogSystem, teilweise Inventar, Neue Schriftart) 
 -Pause Menü einbauen (Spiel verlassen, Controlls)
 -Hauptmenü einbauen 
+-kleinen cursor einbauen in GameUI
 
 Sonstiges
 -End Scene erstellen mit audio 
