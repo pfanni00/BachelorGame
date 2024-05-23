@@ -6,7 +6,9 @@ public class LookAtPlayerRandomAnimation : MonoBehaviour
 {
 public Animator animator;
 
-public float TimeUntilAnimationStart = 5.0f; // Zeit in Sekunden, die der LookAtPlayer-State dauern soll
+private float TimeUntilAnimationStart;
+public float MinTimeUntilAnimationStart;
+public float MaxTimeUntilAnimationStart;
 
 private float timer;
 private bool LookAtPlayerStateActive;
@@ -16,8 +18,7 @@ private bool LookAtPlayerStateActive;
 void Start()
 {
     timer = 0.0f;
-       // LookAtPlayerStateActive = true;
-    //animator.SetInteger("baseState", 1); // Startet im LookAtPlayer-State
+        TimeUntilAnimationStart = 14f;
 }
 
 void Update()
@@ -42,22 +43,19 @@ void Update()
         
     if (LookAtPlayerStateActive == true && timer >= TimeUntilAnimationStart)
     {
-        // Wechsel zu RandomAnimation
-        //LookAtPlayerStateActive = false;
-       // RandomAnimationStateActive = true;
+        // Wenn die TimeUntilAnimationStart vorbei ist wird in den RandomAnimationState gewechselt und eine der Zufälligen Animationen Abgespielt 
         float aimAtPlayerAnimations = Random.Range(1, 5); // 1 bis 4 (einschließlich)
         animator.SetFloat("AimAtPlayerAnimations", aimAtPlayerAnimations);
             animator.SetInteger("BaseStates", 5);
-
-            //timer = 0.0f; // Reset Timer
     }
 
     if (RandomAnimationStateActive == true && IsAnimationFinished())
     {
-            // Wechsel zurück zu LookAtPlayer
-        //LookAtPlayerStateActive = true;
+         // Nachdem die Random Animation beendet ist wird zurück in den LookAtPlayerState gewechselt und eine neue TimeUntilAnimation start generiert
+
         animator.SetInteger("BaseStates", 4);
         timer = 0.0f; // Reset Timer
+        TimeUntilAnimationStart = Random.Range(MinTimeUntilAnimationStart, MaxTimeUntilAnimationStart);
     }
 }
 
