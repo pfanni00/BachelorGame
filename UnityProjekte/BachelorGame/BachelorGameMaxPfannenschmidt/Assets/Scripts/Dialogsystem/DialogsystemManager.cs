@@ -9,6 +9,7 @@ public class DialogsystemManager : MonoBehaviour
     public bool DialogsystemIsUsabale;
     public int DialogState;
     public bool AlldialogisFinished;
+    private bool GetKeySequenceWasPlayed;
 
     // Controlliert ob variante Schlau oder Dumm aktiv ist.
     private bool varianteSD;
@@ -73,6 +74,7 @@ public class DialogsystemManager : MonoBehaviour
 
     void Start()
     {
+        GetKeySequenceWasPlayed = false;
         DialogsystemIsUsabale = true;
 
         DialogState = 1;
@@ -109,9 +111,17 @@ public class DialogsystemManager : MonoBehaviour
             DialogSystemUI.SetActive(true);
         }
 
+        // wenn die Fütter Animation der Katze endet wird automatisch der darauffolgende Dialog und die Animation mit welcher der Spieler den Schlüssel erhält abgespielt. 
+        bool EatingAnimationIsOver = katzeanimator.GetBool("EatingAnimationIsfinished");
+        if(EatingAnimationIsOver == true && GetKeySequenceWasPlayed == false)
+        {
+            StartCoroutine(PlayGetKeySequence());
+            GetKeySequenceWasPlayed = true;
+        }
+
 
         //in den Ersten Drei Phasen des Dialogs sind jeweils 2 Dialogoptionen verfügbar
-        if(DialogState == 1 && DOPrefabsareSpawned == false)
+        if (DialogState == 1 && DOPrefabsareSpawned == false)
         {
         GameObject DO1 = Instantiate(DOWarumKannstDuReden, DOParent) as GameObject;
         GameObject DO2 = Instantiate(DODasMussEinTraumSein, DOParent) as GameObject;
@@ -175,6 +185,10 @@ public class DialogsystemManager : MonoBehaviour
                 DOFütterDieKatzeIsSpawned = true;
                 }
                 
+
+
+
+
         }
             
             
@@ -236,15 +250,10 @@ public class DialogsystemManager : MonoBehaviour
     // Wenn der Spieler die Katze füttert wird eine Reihe von Animationen und dialogen Abgespielt in welcher er den Schlüssel erhält
     private IEnumerator PlayGetKeySequence()
     {
-
-        DialogsystemIsUsabale = false;
-        KatzeAnimationsController.Instance.SetState(3);
-
-        yield return new WaitForSeconds(6f);
         
         DialogAudioController.Instance.PlayDialogueOption(5);
         
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(7f);
 
         KatzeAnimationsController.Instance.SetState(2);
         HUDControlls.Instance.closeDialogsystem();
@@ -330,8 +339,11 @@ public class DialogsystemManager : MonoBehaviour
     {
         Thunfischdose.SetActive(true);
 
-        StartCoroutine(PlayGetKeySequence());
-       
+        DialogsystemIsUsabale = false;
+        KatzeAnimationsController.Instance.SetState(3);
+
+        //Nachdem die FütterAnimation in BaseState3 Abgeschlossen wird bool EatingAnimationIsfinished im Animator = true gesetzt und somit automatisch in Update() die weiterführenden Dialoge und Animationen Abgespielt.
+
         DOFütterDieKatzeWasSelected = true;
     }
     public void SelectDOFragNachEmmasBrief()
