@@ -52,7 +52,7 @@ public class SchubladeInteraction : MonoBehaviour, IInteractable {
         // Optionally check if the target z position is reached
         if (transform.localPosition.z == OpenZ)
         {
-            Debug.Log("Reached target Z position");
+          //  Debug.Log("Reached target Z position");
         }
     }
  

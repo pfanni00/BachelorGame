@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class LookAtPlayerRandomAnimation : MonoBehaviour
@@ -27,6 +26,7 @@ private float timerFace;
     private bool RandomFacialAnimationState;
 private int currentbaseState;
 
+    private bool keySequenceIsRunning;
 void Start()
 {
     timer = 0.0f;
@@ -37,19 +37,21 @@ void Start()
 
 void Update()
 {
-        // Wenn gerade keine GesichtsAnimation Gespielt wird l‰uft der Timer f¸r die 
-    if (LookAtPlayerStateActive == true )
+        keySequenceIsRunning = animator.GetBool("GetKeySequenceIsRunning");
+        // Timer Laufen nur im LookAtPlayer State und wenn die GetKeySequence nicht aktiv ist.
+    if (LookAtPlayerStateActive == true && keySequenceIsRunning == false)
+
         {
             timer += Time.deltaTime;
             timerFace += Time.deltaTime;
 
         }
-
-      
     
-       int currentbaseState = animator.GetInteger("BaseStates");
+        int currentbaseState = animator.GetInteger("BaseStates");
         bool facialAnimations = animator.GetBool("FacialAnimationsActive");
         bool randomAnimations = animator.GetBool("RandomAnimationisActive");
+
+
     if (currentbaseState == 4)
         {
             LookAtPlayerStateActive = true;
@@ -79,17 +81,21 @@ void Update()
             timerFace = 0.0f;
         }
 
-        // Wenn die TimeUntilAnimationStart vorbei ist wird in den RandomAnimationState gewechselt und eine der Zuf‰lligen Animationen Abgespielt 
-        if (LookAtPlayerStateActive == true && timer >= TimeUntilAnimationStart)
-    {
-        float aimAtPlayerAnimations = Random.Range(1, 5); // 1 bis 4 (einschlieﬂlich)
-        animator.SetFloat("AimAtPlayerAnimations", aimAtPlayerAnimations);
-            animator.SetBool("RandomAnimationisActive", true);
-            animator.SetBool("AnimationisPlaying", true);
+    // wenn die GetKeySequence Abgespielt wird werden die Random Animationen Abgeschaltet um zu verhindern das es zu ¸berlappenden Animationen kommt
+    if (keySequenceIsRunning == false)
+        {
+            // Wenn die TimeUntilAnimationStart vorbei ist wird in den RandomAnimationState gewechselt und eine der Zuf‰lligen Animationen Abgespielt 
+            if (LookAtPlayerStateActive == true && timer >= TimeUntilAnimationStart)
+            {
+                float aimAtPlayerAnimations = Random.Range(1, 5); // 1 bis 4 (einschlieﬂlich)
+                animator.SetFloat("AimAtPlayerAnimations", aimAtPlayerAnimations);
+                animator.SetBool("RandomAnimationisActive", true);
+                animator.SetBool("AnimationisPlaying", true);
 
-            timer = 0.0f; // Reset Timer
-
+                timer = 0.0f; // Reset Timer
+            }
         }
+
 
         if (RandomAnimationStateActive == true && IsAnimationFinished("AimRandomAnimation"))
         {
@@ -103,16 +109,18 @@ void Update()
 
         }
 
-        // Wenn die TimeUntilAnimationFacialStart vorbei ist wird im Layer FacialAnimationsLayer eine zuf‰llige Facial animation ¸ber der Aktuellen Pose Abgespielt  
-        if (LookAtPlayerStateActive == true && timerFace >= TimeUntilFacialStart)
+        if (keySequenceIsRunning == false)
         {
-            float RandomFacialAnimation = Random.Range(1, 5); // 1 bis 4 (einschlieﬂlich)
-            animator.SetFloat("AimAtPlayerFacialAnimations", RandomFacialAnimation);
-            animator.SetBool("FacialAnimationsActive", true);
-            animator.SetBool("AnimationisPlaying", true);
+            // Wenn die TimeUntilAnimationFacialStart vorbei ist wird im Layer FacialAnimationsLayer eine zuf‰llige Facial animation ¸ber der Aktuellen Pose Abgespielt  
+            if (LookAtPlayerStateActive == true && timerFace >= TimeUntilFacialStart)
+            {
+                float RandomFacialAnimation = Random.Range(1, 5); // 1 bis 4 (einschlieﬂlich)
+                animator.SetFloat("AimAtPlayerFacialAnimations", RandomFacialAnimation);
+                animator.SetBool("FacialAnimationsActive", true);
+                animator.SetBool("AnimationisPlaying", true);
 
-            timerFace = 0.0f;
-
+                timerFace = 0.0f;
+            }
         }
 
         if (RandomFacialAnimationState == true && IsAnimationFinished("AimRandomFacialAnimation"))
