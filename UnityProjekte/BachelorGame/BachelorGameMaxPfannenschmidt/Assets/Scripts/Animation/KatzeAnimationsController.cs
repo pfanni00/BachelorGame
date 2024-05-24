@@ -10,8 +10,9 @@ public class KatzeAnimationsController : MonoBehaviour
     private bool IsLookingAtPlayer;
     private bool DialogWasStarted;
     public int currentState;
-    // = BaseStates im Animator
     public GameObject dialogTriggerObj;
+
+    private bool RandomAnimationIsPlaying;
 
     void Awake()
     {
@@ -29,6 +30,8 @@ public class KatzeAnimationsController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        RandomAnimationIsPlaying = animator.GetBool("AnimationisPlaying");
+
         KatzeInteraction ki = gameObject.GetComponent<KatzeInteraction>();
         DialogWasStarted = ki.HasBeenInteracted;
 
@@ -64,16 +67,36 @@ public class KatzeAnimationsController : MonoBehaviour
 
     public void SetState(int state)
     {
+        Debug.Log(RandomAnimationIsPlaying);
     if (state != currentState && currentState != 2)
         {
-            Debug.Log("currentState" + currentState);
 
-            animator.SetInteger("BaseStates", state);
-        currentState = state;
+
+            Debug.Log("currentState" + currentState);
+           StartCoroutine(WaitForRandomAnimationEnd(state));
+            //animator.SetInteger("BaseStates", state);
+            currentState = state;
             Debug.Log("neuerState" + state);
             
         }  
     }
+
+
+    IEnumerator WaitForRandomAnimationEnd(int Thisstate)
+    {
+        // Example while loop
+        while (RandomAnimationIsPlaying == true)
+        {
+            // Perform some actions inside the loop
+            Debug.Log("waiting...");
+
+            yield return null;
+
+        }
+
+        animator.SetInteger("BaseStates", Thisstate);
+    }
+
 
     public void StartAnimationState(bool lookAtPlayer)
     {
