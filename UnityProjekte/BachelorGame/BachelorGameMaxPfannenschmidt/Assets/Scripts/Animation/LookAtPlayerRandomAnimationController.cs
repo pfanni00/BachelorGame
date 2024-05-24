@@ -1,4 +1,4 @@
-using System.Collections;
+
 using UnityEngine;
 
 public class LookAtPlayerRandomAnimation : MonoBehaviour
@@ -49,6 +49,7 @@ void Update()
     
        int currentbaseState = animator.GetInteger("BaseStates");
         bool facialAnimations = animator.GetBool("FacialAnimationsActive");
+        bool randomAnimations = animator.GetBool("RandomAnimationisActive");
     if (currentbaseState == 4)
         {
             LookAtPlayerStateActive = true;
@@ -61,12 +62,13 @@ void Update()
                 RandomAnimationStateActive = false;
                 RandomFacialAnimationState = true;
             }
-        }
-        else if (currentbaseState == 5) 
+
+            if ( randomAnimations == true) 
             {
-            LookAtPlayerStateActive = false;
-            RandomAnimationStateActive = true;
-            RandomFacialAnimationState = false;
+                LookAtPlayerStateActive = false;
+                RandomAnimationStateActive = true;
+                RandomFacialAnimationState = false;
+            }
         }
         else
         {
@@ -82,9 +84,16 @@ void Update()
     {
         float aimAtPlayerAnimations = Random.Range(1, 5); // 1 bis 4 (einschließlich)
         animator.SetFloat("AimAtPlayerAnimations", aimAtPlayerAnimations);
-        animator.SetInteger("BaseStates", 5);
-        
-    }
+            animator.SetBool("RandomAnimationisActive", true);
+        }
+
+        if (RandomAnimationStateActive == true && IsAnimationFinished("AimRandomAnimation"))
+        {
+            // Nachdem die Random Animation beendet ist wird zurück in den LookAtPlayerState gewechselt und eine neue TimeUntilAnimation start generiert
+            animator.SetBool("RandomAnimationisActive", false);
+            timer = 0.0f; // Reset Timer
+            TimeUntilAnimationStart = Random.Range(MinTimeUntilAnimationStart, MaxTimeUntilAnimationStart);
+        }
 
         // Wenn die TimeUntilAnimationFacialStart vorbei ist wird im Layer FacialAnimationsLayer eine zufällige Facial animation über der Aktuellen Pose Abgespielt  
         if (LookAtPlayerStateActive == true && timerFace >= TimeUntilFacialStart)
@@ -94,7 +103,7 @@ void Update()
             animator.SetBool("FacialAnimationsActive", true);
         }
 
-        if (RandomFacialAnimationState == true && IsAnimationFinished("AimRandomFacialAnimation", "FacialAnimationLayer"))
+        if (RandomFacialAnimationState == true && IsAnimationFinished("AimRandomFacialAnimation"))
         {
             // Nachdem die RandomFacialAnimation beendet ist wird zurück in den LookAtPlayerState gewechselt und eine neue TimeUntilAnimation start generiert
             Debug.Log("FacialAnimation ist Beendet");
@@ -106,24 +115,17 @@ void Update()
         }
 
 
-        if (RandomAnimationStateActive == true && IsAnimationFinished("AimRandomAnimation", "Base Layer"))
-    {
-         // Nachdem die Random Animation beendet ist wird zurück in den LookAtPlayerState gewechselt und eine neue TimeUntilAnimation start generiert
-
-        animator.SetInteger("BaseStates", 4);
-        timer = 0.0f; // Reset Timer
-        TimeUntilAnimationStart = Random.Range(MinTimeUntilAnimationStart, MaxTimeUntilAnimationStart);
-    }
+       
 }
 
    
 
-    bool IsAnimationFinished(string animation, string layername)
+    bool IsAnimationFinished(string animation)
 {
 
-        int layerIndex = animator.GetLayerIndex(layername);
+       
     // Überprüft, ob die aktuelle Animation in RandomAnimation beendet ist
-    AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(layerIndex);
+    AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(1);
     return stateInfo.IsName(animation) && stateInfo.normalizedTime >= 1.0f;
 }
 }
