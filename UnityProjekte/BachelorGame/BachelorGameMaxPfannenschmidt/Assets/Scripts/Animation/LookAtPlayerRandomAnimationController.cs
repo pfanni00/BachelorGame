@@ -90,9 +90,10 @@ void Update()
         if (RandomAnimationStateActive == true && IsAnimationFinished("AimRandomAnimation"))
         {
             // Nachdem die Random Animation beendet ist wird zurück in den LookAtPlayerState gewechselt und eine neue TimeUntilAnimation start generiert
-            animator.SetBool("RandomAnimationisActive", false);
             timer = 0.0f; // Reset Timer
             TimeUntilAnimationStart = Random.Range(MinTimeUntilAnimationStart, MaxTimeUntilAnimationStart);
+            animator.SetBool("RandomAnimationisActive", false);
+
         }
 
         // Wenn die TimeUntilAnimationFacialStart vorbei ist wird im Layer FacialAnimationsLayer eine zufällige Facial animation über der Aktuellen Pose Abgespielt  
