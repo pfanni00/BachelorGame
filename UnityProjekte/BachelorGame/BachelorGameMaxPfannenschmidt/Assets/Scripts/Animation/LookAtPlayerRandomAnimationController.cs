@@ -85,14 +85,21 @@ void Update()
         float aimAtPlayerAnimations = Random.Range(1, 5); // 1 bis 4 (einschließlich)
         animator.SetFloat("AimAtPlayerAnimations", aimAtPlayerAnimations);
             animator.SetBool("RandomAnimationisActive", true);
+            animator.SetBool("AnimationisPlaying", true);
+
+            timer = 0.0f; // Reset Timer
+
         }
 
         if (RandomAnimationStateActive == true && IsAnimationFinished("AimRandomAnimation"))
         {
             // Nachdem die Random Animation beendet ist wird zurück in den LookAtPlayerState gewechselt und eine neue TimeUntilAnimation start generiert
-            timer = 0.0f; // Reset Timer
+           // timer = 0.0f; // Reset Timer
             TimeUntilAnimationStart = Random.Range(MinTimeUntilAnimationStart, MaxTimeUntilAnimationStart);
             animator.SetBool("RandomAnimationisActive", false);
+            animator.SetBool("AnimationisPlaying", false);
+
+
 
         }
 
@@ -102,22 +109,26 @@ void Update()
             float RandomFacialAnimation = Random.Range(1, 5); // 1 bis 4 (einschließlich)
             animator.SetFloat("AimAtPlayerFacialAnimations", RandomFacialAnimation);
             animator.SetBool("FacialAnimationsActive", true);
+            animator.SetBool("AnimationisPlaying", true);
+
+            timerFace = 0.0f;
+
         }
 
         if (RandomFacialAnimationState == true && IsAnimationFinished("AimRandomFacialAnimation"))
         {
             // Nachdem die RandomFacialAnimation beendet ist wird zurück in den LookAtPlayerState gewechselt und eine neue TimeUntilAnimation start generiert
             Debug.Log("FacialAnimation ist Beendet");
+            //timerFace = 0.0f;
             TimeUntilFacialStart = Random.Range(MinTimeUntilFacialStart, MaxTimeUntilFacialStart);
-
-            timerFace = 0.0f;
             animator.SetBool("FacialAnimationsActive", false);
-             // Reset Timer
+            animator.SetBool("AnimationisPlaying", false);
+
         }
 
 
-       
-}
+
+    }
 
    
 
