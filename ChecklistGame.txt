@@ -1,8 +1,7 @@
 
 
 Animation:
-- Katze variations animationen bei Dialogen 
-- End einleitungsanimationen einbinden Rollo und Fenster plus Tür Auf 
+
 
 Modeling:
 -Bad Lücke Füllen 
@@ -23,7 +22,7 @@ Menu UI
 -UI verschönern (DialogSystem, teilweise Inventar, Neue Schriftart) 
 -Pause Menü einbauen (Spiel verlassen, Controlls)
 -Hauptmenü einbauen 
--kleinen cursor einbauen in GameUI
+
 
 Sonstiges
 -End Scene erstellen mit audio 
