@@ -120,7 +120,7 @@ Material:
     - _Parallax: 0.0114
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Smoothness: 0.292
+    - _Smoothness: 0.303
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
