@@ -59,38 +59,7 @@ public class lightChange : MonoBehaviour
 
         
         // Reflection probes initialisieren 
-        foreach (ReflectionProbe probe in startReflectionProbes)
-        {
-            probe.gameObject.SetActive(true);
-        }
-        foreach (ReflectionProbe probe in endingReflectionProbes)
-        {
-            probe.gameObject.SetActive(false);
-        }
-         foreach (ReflectionProbe probe in darkReflectionProbes)
-        {
-            probe.gameObject.SetActive(false);
-        }
-
-        //lichter initialisieren 
-        foreach (GameObject lights in lightsStartObj)
-        {
-            lights.SetActive(true);
-        }
-        foreach (GameObject lights in lightsEndingObj)
-        {
-            lights.SetActive(false);
-        }
-        foreach (GameObject lights in lightsOutObj)
-        {
-            lights.SetActive(false);
-        }
-    }
-
-    void Update()
-    {
-        if (trigger == 1)
-        {
+ {
             LightmapSettings.lightmaps = startLightMap;
 
              foreach (ReflectionProbe probe in startReflectionProbes)
@@ -121,9 +90,11 @@ public class lightChange : MonoBehaviour
         }
             
         }
+    }
 
-// licht geht aus 
-                else if (trigger == 2)
+    void Update()
+    {
+       if (trigger == 2)
         {
             LightmapSettings.lightmaps = darkLightMap;
 
@@ -151,7 +122,7 @@ public class lightChange : MonoBehaviour
             }
         }
 
-        else if (trigger == 3)
+        if (trigger == 3)
         {
             LightmapSettings.lightmaps = endingLightMap;
 
