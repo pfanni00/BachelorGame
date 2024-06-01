@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BadFliesen2
+  m_Name: BadFliesen3
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -43,8 +43,8 @@ Material:
     m_TexEnvs:
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: 8bb5e0427661dc04f851d3f63d2104f7, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Scale: {x: 1.8, y: 1.8}
+        m_Offset: {x: 0.329, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 2800000, guid: 91c0bd703c2232242bce69fc684a4dfe, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -67,8 +67,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 8bb5e0427661dc04f851d3f63d2104f7, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Scale: {x: 1.8, y: 1.8}
+        m_Offset: {x: 0.329, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 2800000, guid: 93c6a2c02be94034ca7017d256dcba88, type: 3}
         m_Scale: {x: 1, y: 1}
