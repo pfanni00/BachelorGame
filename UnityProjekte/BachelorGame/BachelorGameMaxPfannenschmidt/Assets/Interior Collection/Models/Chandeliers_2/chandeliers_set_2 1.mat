@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: chandeliers_set_2
+  m_Name: chandeliers_set_2 1
   m_Shader: {fileID: -6465566751694194690, guid: 7aac41762ba54d04eb6a300c21cc5a04,
     type: 3}
   m_Parent: {fileID: 0}
@@ -110,7 +110,7 @@ Material:
     - _ColorB: {r: 1, g: 0.67058825, b: 0, a: 1}
     - _ColorG: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
     - _ColorR: {r: 0.14150941, g: 0.14150941, b: 0.14150941, a: 1}
-    - _EmissionColor: {r: 1.981132, g: 1.1676806, b: 0.6074226, a: 1}
+    - _EmissionColor: {r: 0.014408615, g: 0.008492447, b: 0.004417736, a: 1}
     - _ScaleAndOffset: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &7490102064866759660
