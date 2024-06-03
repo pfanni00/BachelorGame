@@ -26,8 +26,8 @@ public class EndingAnimation : MonoBehaviour
         FensterLAnimator.SetBool("Start", true);
         FensterRAnimator.SetBool("Start", true);
         WohnungstürAnimator.SetBool("Start", true);
- lightChange lc = gameObject.GetComponent<lightChange>();
-        lc.switchlight();
+       // lightChange lc = gameObject.GetComponent<lightChange>();
+        //lc.switchlight();
         StartCoroutine(WaitForLightsout());
 
         StartCoroutine(WaitForAnimationEnd());
@@ -39,8 +39,8 @@ public class EndingAnimation : MonoBehaviour
 
         // Variable AnimationIsFinished wir auf true gesetzt nachdem die animation abgeschlossen ist außerdem wird das licht auf die end lichter geändert 
         AnimationIsFinished = true;
-       // lightChange lc = gameObject.GetComponent<lightChange>();
-        //lc.switchlight();
+        lightChange lc = gameObject.GetComponent<lightChange>();
+        lc.switchlight();
     }
 
      private IEnumerator WaitForLightsout()
