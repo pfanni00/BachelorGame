@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,13 +23,23 @@ public class GameManager : MonoBehaviour
         EndingAnimation.Instance.StartEndingAnimation();
     }
 
+     public void StartGame()
+    {
+          SceneManager.LoadScene(0);
+    }
+
     public void StartEnding1()
     {
-        Debug.Log("Ende1 Wird Gestarted");
+          SceneManager.LoadScene(1);
     }
 
     public void StartEnding2()
     {
-        Debug.Log("Ende2 Wird Gestarted");
+          SceneManager.LoadScene(2);
+    }
+
+    public void LoadMainMenu()
+    {
+          SceneManager.LoadScene(3);
     }
 }

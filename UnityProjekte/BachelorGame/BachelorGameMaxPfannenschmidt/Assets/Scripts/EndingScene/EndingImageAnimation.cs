@@ -8,8 +8,9 @@ public class EndingImageAnimation : MonoBehaviour
     public float transitionTime;
     public float FadeInStartTime;
     public float FadeOutStartTime;
-    
+
     private float timer;
+    
     private float timerFadeIn;
 
     private bool FadeInIsAcitve;
