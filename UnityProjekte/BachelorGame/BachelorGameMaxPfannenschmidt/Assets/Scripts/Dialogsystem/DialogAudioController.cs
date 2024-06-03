@@ -35,7 +35,7 @@ public class DialogAudioController : MonoBehaviour
     public DialogueEntry[] dialogueOption3;
     //Dialogoption: Warum Kannst du Reden? AudioFiles
     public DialogueEntry[] dialogueOption4;
-    //Dialogoption: FütterDieKatze AudioFiles
+    //Dialogoption: Fï¿½tterDieKatze AudioFiles
     public DialogueEntry[] dialogueOption5;
 
     // Methode zum Abspielen einer Dialogoption die zahl am ende des AudioFile Arrays muss dabei als int angegeben werden. im Switch case wird dann der Correcte Clip Abgespielt 
@@ -59,13 +59,13 @@ public class DialogAudioController : MonoBehaviour
                 StartCoroutine(PlayDialogueCoroutine(dialogueOption5));
                 break;
             default:
-                Debug.LogWarning("Ungültige Dialogoption ausgewählt");
+                Debug.LogWarning("Ungï¿½ltige Dialogoption ausgewï¿½hlt");
                 break;
         }
         //  StartCoroutine(PlayDialogueCoroutine(option == 1 ? dialogueOption1 : dialogueOption2));
     }
 
-    // Koroutine zum sequenziellen Abspielen der Dialoge
+    // Coroutine zum sequenziellen Abspielen der Dialoge
     private IEnumerator PlayDialogueCoroutine(DialogueEntry[] dialogueEntries)
     {
         AudioisActive = true;
