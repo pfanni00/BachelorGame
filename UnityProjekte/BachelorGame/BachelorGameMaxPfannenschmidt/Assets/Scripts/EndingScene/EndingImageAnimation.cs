@@ -5,16 +5,25 @@ using UnityEngine;
 
 public class EndingImageAnimation : MonoBehaviour
 {
-    public float FadeInStartTime;
-    public float timer;
-    public float timerFadeIn;
     public float transitionTime;
-    private bool FadeIsAcitve;
+    public float FadeInStartTime;
+    public float FadeOutStartTime;
+    
+    private float timer;
+    private float timerFadeIn;
+
+    private bool FadeInIsAcitve;
+    private bool FadeOutIsAcitve;
+
     private bool FadeComplete;
+    private bool FadeoutComplete;
+
     private bool isVisible;
+    
     public Image endingImage;
-    public Color Black = Color.black;
-    public Color White = Color.white;
+    
+    private Color Black = Color.black;
+    private Color White = Color.white;
 
     public float zoomSpeed = 0.1f;
     public float maxZoom = 2.0f;
@@ -26,7 +35,11 @@ public class EndingImageAnimation : MonoBehaviour
     void Start()
     {
         endingImage.color = Black;
-        FadeIsAcitve = false;
+        FadeInIsAcitve = false;
+        FadeOutIsAcitve = false;
+       // transitionTime = transitionTimeFixed;
+        FadeComplete = false;
+        FadeoutComplete = false;
 
         if (endingImage != null)
         {
@@ -40,14 +53,21 @@ public class EndingImageAnimation : MonoBehaviour
     void Update()
     {
 
+
+        timerFadeIn += Time.deltaTime;
+        timer += Time.deltaTime;
+
+// wenn isZoomingIn = true wird der Zoom Gestarted 
         if (isZoomingIn && rectTransform.localScale.x < maxZoom)
             {
             rectTransform.localScale += new Vector3(zoomSpeed, zoomSpeed, zoomSpeed) * Time.deltaTime;
             }
 
+
+// wenn Timer Fade in die FadeInStartTime Überschreitet wird der Zoom gestarted und das bild eingeblendet
         if(FadeComplete == false)
         {
-            timerFadeIn += Time.deltaTime;
+            //timerFadeIn += Time.deltaTime;
 
             if (timerFadeIn >= FadeInStartTime)
             {
@@ -57,30 +77,37 @@ public class EndingImageAnimation : MonoBehaviour
             }
         } 
 
-        timerFadeIn += Time.deltaTime;
-        timer += Time.deltaTime;
+// wennn der FadeIn Abgeschlossen ist und timerFadeIn die FadeOutStartTime erreicht wird das bild wieder ausgeblendet
+        if(FadeoutComplete == false)
+        {
+            if(timerFadeIn >= FadeOutStartTime)
+            {
+            fadeOut();
+            FadeoutComplete = true;
+            }
+        }
 
 
 
-        if (FadeIsAcitve == true && isVisible == true)
+
+// wenn isVisible = true ist wird das bild eingefaded 
+        if (FadeInIsAcitve == true && isVisible == true)
         {
             endingImage.color = Color.Lerp(Black, White, timer / transitionTime);
 
             if (timer >= transitionTime)
             {
-                transitionTime = 0.0f;
-                FadeIsAcitve = false;
+                FadeInIsAcitve = false;
             }
         }
-
-         if (FadeIsAcitve == true && isVisible == false)
+// wenn isVisible = false ist wird es wiederum ausgeblendet 
+         if (FadeOutIsAcitve == true && isVisible == false)
         {
             endingImage.color = Color.Lerp(White, Black, timer / transitionTime);
 
             if (timer >= transitionTime)
             {
-                transitionTime = 0.0f;
-                FadeIsAcitve = false;
+                FadeOutIsAcitve = false;
             }
         }
     }
@@ -88,15 +115,15 @@ public class EndingImageAnimation : MonoBehaviour
     public void fadeIn()
     {
         timer = 0.0f;
-        timerFadeIn = 0.0f;
         isVisible = true;
-        FadeIsAcitve = true;
+        FadeInIsAcitve = true;
     }
 
     public void fadeOut()
     {
+        timer = 0.0f;
         isVisible = false;
-        FadeIsAcitve = true;
+        FadeOutIsAcitve = true;
     }
 
     public void StartZoom()
