@@ -16,6 +16,8 @@ public class EmmasTagebuchPages : MonoBehaviour
     public AudioClip ClipSeite2;
     public AudioClip ClipSeite3;
 
+    public GameObject ReadButton;
+    public GameObject StopButton;
     public bool ReadViewIsOpen;
 
 
@@ -35,6 +37,8 @@ public class EmmasTagebuchPages : MonoBehaviour
         // Hier wird sichergestellt das bei den ausgewählten pages jeweils der korrekte button für next und Previous Page ein/aus geblendet wird. Die Next/PreviousPage buttons sind nur sichtbar wenn die ReadView geöffnet ist.
     if(ReadViewIsOpen == true)
     {
+        StopButton.SetActive(true);
+        ReadButton.SetActive(false);
         if (page == 1)
         {
         GoNextPage.SetActive(true);
@@ -64,6 +68,8 @@ public class EmmasTagebuchPages : MonoBehaviour
         }
     } else if (ReadViewIsOpen == false)
         {
+            StopButton.SetActive(false);
+            ReadButton.SetActive(true);
             GoNextPage.SetActive(false);
             GoPreviousPage.SetActive(false);
             TextSeite1.SetActive(false);
