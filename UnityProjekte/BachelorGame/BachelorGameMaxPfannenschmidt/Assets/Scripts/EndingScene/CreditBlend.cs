@@ -18,7 +18,6 @@ public class CreditBlend : MonoBehaviour
 
     private bool FadeComplete;
     private bool FadeoutComplete;
-    public float EndSequenceTime;
 
     
     public TMP_Text Credit;
@@ -43,10 +42,7 @@ public class CreditBlend : MonoBehaviour
       // wenn die Credits zu ende sind kehr das Spiel ins Hauptmenu zurück
         timerFadeIn += Time.deltaTime;
 
-        if (timerFadeIn >= EndSequenceTime)
-        {
-            GameManager.Instance.LoadMainMenu();
-        }
+       
 
 
         // credit wird nach ablauf von Timer Fade in eingeblendet
