@@ -8,12 +8,18 @@ public class AudioPlayer : MonoBehaviour
     public AudioSource Source;
     public AudioClip clip;
     public float timeToPlay; 
+    public float timeToStop;
     // Start is called before the first frame update
    
-   void Playaudio()
+   public void Playaudio()
    {
     StartCoroutine(playAfterSeconds(timeToPlay));
    }
+
+    public void StopAudio()
+    {
+    StartCoroutine(stopAfterSeconds(timeToStop));
+    }
 
     IEnumerator playAfterSeconds(float seconds)
     {
@@ -21,4 +27,12 @@ public class AudioPlayer : MonoBehaviour
         Source.clip = clip;
         Source.Play();
     }
+
+     IEnumerator stopAfterSeconds(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        Source.clip = clip;
+        Source.Play();
+    }
+
 }

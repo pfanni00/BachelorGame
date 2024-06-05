@@ -58,23 +58,29 @@ public class DoorOpenInteractor : MonoBehaviour, IInteractable {
     }
    public void Interact()
     {
+    if(isRotating == false)
+    {
+
         DoorAudioPlayer doorAudio = gameObject.GetComponent<DoorAudioPlayer>();
-        if(isOpen == true)
+        if(isOpen == false)
         {
         doorAudio.PlayOpenAudio();
-        }else if (isOpen == false)
+        }else if (isOpen == true)
         {
         doorAudio.PlayCloseAudio();
         }
 
+    
           isOpen = !isOpen;
           isRotating = true;
           HoverInteractOFF();
     }
+    }
 
     public void HoverInteract()
     {
-       
+    if(isRotating == false)
+    {
         if(isOpen == true)
         {
             HoverUiClose.SetActive(true);
@@ -82,7 +88,7 @@ public class DoorOpenInteractor : MonoBehaviour, IInteractable {
         {
             HoverUiOpen.SetActive(true);
         }
-    }
+    }}
 
     public void HoverInteractOFF()
     {
