@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorOpenInteractor : MonoBehaviour, IInteractable {
+public class FridgeOpenInteractor : MonoBehaviour, IInteractable {
 
    private bool isOpen;
    private bool isRotating;
@@ -59,13 +59,18 @@ public class DoorOpenInteractor : MonoBehaviour, IInteractable {
    public void Interact()
     {
     if(isRotating == false)
-    {
+    {   
+        
+        //Wenn die Kühlschranktür geöffnet wird wird der Entsprechende Sound Abgespielt und der loop für das Rauschen des Kühlschranks gestartet.
         DoorAudioPlayer doorAudio = gameObject.GetComponent<DoorAudioPlayer>();
+        AudioLoopPlayer audioloop = gameObject.GetComponent<AudioLoopPlayer>();
         if(isOpen == false)
         {
+        audioloop.Playaudio();
         doorAudio.PlayOpenAudio();
         }else if (isOpen == true)
         {
+        audioloop.StopAudio();
         doorAudio.PlayCloseAudio();
         }
 

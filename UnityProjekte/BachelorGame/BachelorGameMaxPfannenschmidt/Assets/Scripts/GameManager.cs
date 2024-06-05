@@ -42,4 +42,9 @@ public class GameManager : MonoBehaviour
     {
           SceneManager.LoadScene(3);
     }
+
+    public void ExitGame()
+    {
+      Application.Quit();
+    }
 }

@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioPlayer : MonoBehaviour
+public class AudioLoopPlayer : MonoBehaviour
 {
     // dieses Script kann einen Audioclip nach Ablauf einer Zeit Abspielen.
     public AudioSource Source;
     public AudioClip clip;
     public float timeToPlay; 
     public float timeToStop;
+
+    private bool isActive;
+
     // Start is called before the first frame update
    
    public void Playaudio()
@@ -31,8 +34,7 @@ public class AudioPlayer : MonoBehaviour
      IEnumerator stopAfterSeconds(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        Source.clip = clip;
-        Source.Play();
+        Source.Stop();
     }
 
 }
