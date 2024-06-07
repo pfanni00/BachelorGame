@@ -9,13 +9,14 @@ public class AudioAnimationStart : MonoBehaviour
 
     public string Parameter;
     public Animator animator;
-
+    public float timetillStart;
     public AudioSource Source;
     public AudioClip clip;
+    private bool AudioisFinished;
 
     void Start()
     {
-        
+        AudioisFinished = false;
     }
 
     // Update is called once per frame
@@ -24,12 +25,27 @@ public class AudioAnimationStart : MonoBehaviour
 
         if (animator.GetBool(Parameter) == true)
         {
-            Source.clip = clip;
-            Source.Play();
-            Debug.Log("animationStart" + animator.GetBool(Parameter));
+    
+        StartCoroutine(PlayAudio(timetillStart));
+    
 
+       
+           
         }
 
         
     }
+
+    IEnumerator PlayAudio(float seconds)
+    {
+       yield return new WaitForSeconds(seconds);
+         if (AudioisFinished == false)
+        {
+            Source.clip = clip;
+            Source.Play();
+            Debug.Log("animationStart" + animator.GetBool(Parameter));
+            AudioisFinished = true;
+        }
+    }
+
 }

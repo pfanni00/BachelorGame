@@ -59,6 +59,14 @@ public class SchubladeInteraction : MonoBehaviour, IInteractable {
     
    public void Interact()
     {
+         DoorAudioPlayer doorAudio = gameObject.GetComponent<DoorAudioPlayer>();
+        if(isOpen == false)
+        {
+        doorAudio.PlayOpenAudio();
+        }else if (isOpen == true)
+        {
+        doorAudio.PlayCloseAudio();
+        }
           isOpen = !isOpen;
           HoverInteractOFF();
     }
