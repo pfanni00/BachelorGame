@@ -8,6 +8,9 @@ public class EndingAnimation : MonoBehaviour
     public Animator FensterLAnimator;
     public Animator FensterRAnimator;
     public Animator WohnungstürAnimator;
+    public AudioSource Fenstersource;
+    public AudioSource TürSource;
+
 
     public bool AnimationIsFinished;
 
@@ -23,6 +26,8 @@ public class EndingAnimation : MonoBehaviour
 
     public void StartEndingAnimation()
     {
+        Fenstersource.Play();
+        TürSource.Play();
         FensterLAnimator.SetBool("Start", true);
         FensterRAnimator.SetBool("Start", true);
         WohnungstürAnimator.SetBool("Start", true);
