@@ -7,8 +7,7 @@ public class FPSController : MonoBehaviour
 {
     public Camera playerCamera;
     public float walkSpeed = 6f;
-   // public float gravity = 10f;
- 
+    
  
     public float lookSpeed = 2f;
     public float lookXLimit = 45f;
@@ -18,7 +17,7 @@ public class FPSController : MonoBehaviour
     float rotationX = 0;
  
     public bool canMove = true;
- 
+    public bool isMoving;
     
     CharacterController characterController;
     void Start()
@@ -34,7 +33,6 @@ public class FPSController : MonoBehaviour
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
  
-        // Press Left Shift to run
         // bool isRunning = Input.GetKey(KeyCode.LeftShift);
         float curSpeedX = canMove ?  walkSpeed * Input.GetAxis("Vertical") : 0;
         float curSpeedY = canMove ?  walkSpeed * Input.GetAxis("Horizontal") : 0;

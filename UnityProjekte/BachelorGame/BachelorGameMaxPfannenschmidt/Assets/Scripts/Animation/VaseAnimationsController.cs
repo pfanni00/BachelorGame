@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class VaseAnimationsController : MonoBehaviour
 {
-    // dieses Script spielt die Animationen der Zerbrechenden Vase in richtiger Reihenfolge ab. Wenn StartAnimation = true ist wird zuerst die VaseFallAnimation Abgespielt und danach VaseSplitter- und SchlüsselAnimation
+    // dieses Script spielt die Animationen der Zerbrechenden Vase in richtiger Reihenfolge ab. Wenn StartAnimation = true ist wird zuerst die VaseFallAnimation Abgespielt und danach VaseSplitter- und Schlï¿½sselAnimation
     public Animator VaseFallAnimation;
     public Animator VaseSplitterAnimation;
-    public Animator SchlüsselAnimator;
+    public Animator SchlÃ¼sselAnimator;
     public Animator KatzeAnimator;
     public bool StartAnimation;
+       public AudioSource Source;
+    public AudioClip clip;
+    private bool audioPlayed;
     // Start is called before the first frame update
     void Start()
     {
+        audioPlayed = false;
         StartAnimation = false;
         VaseSplitterAnimation.gameObject.SetActive(false);
-        SchlüsselAnimator.gameObject.SetActive(false); 
+        SchlÃ¼sselAnimator.gameObject.SetActive(false); 
 
     }
 
@@ -25,7 +29,7 @@ public class VaseAnimationsController : MonoBehaviour
     void Update()
     {
 
-        // wenn die Katzen Animation in welcher die Vase umgeworfen wird läuft, wird die entsprechend darauffolgende Vasen animation gestarted 
+        // wenn die Katzen Animation in welcher die Vase umgeworfen wird lï¿½uft, wird die entsprechend darauffolgende Vasen animation gestarted 
         bool AnimationTrigger = KatzeAnimator.GetBool("VaseAnimationTrigger");
         //Debug.Log(AnimationTrigger);
         if (AnimationTrigger == true)
@@ -36,12 +40,19 @@ public class VaseAnimationsController : MonoBehaviour
         
         if (StartAnimation == true && VaseFallAnimation != null)
         {
+
+        if (!audioPlayed)
+        {
+            Source.clip = clip;
+            Source.Play();
+            audioPlayed = true;
+        }
             VaseFallAnimation.SetBool("Start", true);
             StartCoroutine(WaitForAnimationEnd("Vase_fall"));
         }
        
     }
-    // Hier wird geprüft ob die Erste VasenAnimation zuende Abgespielt wurde
+    // Hier wird geprï¿½ft ob die Erste VasenAnimation zuende Abgespielt wurde
     private IEnumerator WaitForAnimationEnd(string animation)
     {
         if (VaseFallAnimation != null)
@@ -69,19 +80,20 @@ public class VaseAnimationsController : MonoBehaviour
        // animation wird nach Sekundenzahl gestarted 
         yield return new WaitForSeconds(0.5f);
         StartAnimation = true;
+         
         
     }
 
 
     private void OnAnimationEnd()
-    // Wenn die erste Animation der Herunterfallenden Vase Endet wird die Animation des Schlüssels und der Zersplitternden Vase Abgespielt. 
+    // Wenn die erste Animation der Herunterfallenden Vase Endet wird die Animation des Schlï¿½ssels und der Zersplitternden Vase Abgespielt. 
     {
         VaseSplitterAnimation.gameObject.SetActive(true);
         VaseSplitterAnimation.SetBool("Start", true);
-        SchlüsselAnimator.gameObject.SetActive(true);
-        SchlüsselAnimator.SetBool("Start", true);
+        SchlÃ¼sselAnimator.gameObject.SetActive(true);
+        SchlÃ¼sselAnimator.SetBool("Start", true);
         VaseFallAnimation.gameObject.SetActive(false);
-        Debug.Log("Animation beendet, Funktion ausgeführt.");
+        Debug.Log("Animation beendet, Funktion ausgefï¿½hrt.");
 
     }
 }
