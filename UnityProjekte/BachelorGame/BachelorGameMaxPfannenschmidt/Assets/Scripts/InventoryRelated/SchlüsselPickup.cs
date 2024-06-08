@@ -12,6 +12,9 @@ public class SchlüsselPickup : MonoBehaviour, IInteractable {
     
     
    public void Interact()
+   {
+       if (GameManager.Instance.InteractionEnabled == true)
+
     {// wird der Schlüssel für EmmasTagebuch aufgehoben. Wird Emmas Tagebuch Geschlossen mit Emmas Tagebuch Geöffnet ausgetauscht
         InventarManager.Instance.Remove(tagebuchGeschlossen);
         InventarManager.Instance.Add(tagebuchGeöffnet);
@@ -19,7 +22,7 @@ public class SchlüsselPickup : MonoBehaviour, IInteractable {
         HUDControlls ic = Player.GetComponent<HUDControlls>();
         ic.openInventory();  
     }
-
+   }
     public void HoverInteract()
     {
         HoverUi.SetActive(true);

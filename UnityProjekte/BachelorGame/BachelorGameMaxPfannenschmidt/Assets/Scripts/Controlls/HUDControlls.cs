@@ -32,8 +32,8 @@ public class HUDControlls : MonoBehaviour
 
         gameisPaused = false;
         InventoryisOpen = false;
-        Inventroryisuseabale = true;
-        closeInventory();
+        Inventroryisuseabale = false;
+        
     }
 
     // Update is called once per frame
@@ -184,4 +184,13 @@ public class HUDControlls : MonoBehaviour
         }
     }
 
+
+    public void SetGameState()
+    {// diese Funktion dient dazu nach ablauf der Start Sequenz den GameState einzuleiten
+        GameUI.SetActive(true);
+        Inventroryisuseabale = true;
+        // Im GameManager wird die variable interactionEnabled auf true gesetzt was die Interaktion mit obejekten ermöglicht.
+        GameManager.Instance.InteractionEnabled = true;
+
+    }
 }

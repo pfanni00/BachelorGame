@@ -52,7 +52,7 @@ public class VaseAnimationsController : MonoBehaviour
         }
        
     }
-    // Hier wird gepr�ft ob die Erste VasenAnimation zuende Abgespielt wurde
+    // Hier wird geprüft ob die Erste VasenAnimation zuende Abgespielt wurde
     private IEnumerator WaitForAnimationEnd(string animation)
     {
         if (VaseFallAnimation != null)

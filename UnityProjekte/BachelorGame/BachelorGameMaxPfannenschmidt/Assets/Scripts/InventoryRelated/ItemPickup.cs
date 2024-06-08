@@ -10,10 +10,13 @@ public class ItemPickup : MonoBehaviour, IInteractable {
     
    public void Interact()
     {// wird ein Item Aufgehoben, wird es der Inventar Liste hinzugefügt. Das ItemGameObject in der Welt wird zerstört und das Inventar wird geöffnet.
+    if (GameManager.Instance.InteractionEnabled == true)
+    {
         InventarManager.Instance.Add(Item);
         Destroy(gameObject);
         HUDControlls ic = Player.GetComponent<HUDControlls>();
         ic.openInventory();  
+    }
     }
 
     public void HoverInteract()

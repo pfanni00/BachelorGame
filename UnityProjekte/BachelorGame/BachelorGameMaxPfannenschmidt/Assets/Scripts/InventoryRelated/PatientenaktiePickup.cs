@@ -14,11 +14,15 @@ public class PatientenaktiePickup : MonoBehaviour, IInteractable {
     
     
    public void Interact()
+   {
+   if (GameManager.Instance.InteractionEnabled == true)
+
     {// wird ein ZerissenerZettel Aufgehoben, verwaltet das Script PatientenaktieLogic welches Item angezeigt wird. Bei einem Zerissenen Zettel wird dieser Als item angezeigt bei Zwei wird dei Patientenaktie Angezeigt.
        PatientenaktieLogic pl = PatientenaktieLogicGO.GetComponent<PatientenaktieLogic>();
      pl.PatientenaktieStates();
      Destroy(gameObject);
     }
+   }
 
     public void HoverInteract()
     {

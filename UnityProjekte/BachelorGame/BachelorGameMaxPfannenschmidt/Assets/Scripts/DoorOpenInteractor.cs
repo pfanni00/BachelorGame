@@ -59,23 +59,26 @@ public class DoorOpenInteractor : MonoBehaviour, IInteractable {
 
    public void Interact()
     {
-    if(isRotating == false)
-    {
-        DoorAudioPlayer doorAudio = gameObject.GetComponent<DoorAudioPlayer>();
-        if(isOpen == false)
+    if (GameManager.Instance.InteractionEnabled == true)
+     {
+        if(isRotating == false)
         {
-        doorAudio.PlayOpenAudio();
-        doorOclusionPortal.open = true;
-        }else if (isOpen == true)
-        {
-        doorAudio.PlayCloseAudio();
-        StartCoroutine(ActivateOcclusionCulling());
+            DoorAudioPlayer doorAudio = gameObject.GetComponent<DoorAudioPlayer>();
+            if(isOpen == false)
+            {
+            doorAudio.PlayOpenAudio();
+            doorOclusionPortal.open = true;
+            }else if (isOpen == true)
+            {
+           doorAudio.PlayCloseAudio();
+            StartCoroutine(ActivateOcclusionCulling());
         }
 
     
           isOpen = !isOpen;
           isRotating = true;
           HoverInteractOFF();
+    }
     }
     }
 

@@ -6,19 +6,24 @@ public class BackgroundBlur : MonoBehaviour
 {
     public Volume m_Volume;
     public float duration;
-    private void Start()
-    {
-        // Optional: Starte die FadeOut Funktion zum Testen
-        // StartCoroutine(FadeOut());
-    }
+    public float startduration;
+    
+    
 
     public void StartFadeOut()
     {
         // Startet die Coroutine, um den FadeOut Effekt zu beginnen
-        StartCoroutine(FadeOut());
+        StartCoroutine(FadeOut(duration));
     }
 
-    IEnumerator FadeOut()
+    // Funktion die zu beginn des Spiels die schärfe langsam hochstellt
+    public void initialFadeOut()
+    {
+      //  FadeIn(duration);
+        StartCoroutine(FadeOut(startduration));
+
+    }
+    IEnumerator FadeOut(float selectedDuration)
     {
 
         if (m_Volume == null)
@@ -33,13 +38,13 @@ public class BackgroundBlur : MonoBehaviour
         if (startWeight != goalweight)
         {
 
-        while (currentTime < duration)
+        while (currentTime < selectedDuration)
         {
             // Aktualisiere die verstrichene Zeit
             currentTime += Time.deltaTime;
             //Debug.Log(currentTime);
             // Aktualisiere den weight Wert von m_Volume
-            m_Volume.weight = Mathf.SmoothStep(startWeight, goalweight, currentTime / duration);
+            m_Volume.weight = Mathf.SmoothStep(startWeight, goalweight, currentTime / selectedDuration);
             yield return null; // Warte bis zum nächsten Frame
         }
         }
@@ -48,10 +53,10 @@ public class BackgroundBlur : MonoBehaviour
     public void StartFadeIn()
     {
         // Startet die Coroutine, um den FadeOut Effekt zu beginnen
-        StartCoroutine(FadeIn());
+        StartCoroutine(FadeIn(duration));
     }
 
-    IEnumerator FadeIn()
+    IEnumerator FadeIn(float selectedDuration)
     {
         if (m_Volume == null)
             yield break; // Beendet die Coroutine, falls m_Volume nicht gesetzt ist
@@ -65,14 +70,14 @@ public class BackgroundBlur : MonoBehaviour
         if (startWeight != goalweight)
         {
 
-        while (currentTime < duration)
+        while (currentTime < selectedDuration)
         {
             // Aktualisiere die verstrichene Zeit
             currentTime += Time.deltaTime;
                  //       Debug.Log(currentTime);
 
             // Aktualisiere den weight Wert von m_Volume
-            m_Volume.weight = Mathf.SmoothStep(startWeight, goalweight, currentTime / duration);
+            m_Volume.weight = Mathf.SmoothStep(startWeight, goalweight, currentTime / selectedDuration);
             yield return null; // Warte bis zum nächsten Frame
         }}
     }

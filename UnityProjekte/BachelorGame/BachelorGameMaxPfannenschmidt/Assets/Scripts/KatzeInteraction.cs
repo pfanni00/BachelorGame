@@ -36,6 +36,8 @@ public class KatzeInteraction : MonoBehaviour, IInteractable {
     }
    public void Interact()
     {
+        if (GameManager.Instance.InteractionEnabled == true)
+        {
         if (isUsabale == true)
         {
             // wenn der Spieler zum ersten mal mit der Katze interagiert wird der Initiale Dialog Gestarted
@@ -46,9 +48,10 @@ public class KatzeInteraction : MonoBehaviour, IInteractable {
 
             }
 
-        // Dialogsystem UI wird geöffnet und die AimAtPlayer Animation wird gestated
+        // Dialogsystem UI wird geï¿½ffnet und die AimAtPlayer Animation wird gestated
             HUDControlls.Instance.openDialogsystem();
             KatzeAnimationsController.Instance.SetState(4);
+        }
         }    
     }
 

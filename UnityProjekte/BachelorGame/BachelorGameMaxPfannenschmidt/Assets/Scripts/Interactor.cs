@@ -60,6 +60,7 @@ public class Interactor : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    
                     //mit object kann interagiert werden
                     interactObj.Interact();
                 }

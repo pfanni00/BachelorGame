@@ -23,6 +23,7 @@ public class FPSController : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        unlockMovement();
 
     }
  
