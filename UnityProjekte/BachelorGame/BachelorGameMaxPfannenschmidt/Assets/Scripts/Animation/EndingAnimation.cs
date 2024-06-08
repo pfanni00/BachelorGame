@@ -56,14 +56,14 @@ public class EndingAnimation : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         // nachdem der timer zuende ist gehen die lichter aus 
-        
+    
         LightTransition lt = gameObject.GetComponent<LightTransition>();
         lt.WohzimmerLightOFF();
     }
 
     private IEnumerator WaitForLightson()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(14);
 
         // nachdem der timer zuende ist gehen die lichter aus 
         
@@ -74,8 +74,6 @@ public class EndingAnimation : MonoBehaviour
     private IEnumerator WaitForheartmonitorSound()
     {
         yield return new WaitForSeconds(11);
-
         Herzschlag.Play();
-
     }
    }

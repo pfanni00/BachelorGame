@@ -9,11 +9,13 @@ public class HUDControlls : MonoBehaviour
 
     public bool Inventroryisuseabale;
     public bool InventoryisOpen;
-
+    private bool gameisPaused;
     public bool DialogsystemisOpen;
     public GameObject ItemUI;
     public GameObject GameUI;
-    
+    public GameObject PauseUI;
+    private bool SteuerungIsVisible;
+    public GameObject SteuerungUI;
     public GameObject DialogSystemUI;
     public GameObject volumeController;
     public AudioSource source;
@@ -26,6 +28,10 @@ public class HUDControlls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+            Time.timeScale = 1;
+
+        gameisPaused = false;
+        InventoryisOpen = false;
         Inventroryisuseabale = true;
         closeInventory();
     }
@@ -33,9 +39,9 @@ public class HUDControlls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // wenn i Gedrückt wird wird das inventar geöffnet/ geschlossen
         if (Input.GetKeyDown("i") && Inventroryisuseabale == true)
         {
-         Debug.Log("INVENTAR");
             if (InventoryisOpen == false)
             {
                 openInventory();
@@ -45,48 +51,137 @@ public class HUDControlls : MonoBehaviour
                 closeInventory();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (gameisPaused == false)
+            {
+                PauseGame();
+                Debug.Log("Pause");
+            } 
+            else if  (gameisPaused == true)
+            {
+                ResumeGame();
+            }
+        }
     }
     public void closeInventory()
     {
+        //das korrekte UI wird eingeblendet
         InventoryisOpen = false;
         ItemUI.SetActive(false);
         GameUI.SetActive(true);
+        // im script FPSController wird die bewegung freigegeben
         FPSController fps = gameObject.GetComponent<FPSController>();
         fps.unlockMovement();
+        // der volumeController ändert die focal lenght so dass der Hintergrund Scharf/unscharf wird.
         BackgroundBlur bg = volumeController.GetComponent<BackgroundBlur>();
         bg.StartFadeOut(); 
     }
     
     public void openInventory()
     {   
+        // sound wird abgespielt
         source.Play();
+        //das korrekte UI wird eingeblendet
         InventoryisOpen = true;
         ItemUI.SetActive(true);
         GameUI.SetActive(false);
+        // im script FPSController wird die bewegung eingefroren
         FPSController fps = gameObject.GetComponent<FPSController>();
         fps.lockMovement();
+        // der volumeController ändert die focal lenght so dass der Hintergrund Scharf/unscharf wird.
         BackgroundBlur bg = volumeController.GetComponent<BackgroundBlur>();
         bg.StartFadeIn(); 
     }
 
     public void openDialogsystem()
     {
+        //inventar ist nicht mehr nutzbar
     Inventroryisuseabale = false;
+            //das korrekte UI wird eingeblendet
     GameUI.SetActive(false);
     DialogSystemUI.SetActive(true);
+            // im script FPSController wird die bewegung eingefroren
     FPSController fps = gameObject.GetComponent<FPSController>();
     fps.lockMovement();
+
     DialogsystemisOpen = true;
     }
 
+
     public void closeDialogsystem()
     {
+        //inventar ist wieder nutzbar
     Inventroryisuseabale = true;
+            //das korrekte UI wird eingeblendet
     GameUI.SetActive(true);
     DialogSystemUI.SetActive(false);
+        // im script FPSController wird die bewegung freigegeben
     FPSController fps = gameObject.GetComponent<FPSController>();
     fps.unlockMovement();
-    DialogsystemisOpen = false;
 
+    DialogsystemisOpen = false;
     }
+
+    public void PauseGame()
+    {
+        //Spiel wird pausiert
+    Time.timeScale = 0;
+    gameisPaused = true;
+
+    if (InventoryisOpen == false && DialogsystemisOpen == false)
+    {
+        // Bewegung wird eingefroren falls es nicht bereits erfolgt ist
+        FPSController fps = gameObject.GetComponent<FPSController>();
+        fps.lockMovement();
+    }
+            //das korrekte UI wird eingeblendet
+    ItemUI.SetActive(false);
+    GameUI.SetActive(false);
+    PauseUI.SetActive(true);
+    // inventar nicht mehr nutzbar 
+    Inventroryisuseabale = false;
+    }
+
+
+    public void ResumeGame()
+    {
+        // Spiel läuft weiter
+    Time.timeScale = 1;
+    gameisPaused = false;
+    
+    if(DialogsystemisOpen == false)
+    {
+    // wenn das Dialogsystem nicht geöffnet ist wird wieder in den normalen GameState zurückgekehrt 
+    Inventroryisuseabale = true;
+    GameUI.SetActive(true);
+    FPSController fps = gameObject.GetComponent<FPSController>();
+    fps.unlockMovement();
+    // wenn die Steuerung sichbar sit wird sie beim resumen wieder Abgeschaltet 
+    if (SteuerungIsVisible == true)
+    {
+        SteuerungButton();
+    }
+    }
+    
+    // pauseUI wird ausgeblendet
+    PauseUI.SetActive(false);
+    }
+
+// script welches mit dem SteuerungsButton im Menu verknüpft wird. es blendet die Steuerung ein und Aus 
+    public void SteuerungButton()
+    {
+        if(SteuerungIsVisible == true)
+        {
+            SteuerungUI.SetActive(false);
+            SteuerungIsVisible = false;
+        }
+        else if (SteuerungIsVisible == false)
+        {
+            SteuerungUI.SetActive(true);
+            SteuerungIsVisible = true;
+        }
+    }
+
 }

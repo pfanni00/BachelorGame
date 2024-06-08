@@ -24,6 +24,7 @@ public class KatzeAnimationsController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         DialogWasStarted = false;
+        SetState(1);
 
     }
 
