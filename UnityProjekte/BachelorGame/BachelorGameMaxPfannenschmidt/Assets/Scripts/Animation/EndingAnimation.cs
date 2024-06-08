@@ -34,6 +34,8 @@ public class EndingAnimation : MonoBehaviour
        // lightChange lc = gameObject.GetComponent<lightChange>();
         //lc.switchlight();
         StartCoroutine(WaitForLightsout());
+                StartCoroutine(WaitForLightson());
+
         StartCoroutine(WaitForheartmonitorSound());
 
         StartCoroutine(WaitForAnimationEnd());
@@ -51,12 +53,22 @@ public class EndingAnimation : MonoBehaviour
 
      private IEnumerator WaitForLightsout()
     {
+        yield return new WaitForSeconds(1);
+
+        // nachdem der timer zuende ist gehen die lichter aus 
+        
+        LightTransition lt = gameObject.GetComponent<LightTransition>();
+        lt.WohzimmerLightOFF();
+    }
+
+    private IEnumerator WaitForLightson()
+    {
         yield return new WaitForSeconds(4);
 
         // nachdem der timer zuende ist gehen die lichter aus 
         
-        lightChange lc = gameObject.GetComponent<lightChange>();
-        lc.switchlight();
+        LightTransition lt = gameObject.GetComponent<LightTransition>();
+        lt.KrankenzimmerlightOn();
     }
 
     private IEnumerator WaitForheartmonitorSound()

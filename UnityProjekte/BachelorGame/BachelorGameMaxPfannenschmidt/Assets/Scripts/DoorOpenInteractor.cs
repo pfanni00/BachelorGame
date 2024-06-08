@@ -13,6 +13,7 @@ public class DoorOpenInteractor : MonoBehaviour, IInteractable {
    public GameObject HoverUiClose;
    public float rotationSpeed;
    public bool RotationDirection;
+   public OcclusionPortal doorOclusionPortal;
   // private GameObject doorAudioPlayer;
 
    // dieses Script rotiert ein GameObject beim Interagieren durch den Spieler. Der Grad der Rotation kann mit int rotatingDegrees bestimmt werden. Mit rotationSpeed wird die Geschwindigkeit der Rotation bestimmt und mit RotationDirection die Richtung
@@ -64,9 +65,11 @@ public class DoorOpenInteractor : MonoBehaviour, IInteractable {
         if(isOpen == false)
         {
         doorAudio.PlayOpenAudio();
+        doorOclusionPortal.open = true;
         }else if (isOpen == true)
         {
         doorAudio.PlayCloseAudio();
+        StartCoroutine(ActivateOcclusionCulling());
         }
 
     
@@ -93,6 +96,13 @@ public class DoorOpenInteractor : MonoBehaviour, IInteractable {
     {
         HoverUiClose.SetActive(false);
         HoverUiOpen.SetActive(false);
+    }
+
+    private IEnumerator ActivateOcclusionCulling()
+    {
+    yield return new WaitForSeconds(3);
+    doorOclusionPortal.open = false;
+
     }
     }
 
