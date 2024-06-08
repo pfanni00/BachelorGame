@@ -16,6 +16,7 @@ public class HUDControlls : MonoBehaviour
     
     public GameObject DialogSystemUI;
     public GameObject volumeController;
+    public AudioSource source;
 
     private void Awake()
     {
@@ -57,7 +58,8 @@ public class HUDControlls : MonoBehaviour
     }
     
     public void openInventory()
-    {
+    {   
+        source.Play();
         InventoryisOpen = true;
         ItemUI.SetActive(true);
         GameUI.SetActive(false);

@@ -10,7 +10,7 @@ public class EndingAnimation : MonoBehaviour
     public Animator WohnungstürAnimator;
     public AudioSource Fenstersource;
     public AudioSource TürSource;
-
+    public AudioSource Herzschlag;
 
     public bool AnimationIsFinished;
 
@@ -34,6 +34,7 @@ public class EndingAnimation : MonoBehaviour
        // lightChange lc = gameObject.GetComponent<lightChange>();
         //lc.switchlight();
         StartCoroutine(WaitForLightsout());
+        StartCoroutine(WaitForheartmonitorSound());
 
         StartCoroutine(WaitForAnimationEnd());
     }
@@ -56,5 +57,13 @@ public class EndingAnimation : MonoBehaviour
         
         lightChange lc = gameObject.GetComponent<lightChange>();
         lc.switchlight();
+    }
+
+    private IEnumerator WaitForheartmonitorSound()
+    {
+        yield return new WaitForSeconds(11);
+
+        Herzschlag.Play();
+
     }
    }
