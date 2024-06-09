@@ -282,14 +282,14 @@ public class DialogsystemManager : MonoBehaviour
 
    public void SelectDODasMussEinTraumSein()
     {
-        DialogAudioController.Instance.PlayDialogueOption(4);
+        DialogAudioController.Instance.PlayDialogueOption(7);
         NextDialogState();    
     }
 
     //Dialogoptionen der zweiten Phase: 
    public void SelectDODannRedeIchWohlMitEinerKatze()
     {
-        //Audio is Played in another Script
+        DialogAudioController.Instance.PlayDialogueOption(8);        
         //Katze Hält Marcell für schlau
         varianteSD = true;
         NextDialogState();    
@@ -297,7 +297,7 @@ public class DialogsystemManager : MonoBehaviour
 
    public void SelectDODasIstVerrücktIchMussAufwachen()
     {
-        //Audio is Played in another Script
+        DialogAudioController.Instance.PlayDialogueOption(9); 
         //Katze Hält Marcell für dumm
         varianteSD = false;
         NextDialogState();    
@@ -307,13 +307,14 @@ public class DialogsystemManager : MonoBehaviour
 
    public void SelectDOWoistEmma()
     {
-        //Audio is Played in another Script 
+        DialogAudioController.Instance.PlayDialogueOption(10); 
+        
         NextDialogState();    
     }
 
    public void SelectDOWieBinIchHierhergekommen()
     {
-        //Audio is Played in another Script 
+        DialogAudioController.Instance.PlayDialogueOption(11); 
         NextDialogState();    
     }
     
@@ -321,17 +322,30 @@ public class DialogsystemManager : MonoBehaviour
 
    public void SelectDOBinIchTod()
     {
-        //AudioIstPlayed
+        if(varianteSD == true)
+        {
+        DialogAudioController.Instance.PlayDialogueOption(13); 
+        }else if (varianteSD == false)
+        {
+        DialogAudioController.Instance.PlayDialogueOption(12); 
+        }
+        
     }
 
     public void SelectDOUndWasJetzt()
     {
-        //AudioIstPlayed
+         if(varianteSD == true)
+        {
+        DialogAudioController.Instance.PlayDialogueOption(14); 
+        }else if (varianteSD == false)
+        {
+        DialogAudioController.Instance.PlayDialogueOption(15); 
+        }
     }
 
      public void SelectDOFragNachEmmasTagebuch()
     {
-        //AudioIstPlayed
+        DialogAudioController.Instance.PlayDialogueOption(17); 
         //Katze bittet um Essen wenn der Spieler die Tunfischdose hat kann er sie nun der Katze geben.
         DOFragNachEmmasTagebuchWasSelected = true;
     }
@@ -348,12 +362,12 @@ public class DialogsystemManager : MonoBehaviour
     }
     public void SelectDOFragNachEmmasBrief()
     {
-        //AudioIstPlayed
+        DialogAudioController.Instance.PlayDialogueOption(16); 
         DOFragNachEmmasBriefWasSelected = true;
     }
      public void SelectDOFragNachKoma()
     {
-        //AudioIstPlayed
+        DialogAudioController.Instance.PlayDialogueOption(18); 
         NextDialogState();
     }
      public void SelectDOIchWäreMeinLebenLangEineLast()
