@@ -165,8 +165,7 @@ public class DialogAudioController : MonoBehaviour
             case 26:
                 StartCoroutine(PlayDialogueCoroutine(IchWillEmmaNichtVerlierenDummAlleITEMSNUM26));
                 break;
-                Debug.LogWarning("Ungültige Dialogoption ausgewählt");
-                break;
+               
         }
         //  StartCoroutine(PlayDialogueCoroutine(option == 1 ? dialogueOption1 : dialogueOption2));
     }

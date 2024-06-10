@@ -157,34 +157,37 @@ public class DialogsystemManager : MonoBehaviour
                 GameObject DO2 = Instantiate(DOUndWasJetzt, DOParent) as GameObject;
                 DOPrefabsareSpawned = true;
                 }  
+
             if (InventarManager.Instance.Items.Contains(Patientenakte) && DOFragNachKomaIsSpawned == false)
                 {
                 GameObject DO5 = Instantiate(DOFragNachKoma, DOParent) as GameObject;
                 DOFragNachKomaIsSpawned = true;
                 }
-        }
-        
-        if (DialogState == 4)
-        {
-            LeaveButton.SetActive(true);
 
             if (InventarManager.Instance.Items.Contains(BriefanMama) && DOFragNachEmmasBriefIsSpawned == false && DOFragNachEmmasBriefWasSelected == false)
                 {
                 GameObject DO3 = Instantiate(DOFragNachEmmasBrief, DOParent) as GameObject;
                 DOFragNachEmmasBriefIsSpawned = true;
                 }
-            if (InventarManager.Instance.Items.Contains(EmmasTagebuch) && DOFragNachEmmasTagebuchIsSpawned == false & DOFragNachEmmasTagebuchWasSelected == false)
-                {
-                GameObject DO4 = Instantiate(DOFragNachEmmasTagebuch, DOParent) as GameObject;
-                DOFragNachEmmasTagebuchIsSpawned = true;
-                }
+                        LeaveButton.SetActive(true);
 
-            if (InventarManager.Instance.Items.Contains(Tunfischdose) && DOFütterDieKatzeIsSpawned == false && DOFragNachEmmasTagebuchWasSelected == true && DOFütterDieKatzeWasSelected == false)
+        }
+        
+
+        if(DialogState == 4 ||DialogState == 6)
+        {
+         if (InventarManager.Instance.Items.Contains(Tunfischdose) && DOFütterDieKatzeIsSpawned == false && DOFragNachEmmasTagebuchWasSelected == true && DOFütterDieKatzeWasSelected == false)
                 {
                 GameObject DO6 = Instantiate(DOFütterDieKatze, DOParent) as GameObject;
                 DOFütterDieKatzeIsSpawned = true;
                 }
-        }
+
+         if (InventarManager.Instance.Items.Contains(EmmasTagebuch) && DOFragNachEmmasTagebuchIsSpawned == false & DOFragNachEmmasTagebuchWasSelected == false)
+                {
+                GameObject DO4 = Instantiate(DOFragNachEmmasTagebuch, DOParent) as GameObject;
+                DOFragNachEmmasTagebuchIsSpawned = true;
+                }
+        }  
         
          
             
@@ -203,11 +206,7 @@ public class DialogsystemManager : MonoBehaviour
         // Wenn Alle DialogStates Abgeschlossen sind und keine Itembedingten DOs mehr verfügbar sind wird die interaktionsmöglichkeit mit der Katze Deaktiviert.
         if (DialogState == 6)
         {
-            if (InventarManager.Instance.Items.Contains(EmmasTagebuch) && DOFragNachEmmasTagebuchIsSpawned == false & DOFragNachEmmasTagebuchWasSelected == false)
-                {
-                GameObject DO4 = Instantiate(DOFragNachEmmasTagebuch, DOParent) as GameObject;
-                DOFragNachEmmasTagebuchIsSpawned = true;
-                }
+            LeaveButton.SetActive(true);
 
             if (DOFragNachEmmasTagebuchWasSelected == true && DOFütterDieKatzeWasSelected == true)
             {

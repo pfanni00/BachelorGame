@@ -52,7 +52,11 @@ public class HUDControlls : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+//wenn das dialogsystem Aktiv ist kann das spiel nicht pausiert werden 
+if (DialogsystemisOpen == false)
+    {
+        //mit Escape kann das Pause menu geöffnet und geschlossen werden 
+    if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (gameisPaused == false)
             {
@@ -64,6 +68,8 @@ public class HUDControlls : MonoBehaviour
                 ResumeGame();
             }
         }
+    }
+       
     }
     public void closeInventory()
     {
@@ -130,18 +136,23 @@ public class HUDControlls : MonoBehaviour
     Time.timeScale = 0;
     gameisPaused = true;
 
-    if (InventoryisOpen == false && DialogsystemisOpen == false)
+    if (InventoryisOpen == true)
     {
-        // Bewegung wird eingefroren falls es nicht bereits erfolgt ist
-        FPSController fps = gameObject.GetComponent<FPSController>();
-        fps.lockMovement();
+        closeInventory();
     }
-            //das korrekte UI wird eingeblendet
+    
+    // bewegung eingefroren 
+    FPSController fps = gameObject.GetComponent<FPSController>();
+    fps.lockMovement();
+    
+    // UI wird ausgewählt
     ItemUI.SetActive(false);
     GameUI.SetActive(false);
     PauseUI.SetActive(true);
     // inventar nicht mehr nutzbar 
     Inventroryisuseabale = false;
+   
+
     }
 
 
@@ -150,24 +161,26 @@ public class HUDControlls : MonoBehaviour
         // Spiel läuft weiter
     Time.timeScale = 1;
     gameisPaused = false;
-    
-    if(DialogsystemisOpen == false)
-    {
-    // wenn das Dialogsystem nicht geöffnet ist wird wieder in den normalen GameState zurückgekehrt 
-    Inventroryisuseabale = true;
+
+        //UI wird aktiviert
+    PauseUI.SetActive(false);
     GameUI.SetActive(true);
-    FPSController fps = gameObject.GetComponent<FPSController>();
-    fps.unlockMovement();
-    // wenn die Steuerung sichbar sit wird sie beim resumen wieder Abgeschaltet 
-    if (SteuerungIsVisible == true)
+
+     // wenn die Steuerung sichbar sit wird sie beim resumen wieder Abgeschaltet 
+     if (SteuerungIsVisible == true)
     {
         SteuerungButton();
     }
+
+    //Inventar ist wieder nutzbar 
+    Inventroryisuseabale = true;
+
+    FPSController fps = gameObject.GetComponent<FPSController>();
+    fps.unlockMovement();
     }
+
+
     
-    // pauseUI wird ausgeblendet
-    PauseUI.SetActive(false);
-    }
 
 // script welches mit dem SteuerungsButton im Menu verknüpft wird. es blendet die Steuerung ein und Aus 
     public void SteuerungButton()

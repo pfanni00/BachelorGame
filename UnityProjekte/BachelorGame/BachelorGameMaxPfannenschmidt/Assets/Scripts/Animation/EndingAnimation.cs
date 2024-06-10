@@ -47,8 +47,7 @@ public class EndingAnimation : MonoBehaviour
 
         // Variable AnimationIsFinished wir auf true gesetzt nachdem die animation abgeschlossen ist außerdem wird das licht auf die end lichter geändert 
         AnimationIsFinished = true;
-        lightChange lc = gameObject.GetComponent<lightChange>();
-        lc.switchlight();
+ 
     }
 
      private IEnumerator WaitForLightsout()
@@ -63,7 +62,7 @@ public class EndingAnimation : MonoBehaviour
 
     private IEnumerator WaitForLightson()
     {
-        yield return new WaitForSeconds(14);
+        yield return new WaitForSeconds(3);
 
         // nachdem der timer zuende ist gehen die lichter aus 
         
