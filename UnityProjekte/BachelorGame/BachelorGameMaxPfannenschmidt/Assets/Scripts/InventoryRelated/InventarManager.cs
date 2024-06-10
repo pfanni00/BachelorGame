@@ -22,15 +22,20 @@ public class InventarManager : MonoBehaviour
    
     private Toggle newToggle; 
 
+    public int ItemAnzahl;
+
 
     private void Awake()
     {
         Instance = this;
     }
+    
+    
+
+    
     // Start is called before the first frame update
     public void Add(Item item)
     {
-      
         Items.Add(item);
         
         ListItems();
@@ -44,7 +49,6 @@ public class InventarManager : MonoBehaviour
     {
         Items.Remove(item);
                 ListItems();
-
     }
 
     public void ListItems()
@@ -74,10 +78,6 @@ public class InventarManager : MonoBehaviour
         }
 
         }
-    {
-         
-           
-            }
     }
     
     void SelectNewItem(Item item)

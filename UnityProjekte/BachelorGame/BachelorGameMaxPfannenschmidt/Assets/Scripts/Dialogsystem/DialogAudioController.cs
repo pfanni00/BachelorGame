@@ -67,18 +67,18 @@ public class DialogAudioController : MonoBehaviour
         public DialogueEntry[] IchWäreEineLastSchlauNUM19;      
     //Dialogoption Ich wäre mein leben lang eine last. Variante Dumm
         public DialogueEntry[] IchWäreEineLastDummNUM20;
-    //Dialogoption Ich wäre mein leben lang eine last. Variante Schlau NICHT ALLE ITEMS 
-        public DialogueEntry[] IchWäreEineLastSchlauNichtAlleITEMSNUM21;
-    //Dialogoption Ich wäre mein leben lang eine last. Variante Dumm NICHT ALLE ITEMS 
-        public DialogueEntry[] IchWäreEineLastDummNichtAlleITEMSNUM22;
- //Dialogoption Ich WillEmmaNichtVerlieren Variante Schlau NICHT ALLE ITEMS 
+    //Dialogoption Ich wäre mein leben lang eine last. Variante Schlau  ALLE ITEMS 
+        public DialogueEntry[] IchWäreEineLastSchlauAlleITEMSNUM21;
+    //Dialogoption Ich wäre mein leben lang eine last. Variante Dumm  ALLE ITEMS 
+        public DialogueEntry[] IchWäreEineLastDummAlleITEMSNUM22;
+ //Dialogoption Ich WillEmmaNichtVerlieren Variante Schlau  ALLE ITEMS 
         public DialogueEntry[] IchWillEmmaNichtVerlierenSchlauNUM23;
     //Dialogoption Ich WillEmmaNichtVerlieren Variante Schlau
         public DialogueEntry[] IchWillEmmaNichtVerlierenDummNUM24;
-    //Dialogoption Ich WillEmmaNichtVerlieren Variante Schlau 
-        public DialogueEntry[] IchWillEmmaNichtVerlierenSchlauNichtAlleITEMSNUM25;
-    //Dialogoption Ich WillEmmaNichtVerlieren Variante Schlau NICHT ALLE ITEMS 
-        public DialogueEntry[] IchWillEmmaNichtVerlierenDummNichtAlleITEMSNUM26;
+    //Dialogoption Ich WillEmmaNichtVerlieren Variante Dumm 
+        public DialogueEntry[] IchWillEmmaNichtVerlierenSchlauAlleITEMSNUM25;
+    //Dialogoption Ich WillEmmaNichtVerlieren Variante Schlau  ALLE ITEMS 
+        public DialogueEntry[] IchWillEmmaNichtVerlierenDummAlleITEMSNUM26;
 
 
     // Methode zum Abspielen einer Dialogoption die zahl am ende des AudioFile Arrays muss dabei als int angegeben werden. im Switch case wird dann der Correcte Clip Abgespielt 
@@ -148,10 +148,10 @@ public class DialogAudioController : MonoBehaviour
                 break;
             default:
             case 21:
-                StartCoroutine(PlayDialogueCoroutine(IchWäreEineLastSchlauNichtAlleITEMSNUM21));
+                StartCoroutine(PlayDialogueCoroutine(IchWäreEineLastSchlauAlleITEMSNUM21));
                 break;
             case 22:
-                StartCoroutine(PlayDialogueCoroutine(IchWäreEineLastDummNichtAlleITEMSNUM22));
+                StartCoroutine(PlayDialogueCoroutine(IchWäreEineLastDummAlleITEMSNUM22));
                 break;
             case 23:
                 StartCoroutine(PlayDialogueCoroutine(IchWillEmmaNichtVerlierenSchlauNUM23));
@@ -160,12 +160,12 @@ public class DialogAudioController : MonoBehaviour
                 StartCoroutine(PlayDialogueCoroutine(IchWillEmmaNichtVerlierenDummNUM24));
                 break;
             case 25:
-                StartCoroutine(PlayDialogueCoroutine(IchWillEmmaNichtVerlierenSchlauNichtAlleITEMSNUM25));
+                StartCoroutine(PlayDialogueCoroutine(IchWillEmmaNichtVerlierenSchlauAlleITEMSNUM25));
                 break;
             case 26:
-                StartCoroutine(PlayDialogueCoroutine(IchWillEmmaNichtVerlierenDummNichtAlleITEMSNUM26));
+                StartCoroutine(PlayDialogueCoroutine(IchWillEmmaNichtVerlierenDummAlleITEMSNUM26));
                 break;
-                Debug.LogWarning("Ung�ltige Dialogoption ausgew�hlt");
+                Debug.LogWarning("Ungültige Dialogoption ausgewählt");
                 break;
         }
         //  StartCoroutine(PlayDialogueCoroutine(option == 1 ? dialogueOption1 : dialogueOption2));

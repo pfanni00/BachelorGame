@@ -164,7 +164,7 @@ public class DialogsystemManager : MonoBehaviour
                 }
         }
         
-        if (DialogState == 4 || DialogState == 6)
+        if (DialogState == 4)
         {
             LeaveButton.SetActive(true);
 
@@ -184,13 +184,9 @@ public class DialogsystemManager : MonoBehaviour
                 GameObject DO6 = Instantiate(DOFütterDieKatze, DOParent) as GameObject;
                 DOFütterDieKatzeIsSpawned = true;
                 }
-                
-
-
-
-
         }
-            
+        
+         
             
             
         
@@ -207,7 +203,13 @@ public class DialogsystemManager : MonoBehaviour
         // Wenn Alle DialogStates Abgeschlossen sind und keine Itembedingten DOs mehr verfügbar sind wird die interaktionsmöglichkeit mit der Katze Deaktiviert.
         if (DialogState == 6)
         {
-            if (DOFragNachEmmasBriefWasSelected == true && DOFragNachEmmasTagebuchWasSelected == true && DOFütterDieKatzeWasSelected == true)
+            if (InventarManager.Instance.Items.Contains(EmmasTagebuch) && DOFragNachEmmasTagebuchIsSpawned == false & DOFragNachEmmasTagebuchWasSelected == false)
+                {
+                GameObject DO4 = Instantiate(DOFragNachEmmasTagebuch, DOParent) as GameObject;
+                DOFragNachEmmasTagebuchIsSpawned = true;
+                }
+
+            if (DOFragNachEmmasTagebuchWasSelected == true && DOFütterDieKatzeWasSelected == true)
             {
                 /*KatzeInteraction ki = Katze.GetComponent<KatzeInteraction>();
                 ki.MakeUnusable(); */
@@ -372,15 +374,80 @@ public class DialogsystemManager : MonoBehaviour
     }
      public void SelectDOIchWäreMeinLebenLangEineLast()
     {
-        //AudioIstPlayed
-        StartCoroutine(InitialiseEndingChoice(2));
-        NextDialogState();
+        int ItemNumber = InventarManager.Instance.Items.Count;
+
+        if (ItemNumber == 8 && DOFütterDieKatzeWasSelected == true)
+        {
+            if(varianteSD == true)
+            {
+            // Alle Items Wurden eingesammelt und Variante Schlau ist aktiv 
+            DialogAudioController.Instance.PlayDialogueOption(21);
+            //ending Animation wird nach länge des dialoges eingeleitet 
+            StartCoroutine(InitialiseEndingChoice(64)); 
+            }
+            else if(varianteSD == false)
+            {
+            // Alle Items Wurden eingesammelt und Variante Dumm ist aktiv 
+            DialogAudioController.Instance.PlayDialogueOption(22); 
+            //ending Animation wird nach länge des dialoges eingeleitet 
+            StartCoroutine(InitialiseEndingChoice(56)); 
+            }
+        }
+        else if(ItemNumber <= 7 || DOFütterDieKatzeWasSelected == false)
+            if(varianteSD == true)
+            {
+            // Es wurden noch nicht alle Items eingesammelt und Variante Schlau ist aktiv 
+            DialogAudioController.Instance.PlayDialogueOption(19);
+            //ending Animation wird nach länge des dialoges eingeleitet 
+            StartCoroutine(InitialiseEndingChoice(72));  
+            }
+            else if(varianteSD == false)
+            {
+            // Alle Items Wurden eingesammelt und Variante Dumm ist aktiv 
+            DialogAudioController.Instance.PlayDialogueOption(20); 
+            //ending Animation wird nach länge des dialoges eingeleitet 
+            StartCoroutine(InitialiseEndingChoice(64)); 
+            }
+            NextDialogState();
     }
      public void SelectDOIchWillEmmaNichtVerlieren()
     {
-        //AudioIstPlayed
-        StartCoroutine(InitialiseEndingChoice(6));
-        NextDialogState();
+        int ItemNumber = InventarManager.Instance.Items.Count;
+
+        if (ItemNumber == 8 && DOFütterDieKatzeWasSelected == true)
+        {
+            if(varianteSD == true)
+            {
+            // Alle Items Wurden eingesammelt und Variante Schlau ist aktiv 
+            DialogAudioController.Instance.PlayDialogueOption(25);
+            //ending Animation wird nach länge des dialoges eingeleitet 
+            StartCoroutine(InitialiseEndingChoice(60)); 
+            }
+            else if(varianteSD == false)
+            {
+            // Alle Items Wurden eingesammelt und Variante Dumm ist aktiv 
+            DialogAudioController.Instance.PlayDialogueOption(26); 
+            //ending Animation wird nach länge des dialoges eingeleitet 
+            StartCoroutine(InitialiseEndingChoice(53)); 
+            }
+        }
+        else if(ItemNumber <= 7 || DOFütterDieKatzeWasSelected == false)
+            if(varianteSD == true)
+            {
+            // Es wurden noch nicht alle Items eingesammelt und Variante Schlau ist aktiv 
+            DialogAudioController.Instance.PlayDialogueOption(23);
+            //ending Animation wird nach länge des dialoges eingeleitet 
+            StartCoroutine(InitialiseEndingChoice(68));  
+            }
+            else if(varianteSD == false)
+            {
+            // Alle Items Wurden eingesammelt und Variante Dumm ist aktiv 
+            DialogAudioController.Instance.PlayDialogueOption(24); 
+            //ending Animation wird nach länge des dialoges eingeleitet 
+            StartCoroutine(InitialiseEndingChoice(61)); 
+            }
+
+            NextDialogState();
 
     }
 

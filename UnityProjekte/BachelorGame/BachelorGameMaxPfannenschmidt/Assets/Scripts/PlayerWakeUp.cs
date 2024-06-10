@@ -13,13 +13,13 @@ public class PlayerWakeUp : MonoBehaviour
     {
          BackgroundBlur bg = volumeController.GetComponent<BackgroundBlur>();
         bg.initialFadeOut(); 
-
+        DialogAudioController.Instance.PlayDialogueOption(6);
         StartCoroutine(WaitForstartsequenceToEnd());
     }
 
 private IEnumerator WaitForstartsequenceToEnd()
 {
- yield return new WaitForSeconds(10);
+ yield return new WaitForSeconds(11);
  HUDControlls.Instance.SetGameState();    
 }
     
