@@ -32,7 +32,7 @@ public class LightTransition : MonoBehaviour
     public void KrankenzimmerlightOn()
     {
 
-        StartCoroutine(SmoothlightTransition(krankenzimmerlightSpot, 0f, 13f, 5f));
+        StartCoroutine(SmoothlightTransition(krankenzimmerlightSpot, 0f, 13f, 0.5f));
         StartCoroutine(SmoothlightTransition(krankenzimmerlightPointA, 0.1f, 1f, 0.5f));
         StartCoroutine(SmoothlightTransition(krankenzimmerlightPointB, 0.1f, 1f, 0.5f));
     }
@@ -40,28 +40,28 @@ public class LightTransition : MonoBehaviour
     public void WohzimmerLightOFF()
     {
         float EsstischLightAIntesnity = EsstischLightA.intensity;
-        StartCoroutine(SmoothlightTransition(EsstischLightA, EsstischLightAIntesnity, 1f, 0.1f));
-        //EsstischLampe.GetComponent<MeshRenderer>().material = EsstischlampeAus;
+        StartCoroutine(SmoothlightTransition(EsstischLightA, EsstischLightAIntesnity, 0f, 0.5f));
+        EsstischLampe.GetComponent<MeshRenderer>().material = EsstischlampeAus;
 
 
         float EsstischLightBIntesnity = EsstischLightB.intensity;
-        StartCoroutine(SmoothlightTransition(EsstischLightB, EsstischLightBIntesnity, 0.5f, 0.1f));
-        //EsstischLampe2.GetComponent<MeshRenderer>().material = EsstischlampeAus;
+        StartCoroutine(SmoothlightTransition(EsstischLightB, EsstischLightBIntesnity, 0f, 0.5f));
+        EsstischLampe2.GetComponent<MeshRenderer>().material = EsstischlampeAus;
 
 
         float FlurLightIntesnity = FlurLight.intensity;
-        StartCoroutine(SmoothlightTransition(FlurLight, FlurLightIntesnity, 0.3f, 0.1f));
-        //FlurLampe.GetComponent<MeshRenderer>().material = FlurAus;
+        StartCoroutine(SmoothlightTransition(FlurLight, FlurLightIntesnity, 0f, 0.5f));
+        FlurLampe.GetComponent<MeshRenderer>().material = FlurAus;
 
 
         float StehlampeIntesnity = StehlampeLight.intensity;
-        StartCoroutine(SmoothlightTransition(StehlampeLight, StehlampeIntesnity, 0.1f, 0.1f));
-        //Stehlampe.GetComponent<MeshRenderer>().material = StehlampeAus;
+        StartCoroutine(SmoothlightTransition(StehlampeLight, StehlampeIntesnity, 0f, 0.5f));
+        Stehlampe.GetComponent<MeshRenderer>().material = StehlampeAus;
 
 
          float ScheinwerferLightIntensity = ScheinwerferLight.intensity;
-        StartCoroutine(SmoothlightTransition(ScheinwerferLight, ScheinwerferLightIntensity, 1f, 0.1f));
-        //Scheinwerfer.GetComponent<MeshRenderer>().material = ScheinwerferAus;
+        StartCoroutine(SmoothlightTransition(ScheinwerferLight, ScheinwerferLightIntensity, 0f, 0.5f));
+        Scheinwerfer.GetComponent<MeshRenderer>().material = ScheinwerferAus;
 
     }
 

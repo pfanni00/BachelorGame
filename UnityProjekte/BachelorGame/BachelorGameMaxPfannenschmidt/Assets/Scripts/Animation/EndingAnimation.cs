@@ -52,7 +52,7 @@ public class EndingAnimation : MonoBehaviour
 
      private IEnumerator WaitForLightsout()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(4);
 
         // nachdem der timer zuende ist gehen die lichter aus 
     
@@ -62,7 +62,7 @@ public class EndingAnimation : MonoBehaviour
 
     private IEnumerator WaitForLightson()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(14);
 
         // nachdem der timer zuende ist gehen die lichter aus 
         
