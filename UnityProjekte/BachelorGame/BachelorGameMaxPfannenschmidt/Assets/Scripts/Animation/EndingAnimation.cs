@@ -52,7 +52,7 @@ public class EndingAnimation : MonoBehaviour
 
      private IEnumerator WaitForLightsout()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(2);
 
         // nachdem der timer zuende ist gehen die lichter aus 
     
@@ -72,7 +72,7 @@ public class EndingAnimation : MonoBehaviour
 
     private IEnumerator WaitForheartmonitorSound()
     {
-        yield return new WaitForSeconds(11);
+        yield return new WaitForSeconds(8);
         Herzschlag.Play();
     }
    }
