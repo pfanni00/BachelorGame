@@ -85,28 +85,37 @@ public class DialogsystemManager : MonoBehaviour
         DOFragNachEmmasBriefIsSpawned = false;
         LeaveButton.SetActive(false);
         AlldialogisFinished = false;
-
         Thunfischdose.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (katzeanimator.GetBool("AimisActive") == false)
+        {
+            DialogSystemUI.SetActive(false);
+        }else if(katzeanimator.GetBool("AimisActive") == true)
+        {
+            DialogSystemUI.SetActive(true);
+        }
+    
+       
+
         // Ist das Dialogsystem nicht nutzbar wird das HUD ausgeblendet Außerdem ist die Interaktion mit der Katze nicht mehr möglich 
         if (DialogsystemIsUsabale == false)
         {
-            DialogSystemUI.SetActive(false);
+            //DialogSystemUI.SetActive(false);
         }
         else if (DialogsystemIsUsabale == true)
         {
-            DialogSystemUI.SetActive(true);
+            //DialogSystemUI.SetActive(true);
         }
 
         // wenn Dialog Gespielt wird wird das UI Ausgeblendet
         if (DialogAudioController.Instance.AudioisActive == true)
         {
             DialogSystemUI.SetActive(false);
-        }else if (DialogAudioController.Instance.AudioisActive == false && DialogsystemIsUsabale == true)
+        }else if (DialogAudioController.Instance.AudioisActive == false && DialogsystemIsUsabale == true && katzeanimator.GetBool("AimisActive") == true)
         {
             DialogSystemUI.SetActive(true);
         }
@@ -263,6 +272,8 @@ public class DialogsystemManager : MonoBehaviour
         yield return new WaitForSeconds(5f);
 
         DialogsystemIsUsabale = true;
+        DialogSystemUI.SetActive(true);
+
     }
 
     private IEnumerator InitialiseEndingChoice(float seconds)
@@ -355,6 +366,8 @@ public class DialogsystemManager : MonoBehaviour
         Thunfischdose.SetActive(true);
 
         DialogsystemIsUsabale = false;
+                    DialogSystemUI.SetActive(false);
+
         KatzeAnimationsController.Instance.SetState(3);
 
         //Nachdem die FütterAnimation in BaseState3 Abgeschlossen wird bool EatingAnimationIsfinished im Animator = true gesetzt und somit automatisch in Update() die weiterführenden Dialoge und Animationen Abgespielt.
