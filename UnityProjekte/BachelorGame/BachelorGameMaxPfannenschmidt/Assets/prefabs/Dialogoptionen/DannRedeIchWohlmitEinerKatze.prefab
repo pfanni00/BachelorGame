@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Naja, dann Rede ich jetzt wohl mit einer Katze
+  m_text: Na ja, dann rede ich jetzt wohl mit einer Katze
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 00c3b7af2b53409478f7c9c1ff7f02ef, type: 2}
   m_sharedMaterial: {fileID: -7506712457465707114, guid: 00c3b7af2b53409478f7c9c1ff7f02ef,

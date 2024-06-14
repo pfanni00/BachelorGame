@@ -68,16 +68,13 @@ public class KatzeAnimationsController : MonoBehaviour
 
     public void SetState(int state)
     {
-        Debug.Log(RandomAnimationIsPlaying);
     if (state != currentState && currentState != 2)
         {
 
 
-            Debug.Log("currentState" + currentState);
            StartCoroutine(WaitForRandomAnimationEnd(state));
             //animator.SetInteger("BaseStates", state);
             currentState = state;
-            Debug.Log("neuerState" + state);
             
         }  
     }
@@ -89,7 +86,6 @@ public class KatzeAnimationsController : MonoBehaviour
         while (RandomAnimationIsPlaying == true)
         {
             // Perform some actions inside the loop
-            Debug.Log("waiting...");
 
             yield return null;
 

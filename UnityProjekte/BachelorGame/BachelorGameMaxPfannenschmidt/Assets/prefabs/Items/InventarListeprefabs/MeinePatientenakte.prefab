@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3796222730796531827}
   - component: {fileID: 8155622422491010176}
   m_Layer: 5
-  m_Name: MeinePatientenaktie
+  m_Name: MeinePatientenakte
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Meine Patientenaktie
+  m_text: Meine Patientenakte
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78478a0871875034c86f9a183f702cdf, type: 2}
   m_sharedMaterial: {fileID: -5025233673280795433, guid: 78478a0871875034c86f9a183f702cdf,

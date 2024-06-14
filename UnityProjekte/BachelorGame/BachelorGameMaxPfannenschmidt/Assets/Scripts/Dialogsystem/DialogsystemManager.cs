@@ -94,10 +94,11 @@ public class DialogsystemManager : MonoBehaviour
         if (katzeanimator.GetBool("AimisActive") == false)
         {
             DialogSystemUI.SetActive(false);
-        }else if(katzeanimator.GetBool("AimisActive") == true)
+        }
+        /*else if(katzeanimator.GetBool("AimisActive") == true && DialogsystemIsUsabale == true)
         {
             DialogSystemUI.SetActive(true);
-        }
+        }*/
     
        
 

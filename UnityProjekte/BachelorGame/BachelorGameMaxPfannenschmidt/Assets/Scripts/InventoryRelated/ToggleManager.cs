@@ -5,7 +5,6 @@ using UnityEngine;
 public class ToggleManager : MonoBehaviour
 {
     public GameObject[] UITabletten;
-    public GameObject[] UIPostkarte;
     public GameObject[] UIEmmasTagebuchGeschlossen;
     public GameObject[] UIEmmasTagebuchGeöffnet;
     public GameObject[] UIZerissenerZettel;
@@ -23,10 +22,7 @@ public class ToggleManager : MonoBehaviour
                 {
                 SelectTabletten();
                 }
-            else if(tag =="ItemPostkarte")
-                {
-                SelectPostkarte(); 
-                }
+          
             else if(tag =="BriefanMama")
                 {
                 SelectBriefanMama();  
@@ -70,13 +66,7 @@ public class ToggleManager : MonoBehaviour
 }
    
     public void SelectTabletten()
-    {
-        Debug.Log("SelectTabletten");
-        
-        foreach (GameObject uipostkarte in UIPostkarte)
-        {
-            uipostkarte.SetActive(false);
-        }
+    {    
         foreach (GameObject uibriefanmama in UIBriefanMama)
         {
             uibriefanmama.SetActive(false);
@@ -120,68 +110,14 @@ public class ToggleManager : MonoBehaviour
         
     }
 
-    public void SelectPostkarte()
-    {
-                Debug.Log("SelectPostkarte");
-
-       foreach (GameObject uitabletten in UITabletten)
-        {
-            uitabletten.SetActive(false);
-        }
-
-        foreach (GameObject uibriefanmama in UIBriefanMama)
-        {
-            uibriefanmama.SetActive(false);
-        }
-        foreach (GameObject uiemmastagebuchgeöffnet in UIEmmasTagebuchGeöffnet)
-        {
-            uiemmastagebuchgeöffnet.SetActive(false);
-        }
-        foreach (GameObject uiemmastagebuchgeschlossen in UIEmmasTagebuchGeschlossen)
-        {
-            uiemmastagebuchgeschlossen.SetActive(false);
-        }
-         foreach (GameObject uizerissenerzettel in UIZerissenerZettel)
-        {
-            uizerissenerzettel.SetActive(false);
-        }
-        foreach (GameObject uipatientenaktie in UIPatientenaktie)
-        {
-            uipatientenaktie.SetActive(false);
-        }
-        foreach (GameObject uiTunfischdose in UITunfischdose)
-        {
-        uiTunfischdose.SetActive(false);
-        }
-        foreach (GameObject uiLiebesbrief in UILiebesbrief)
-        {
-            uiLiebesbrief.SetActive(false);
-        }
-        foreach (GameObject uiKühlschrankmagnet in UIKühlschrankmagnet)
-        {
-        uiKühlschrankmagnet.SetActive(false);
-        }
-        foreach (GameObject uiKarte in UIKarte)
-        {
-            uiKarte.SetActive(false);
-        }
-        foreach (GameObject uipostkarte in UIPostkarte)
-        {
-            uipostkarte.SetActive(true);
-        }
-    }
-
+   
     public void SelectBriefanMama()
     {
        foreach (GameObject uitabletten in UITabletten)
         {
             uitabletten.SetActive(false);
         }
-        foreach (GameObject uipostkarte in UIPostkarte)
-        {
-            uipostkarte.SetActive(false);
-        }
-                foreach (GameObject uiemmastagebuchgeöffnet in UIEmmasTagebuchGeöffnet)
+        foreach (GameObject uiemmastagebuchgeöffnet in UIEmmasTagebuchGeöffnet)
         {
             uiemmastagebuchgeöffnet.SetActive(false);
         }
@@ -225,10 +161,6 @@ public void SelectEmmasTagebuchGeöffnet()
        foreach (GameObject uitabletten in UITabletten)
         {
             uitabletten.SetActive(false);
-        }
-        foreach (GameObject uipostkarte in UIPostkarte)
-        {
-            uipostkarte.SetActive(false);
         }
          foreach (GameObject uibriefanmama in UIBriefanMama)
         {
@@ -274,10 +206,6 @@ public void SelectEmmasTagebuchGeschlossen()
         {
             uitabletten.SetActive(false);
         }
-        foreach (GameObject uipostkarte in UIPostkarte)
-        {
-            uipostkarte.SetActive(false);
-        }
          foreach (GameObject uibriefanmama in UIBriefanMama)
         {
             uibriefanmama.SetActive(false);
@@ -322,10 +250,6 @@ public void SelectZerissenerZettel()
         {
             uitabletten.SetActive(false);
         }
-        foreach (GameObject uipostkarte in UIPostkarte)
-        {
-            uipostkarte.SetActive(false);
-        }
          foreach (GameObject uibriefanmama in UIBriefanMama)
         {
             uibriefanmama.SetActive(false);
@@ -368,10 +292,6 @@ public void SelectPatientenaktie()
        foreach (GameObject uitabletten in UITabletten)
         {
             uitabletten.SetActive(false);
-        }
-        foreach (GameObject uipostkarte in UIPostkarte)
-        {
-            uipostkarte.SetActive(false);
         }
          foreach (GameObject uibriefanmama in UIBriefanMama)
         {
@@ -417,10 +337,6 @@ public void SelectPatientenaktie()
         {
             uitabletten.SetActive(false);
         }
-        foreach (GameObject uipostkarte in UIPostkarte)
-        {
-            uipostkarte.SetActive(false);
-        }
          foreach (GameObject uibriefanmama in UIBriefanMama)
         {
             uibriefanmama.SetActive(false);
@@ -463,10 +379,6 @@ public void SelectPatientenaktie()
              foreach (GameObject uitabletten in UITabletten)
         {
             uitabletten.SetActive(false);
-        }
-        foreach (GameObject uipostkarte in UIPostkarte)
-        {
-            uipostkarte.SetActive(false);
         }
          foreach (GameObject uibriefanmama in UIBriefanMama)
         {
@@ -512,10 +424,6 @@ public void SelectPatientenaktie()
         {
             uitabletten.SetActive(false);
         }
-        foreach (GameObject uipostkarte in UIPostkarte)
-        {
-            uipostkarte.SetActive(false);
-        }
          foreach (GameObject uibriefanmama in UIBriefanMama)
         {
             uibriefanmama.SetActive(false);
@@ -559,10 +467,6 @@ public void SelectPatientenaktie()
         foreach (GameObject uitabletten in UITabletten)
         {
             uitabletten.SetActive(false);
-        }
-        foreach (GameObject uipostkarte in UIPostkarte)
-        {
-            uipostkarte.SetActive(false);
         }
         foreach (GameObject uibriefanmama in UIBriefanMama)
         {

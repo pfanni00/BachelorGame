@@ -218,7 +218,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ZerissenerZettel
+  m_text: Zerissener Zettel
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78478a0871875034c86f9a183f702cdf, type: 2}
   m_sharedMaterial: {fileID: -5025233673280795433, guid: 78478a0871875034c86f9a183f702cdf,
