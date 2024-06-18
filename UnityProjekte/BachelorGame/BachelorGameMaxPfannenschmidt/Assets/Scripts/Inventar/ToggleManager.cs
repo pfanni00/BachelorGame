@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ToggleManager : MonoBehaviour
 {
+    // Arrays mit allen UI GameObjecten die beim selectieren eines Ítems ein/aus geblendet werden sollen. 
     public GameObject[] UITabletten;
     public GameObject[] UIEmmasTagebuchGeschlossen;
     public GameObject[] UIEmmasTagebuchGeöffnet;
@@ -14,7 +15,9 @@ public class ToggleManager : MonoBehaviour
     public GameObject[] UITunfischdose;
     public GameObject[] UIKühlschrankmagnet;
     public GameObject[] UIKarte;
-    // Start is called before the first frame update
+
+
+    // Die Funktion Select item wird über InventoryToggle oder InventarManager aufgerufen. Sie ruft anhand des eingegebenen tag eine Funktion auf die das Korrekte UI einblendet. 
     
        public void SelectItem(string tag)
 {
@@ -64,7 +67,7 @@ public class ToggleManager : MonoBehaviour
                 SelectKarte();
                 }
 }
-   
+    //Jedes Item hat eine eingene Select[ItemName] Funktion. Diese Blenden die jeweiligen elemente des eingegebenen tag ein und Alle anderen UI elemente Aus. 
     public void SelectTabletten()
     {    
         foreach (GameObject uibriefanmama in UIBriefanMama)

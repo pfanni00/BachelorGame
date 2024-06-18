@@ -8,21 +8,22 @@ using UnityEngine.UI;
 public class InventarManager : MonoBehaviour
 {
     public static InventarManager Instance;
+
+    // Liste mit allen bereits eingesammelten Items.
     public List<Item> Items = new List<Item>();
 
+    // UI Parent under dem die InventarListe Prefabs gespawned werden
     public Transform NameParent;
 
+    // Game Object dem die InventarListe Prefabs assigned werden
     private GameObject ItemName;
 
-    private GameObject SelectedItem;
-
-    public GameObject NEUicon;
-
+    // Toggle Group der Item Liste 
     public ToggleGroup toggleGroup; 
-   
+
+    // Toggle des Jeweiligen InventarListen Prefabs
     private Toggle newToggle; 
 
-    public int ItemAnzahl;
 
 
     private void Awake()
@@ -31,9 +32,7 @@ public class InventarManager : MonoBehaviour
     }
     
     
-
-    
-    // Start is called before the first frame update
+    // Funktion wird 
     public void Add(Item item)
     {
         Items.Add(item);
@@ -53,44 +52,42 @@ public class InventarManager : MonoBehaviour
 
     public void ListItems()
     {
-// zu beginn der Methode werden alle Item Toggles aus der Liste Gelöscht
+// zu beginn der Methode werden alle InventarListe Prefabs aus der Item Liste Gelöscht
     foreach (Transform child in NameParent)
     {
         Destroy(child.gameObject);
     }
 
-//Jetzt wird jedes Toggle Prefab unter NameParent instanziert 
+        //Jetzt wird jedes Toggle InventarListe Prefabs unter NameParent instanziert 
         foreach (var item in Items)
-        {
+        {   // die InventarListen Prefabs werden dabei über die item.title variable der Items gefunden. 
             ItemName = item.title;
             GameObject IN = Instantiate(ItemName, NameParent) as GameObject;
 
-           
-        
-        //fügt den ItemNamen der ToggleGroup hinzu
+
+         //fügt InventarListe Prefabs der ToggleGroup hinzu
           newToggle = IN.GetComponent<Toggle>(); 
           newToggle.group = toggleGroup;
           newToggle.isOn = true;
+        
+        // wenn das Item zum ersten mal im Inventar Instanziert wird wird es geöffnet. So wird ein neu eingesammeltes Item automatisch ausgewählt
         if (item.isNew == true)
-        {
-       SelectNewItem(item);
-       item.isNew = false;
-        }
-
+            {
+            SelectNewItem(item);
+            //item.isNew = false;
+            }
         }
     }
     
     void SelectNewItem(Item item)
     {
+        // Neues Item wird über ToggleManager Script Selectiert
          ToggleManager it = gameObject.GetComponent<ToggleManager>();
             it.SelectItem(item.Itemtag);  
+        // isNew variable wird auf false gesetzt 
             item.isNew = false;
     }
-
-
-   
-      
-    }
+}
     
 
 

@@ -4,34 +4,35 @@ using UnityEngine;
 
 public class SchubladeInteraction : MonoBehaviour, IInteractable {
 
-   private bool isOpen;
-   //private bool isRotating;
-   //public int rotationDegrees;  
-  // public GameObject ClosedPosition;
-   //public GameObject OpenPosition;
-   //private Transform target;
-   public float OpenZ;
-   public float CloseZ;
-   //public GameObject Schublade;
+    // gibt an ob schublade Geöffnet ist. 
+    private bool isOpen;
+ 
+    // Bewegung findet auf Z achse statt
+    // Z transformation für offenen zustand
+    public float OpenZ;
+    
+    public float CloseZ;
+    // Z tranformation für geschlossenen zustand
    public GameObject HoverUiOpen;
    public GameObject HoverUiClose;
    private Vector3 targetPosition;
    public float speed;
-   //public bool RotationDirection;
 
-   // dieses Script rotiert ein GameObject beim Interagieren durch den Spieler. Der Grad der Rotation kann mit int rotatingDegrees bestimmt werden. Mit rotationSpeed wird die Geschwindigkeit der Rotation bestimmt und mit RotationDirection die Richtung
+   // dieses Script Managed die Interaktion mit Schubladen. 
     
     void Start()
     {
-        
+        // diese variable bestimmt ob OpenZ oder CloseZ die ziel Transform.z sind.Zu beginn ist die Schublade zu
+
         isOpen = false;
     }
 
     void Update()
     {
-     
+        // aktuelle position wird bestimmt 
         Vector3 currentPosition = transform.localPosition;
 
+        // Je nach isOpen wert wird nun die zielposition als Vector3 berechnet
         if(isOpen == true)
         {
          targetPosition = new Vector3(currentPosition.x, currentPosition.y, OpenZ);
@@ -41,27 +42,25 @@ public class SchubladeInteraction : MonoBehaviour, IInteractable {
          targetPosition = new Vector3(currentPosition.x, currentPosition.y, CloseZ);
   
         }
-        // Create a target position vector, changing only the z component
 
-        // Calculate the step size based on speed and frame time
+        // step size (bewegung pro secunde) wird ausgerechnet. speed bestimmt dabei die geschwindigkeit
         float step = speed * Time.deltaTime;
 
-        // Move towards the target z position
+        // bewegung zu zielposition wird gestartet 
         transform.localPosition = Vector3.MoveTowards(currentPosition, targetPosition, step);
 
-        // Optionally check if the target z position is reached
-        if (transform.localPosition.z == OpenZ)
-        {
-          //  Debug.Log("Reached target Z position");
-        }
+       
     }
  
     
    public void Interact()
-    {
+    {// interaction mit InteractObjecten ist nur möglich wenn InteractionEnabled im GameManager auf true gesetzt ist. 
         if (GameManager.Instance.InteractionEnabled == true)
         {
+            // verbindung zum AudioPlayer wird hergestellt
             DoorAudioPlayer doorAudio = gameObject.GetComponent<DoorAudioPlayer>();
+            
+            // correkter Soundeffekt wird abgespielt je nach status (offen/geschlossen)
             if(isOpen == false)
             {
             doorAudio.PlayOpenAudio();
@@ -69,16 +68,21 @@ public class SchubladeInteraction : MonoBehaviour, IInteractable {
             {
             doorAudio.PlayCloseAudio();
             }
+
+            // ziel z Transformation wird invertiert
           isOpen = !isOpen;
+            // Hover UI wird ausgeblendet
           HoverInteractOFF();
         }
         
     }
 
     public void HoverInteract()
-    {
-       
-        if(isOpen == true)
+    {  // wärend Tür sich bewegt ist HoverUI nicht verfügbar. 
+
+        // je nachdem ob Schublade Offen/Geschlossen ist wird korrektes UI element eingeblendet 
+
+        if (isOpen == true)
         {
             HoverUiClose.SetActive(true);
         }else if(isOpen == false)
@@ -89,6 +93,7 @@ public class SchubladeInteraction : MonoBehaviour, IInteractable {
 
     public void HoverInteractOFF()
     {
+        // Hover UI wird ausgeblendet
         HoverUiClose.SetActive(false);
         HoverUiOpen.SetActive(false);
 
