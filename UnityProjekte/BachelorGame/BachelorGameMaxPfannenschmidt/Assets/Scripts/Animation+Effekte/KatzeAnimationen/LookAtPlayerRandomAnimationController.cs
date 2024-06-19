@@ -2,37 +2,43 @@ using UnityEngine;
 
 public class LookAtPlayerRandomAnimation : MonoBehaviour
 {
+    // referenz zum animator 
 public Animator animator;
-    [SerializeField]
 
+    // Referenz zum Animator
+    public Animator animator;
+
+    // Zeit bis zur nächsten zufälligen Animation, berechnet aus MinTimeUntilAnimationStart und MaxTimeUntilAnimationStart
     private float TimeUntilAnimationStart;
-public float MinTimeUntilAnimationStart;
-public float MaxTimeUntilAnimationStart;
-    [SerializeField]
+    public float MinTimeUntilAnimationStart;
+    public float MaxTimeUntilAnimationStart;
 
+    // Zeit bis zur nächsten zufälligen Facial Animation, berechnet aus MinTimeUntilFacialStart und MaxTimeUntilFacialStart
     private float TimeUntilFacialStart;
     public float MinTimeUntilFacialStart;
     public float MaxTimeUntilFacialStart;
-    [SerializeField]
 
+    // Timer zum Abspielen der zufälligen Animation
     private float timer;
-    [SerializeField]
-private float timerFace;
-    [SerializeField]
-    private bool LookAtPlayerStateActive;
-    [SerializeField]
-    private bool RandomAnimationStateActive;
-    [SerializeField]
-    private bool RandomFacialAnimationState;
-private int currentbaseState;
+    private float timerFace;
 
+    // Zustandsvariablen
+    private bool LookAtPlayerStateActive;
+    private bool RandomAnimationStateActive;
+    private bool RandomFacialAnimationState;
+
+    // Speichert den aktuellen Base State
+    private int currentbaseState;
+
+    // Gibt an, ob eine KeySequence läuft
     private bool keySequenceIsRunning;
-void Start()
+
+    void Start()
 {
     timer = 0.0f;
     timerFace = 0.0f;
     TimeUntilAnimationStart = 14f;
-        TimeUntilFacialStart = 10f;
+    TimeUntilFacialStart = 10f;
 }
 
 void Update()
@@ -100,7 +106,6 @@ void Update()
         if (RandomAnimationStateActive == true && IsAnimationFinished("AimRandomAnimation"))
         {
             // Nachdem die Random Animation beendet ist wird zurück in den LookAtPlayerState gewechselt und eine neue TimeUntilAnimation start generiert
-           // timer = 0.0f; // Reset Timer
             TimeUntilAnimationStart = Random.Range(MinTimeUntilAnimationStart, MaxTimeUntilAnimationStart);
             animator.SetBool("RandomAnimationisActive", false);
             animator.SetBool("AnimationisPlaying", false);

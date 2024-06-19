@@ -11,7 +11,6 @@ public class StartCycle : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.SetInteger("BaseStates", baseStates);
-
     }
 
     

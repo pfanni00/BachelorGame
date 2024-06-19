@@ -4,47 +4,53 @@ using UnityEngine;
 
 public class DoorAudioPlayer : MonoBehaviour
 {
-    // dieses Script kann einen Audioclip nach Ablauf einer Zeit Abspielen.
+    // dieses Script Spielt die Soundeffekte der Türen ab.
+    
+    // ziel AudioSource
     public AudioSource Source;
+    // Clip Tür Öffnen 
     public AudioClip Openclip;
+    // Clip Tür Schließen 
     public AudioClip Closeclip;
+
+    // zeit bis der Tür Schließen Clip gespielt wird 
     public float timeToPlayClosed;
+    // zeit bis der Tür Öffnen Clip gespielt wird 
     public float  timeToPlayopen;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    // Funktion um TürÖffnen abzuspielen
     public void PlayOpenAudio()
     {
         StartCoroutine(PlayopenSound(timeToPlayopen));
     }
 
-
-     public void PlayCloseAudio()
+    // Funktion um TürSchließen abzuspielen
+    public void PlayCloseAudio()
     {
         StartCoroutine(PlayCloseSound(timeToPlayClosed));
     }
 
+    // Coroutine zum verzögerten abspielen des Öffnen Sounds 
     IEnumerator PlayopenSound(float seconds)
     {
+        // eingegebene seconds werden abgewarted 
         yield return new WaitForSeconds(seconds);
+
+        // Audio Clip wird Source zugeteilt
         Source.clip = Openclip;
+        // Audio wird abgespielt
         Source.Play();
     }
 
-       IEnumerator PlayCloseSound(float seconds)
+    // Coroutine zum verzögerten abspielen des Schließen Sounds 
+    IEnumerator PlayCloseSound(float seconds)
     {
+        // eingegebene seconds werden abgewarted 
         yield return new WaitForSeconds(seconds);
+
+        // Audio Clip wird Source 
         Source.clip = Closeclip;
+        // Audio wird abgespielt
         Source.Play();
     }
 }

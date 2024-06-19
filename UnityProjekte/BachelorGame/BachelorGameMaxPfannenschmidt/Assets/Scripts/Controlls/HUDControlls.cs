@@ -237,9 +237,9 @@ public class HUDControlls : MonoBehaviour
     public void SetGameState()
     {// diese Funktion dient dazu nach ablauf der Start Sequenz den GameState einzuleiten
         GameUI.SetActive(true);
+        // inventar ist nutzbar
         Inventroryisuseabale = true;
-        // Im GameManager wird die variable interactionEnabled auf true gesetzt was die Interaktion mit obejekten ermöglicht.
+        // Im GameManager wird die variable interactionEnabled auf true gesetzt was die Interaktion mit objekten ermöglicht.
         GameManager.Instance.InteractionEnabled = true;
-
     }
 }
