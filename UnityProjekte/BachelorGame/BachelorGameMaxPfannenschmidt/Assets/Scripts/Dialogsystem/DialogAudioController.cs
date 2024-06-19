@@ -2,23 +2,38 @@ using System.Collections;
 using UnityEngine;
 
 public class DialogAudioController : MonoBehaviour
-{
+{// Dieses Script spielt die Dialoge zwischen Marcell und der Katze ab
+
     public static DialogAudioController Instance;
+    
+    // referenz zur AudioSource des Players
     public AudioSource playerAudioSource;
+    
+    // referenz zur AudioSource der Katze 
     public AudioSource catAudioSource;
 
+    // gibt an ob Audio gerade abgespielt wird
     public bool AudioisActive; 
+
+    // gibt an ob der Dialogbereits gestarted wurde
     public bool DialogwasStarted;
+
+    // gibt an ob FreeRoamDialog gestarted wurde (Wenn spieler zimmer verlässt spricht katze ihn an) 
     private bool FreeRoamDialogWasStarted;
+
+    // collider welcher den FreeRoamDialogStarted 
     public Collider InitialDialogTrigger;
 
     // Struktur, um einen Dialogeintrag zu definieren
     [System.Serializable]
     public struct DialogueEntry
     {
+        // abzuspielender Audio Clip
         public AudioClip clip;
-        public bool isPlayer; // Wenn true, ist der Sprecher der Player; wenn false, die Katze
+        // Gibt an welche AudioSource genutzt werden soll. Wenn true, ist der Sprecher der Player; wenn false, die Katze
+        public bool isPlayer; 
     }
+
 
     void Awake()
     {
@@ -26,6 +41,8 @@ public class DialogAudioController : MonoBehaviour
         AudioisActive = false;
         DialogwasStarted = false;
     }
+
+// Audio zu den Dialogoptionen 
 
     // FreeRoamDialog1 AudioFiles
         public DialogueEntry[] FreeRoamDialogNUM1;
@@ -71,7 +88,7 @@ public class DialogAudioController : MonoBehaviour
         public DialogueEntry[] IchWäreEineLastSchlauAlleITEMSNUM21;
     //Dialogoption Ich wäre mein leben lang eine last. Variante Dumm  ALLE ITEMS 
         public DialogueEntry[] IchWäreEineLastDummAlleITEMSNUM22;
- //Dialogoption Ich WillEmmaNichtVerlieren Variante Schlau  ALLE ITEMS 
+    //Dialogoption Ich WillEmmaNichtVerlieren Variante Schlau  ALLE ITEMS 
         public DialogueEntry[] IchWillEmmaNichtVerlierenSchlauNUM23;
     //Dialogoption Ich WillEmmaNichtVerlieren Variante Schlau
         public DialogueEntry[] IchWillEmmaNichtVerlierenDummNUM24;
@@ -81,7 +98,7 @@ public class DialogAudioController : MonoBehaviour
         public DialogueEntry[] IchWillEmmaNichtVerlierenDummAlleITEMSNUM26;
 
 
-    // Methode zum Abspielen einer Dialogoption die zahl am ende des AudioFile Arrays muss dabei als int angegeben werden. im Switch case wird dann der Correcte Clip Abgespielt 
+    // Methode zum Abspielen einer Dialogoption die zahl am ende des AudioFile Arrays muss dabei als "option" angegeben werden. im Switch case wird dann der Correcte Clip Abgespielt 
     public void PlayDialogueOption(int option)
     {
         switch (option)
@@ -167,58 +184,78 @@ public class DialogAudioController : MonoBehaviour
                 break;
                
         }
-        //  StartCoroutine(PlayDialogueCoroutine(option == 1 ? dialogueOption1 : dialogueOption2));
     }
 
     // Coroutine zum sequenziellen Abspielen der Dialoge
     private IEnumerator PlayDialogueCoroutine(DialogueEntry[] dialogueEntries)
     {
+        // AudioisActive ist true für die dauer der Coroutine
         AudioisActive = true;
+
+        //jeder AudioClip der dialogueEtrie wird nacheinander abgespielt
         foreach (var entry in dialogueEntries)
         {
+            // AudioSource wird bestimmt und zugewiesen
             AudioSource currentSource = entry.isPlayer ? playerAudioSource : catAudioSource;
+            //audioClip wird der AudioSource zugewiesen
             currentSource.clip = entry.clip;
+            //Audio wird abgespielt 
             currentSource.Play();
+            //warten bis clip vorbei ist.
             yield return new WaitForSeconds(entry.clip.length + 0.2f); // Wartezeit nach jedem Clip
         }
         AudioisActive = false;
 
     }
 
+// funktion um FreeRoamDialog zu starten 
   public void StartFreeRoamDialog()
   {
+    // Dialog Started nur wenn FreeRoamDialog und Dialog noch nicht gestarted wurde
     if (DialogwasStarted == false && FreeRoamDialogWasStarted == false)
     {
-    DialogsystemManager.Instance.DialogsystemIsUsabale = false;
-    FreeRoamDialogWasStarted = true;
-    StartCoroutine(FreeRoamDialog());
+       
+        
+        // FreeRoamDialogwird abgespielt variable wird auf true gesetzt um erneutes Abspielen zu verhindern 
+        FreeRoamDialogWasStarted = true;
+        StartCoroutine(FreeRoamDialog());
 
-        }
     }
+  }
 
    IEnumerator FreeRoamDialog()
     {
+        // Dialogsystem ist für dauer des FreeRoamDialogs nicht nutzbar
         DialogsystemManager.Instance.DialogsystemIsUsabale = false;
 
+        //Audio wird Abgespielt
         PlayDialogueOption(1);
-        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+        // nach ende der Audio ist Dialogsystem wieder nutzbar
         DialogsystemManager.Instance.DialogsystemIsUsabale = true;
 
+        // Wenn der Spieler nach 10 secunden noch nicht mit der Katze gesprochen hat, wird ein weiterer Audio Clip abgespielt 
         yield return new WaitForSeconds(10);
         if (DialogwasStarted == false)
         {
+            // Dialogsystem ist für dauer des FreeRoamDialogs nicht nutzbar
             DialogsystemManager.Instance.DialogsystemIsUsabale = false;
-
+            
+            //Audio wird Abgespielt
             PlayDialogueOption(2);
+            // nach ende der Audio ist Dialogsystem wieder nutzbar
             DialogsystemManager.Instance.DialogsystemIsUsabale = true;
 
         }
     }
 
+// diese funktion started den initial dialog dieser wird bei der ersten interaktion mit der Katze gestarted.
     public void StartFirstDialog()
     {
-        StopCoroutine(FreeRoamDialog());    
+        // FreeRoam Dialog wird gestoppt
+        StopCoroutine(FreeRoamDialog());
+        // Audio wird Abgespielt
         PlayDialogueOption(3);
+        // variable speichert das Dialog gestarted wurde
         DialogwasStarted = true;
     }
 }

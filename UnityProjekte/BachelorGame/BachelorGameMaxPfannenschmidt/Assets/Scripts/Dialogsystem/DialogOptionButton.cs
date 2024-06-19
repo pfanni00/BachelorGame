@@ -4,17 +4,27 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class DialogOptionButton : MonoBehaviour {
-	public Button thisButton;
-    public string DOName;
+    // dieses Script wird auf die Buttons des Dialogsystems gelegt und sorgt dafür das beim Clicken die Korrekte SelectDO[Dialogoption] im DialogsystemManager gestarted wird
+	
+    // referenz zum Button 
+    public Button thisButton;
+
     //Name der Dialogoption die dieser Button Betätigt
+    public string DOName;
 
-	void Awake () {
+
+
+	void Awake () 
+    {
+        // verbindung zum Button Component wird hergestellt
 		Button btn = thisButton.GetComponent<Button>();
+        // Listener für on Click wird definiert
 		btn.onClick.AddListener(TaskOnClick);
-
 	}
 
-	void TaskOnClick(){
+	// Je nach DOName wir hier die richtige Funktion im DialogsystemManager gestarted 
+    void TaskOnClick()
+    {
 		Debug.Log ("You have clicked the button!");
     if (DOName == "DOWarumKannstDuReden")
     {
@@ -74,6 +84,7 @@ public class DialogOptionButton : MonoBehaviour {
         DialogsystemManager.Instance.SelectDOIchWillEmmaNichtVerlieren();  
     }
     
+    // gameObject wird gelöscht
     Destroy(gameObject);
 	}
 }

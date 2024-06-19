@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InitialDialogTrigger : MonoBehaviour
-{
+{// dieses Script wird dem KatzeFreeRoamDialogTrigger Object angefügt und started den FreeRoam dialog sobald der Spieler mit dem Object collidiert
+
+// referenz zum Player
 public GameObject Playercollider;
-// Der Collider wird hinter der Tür zum Wohnzimmer Plaziert und löst den Free Roam Dialog aus bei welchem die Katze nach dem Spieler Ruft. 
+
+
+// sobald der Spieler den Collider Berührt wird FreeRoamDialog gestarted 
 void OnTriggerEnter(Collider Playercollider)
 {
-    Debug.Log("HEYDU");
     DialogAudioController.Instance.StartFreeRoamDialog();
 }
 
