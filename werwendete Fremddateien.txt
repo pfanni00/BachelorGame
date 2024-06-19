@@ -19,15 +19,13 @@ https://www.dafont.com/handwriting-16.font?text=Emmas+Tagebuch&l[]=10&l[]=1&back
 https://www.dafont.com/de/coolvetica.font?l[]=10&l[]=1&text=Emmas+Tagebuch
 https://www.dafont.com/de/daniel.font?l[]=10&l[]=1
 
-Sonstiges:
-Glas Shader:
-https://github.com/omid3098/Unity-URP-GlassShader?tab=MIT-1-ov-file
-FischIcon
-https://www.vecteezy.com/vector-art/10748860-tuna-icon-design Attribution 
-https://www.freepik.com/free-vector/hand-drawn-heart-illustration-pack_9881588.htm#query=hand%20drawn%20heart&position=0&from_view=keyword&track=ais&uuid=e6d9fc6a-48cb-43db-b3a0-170cf3309c0d
-Attribution 
-https://de.freepik.com/vektoren-kostenlos/handgezeichnete-einfache-blumenumrisse_25261690.htm#fromView=search&page=1&position=20&uuid=921cf78f-af33-4b30-a830-6cb839bd8c18
-Attribution
+Tutorials:
+https://www.youtube.com/watch?v=qQLvcS9FxnY
+https://www.youtube.com/watch?v=5rxMdiCkQGk&t=465s
+https://www.youtube.com/watch?v=OCd7terfNxk&t=3s
+https://www.youtube.com/watch?v=_J8RPIaO2Lc&t=805s
+https://www.youtube.com/watch?v=a3CoTgOx5hY&t=110s
+https://www.youtube.com/watch?v=AoD_F1fSFFg&t=699s
 
 Musik
 https://pixabay.com/de/music/schlagt-fading-memories-139981/
@@ -47,3 +45,13 @@ https://assetstore.unity.com/packages/3d/characters/animals/mammals/fully-animat
 https://assetstore.unity.com/packages/3d/props/furniture/bathroom-set-interior-263462
 https://assetstore.unity.com/packages/3d/props/furniture/toilet-pbr-148108
 https://assetstore.unity.com/packages/3d/props/interior/interior-collection-144505
+
+Sonstiges:
+Glas Shader:
+https://github.com/omid3098/Unity-URP-GlassShader?tab=MIT-1-ov-file
+FischIcon
+https://www.vecteezy.com/vector-art/10748860-tuna-icon-design Attribution 
+https://www.freepik.com/free-vector/hand-drawn-heart-illustration-pack_9881588.htm#query=hand%20drawn%20heart&position=0&from_view=keyword&track=ais&uuid=e6d9fc6a-48cb-43db-b3a0-170cf3309c0d
+Attribution 
+https://de.freepik.com/vektoren-kostenlos/handgezeichnete-einfache-blumenumrisse_25261690.htm#fromView=search&page=1&position=20&uuid=921cf78f-af33-4b30-a830-6cb839bd8c18
+Attribution
